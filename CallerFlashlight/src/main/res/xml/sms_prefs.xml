@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/sms_mode_categ">
+        <ListPreference
+                android:key="sms_mode_list"
+                android:title="@string/smsModeList"
+                android:entries="@array/sms_mode_list"
+                android:entryValues="@array/sms_mode_list_values"
+                android:defaultValue="1"
+                />
+
+        <com.spirosbond.callerflashlight.SeekBarPreference
+                android:key="msgFlashDuration"
+                android:title="@string/smsModeListValue"
+                android:summary="@string/smsModeListValueSum"
+                android:defaultValue="3"
+                android:max="10">
+
+        </com.spirosbond.callerflashlight.SeekBarPreference>
+
+        <!--<SeekBarPreference-->
+        <!--android:key="msgFlashDuration"-->
+        <!--android:title="SMS flash value"-->
+        <!--android:summary="Set the desired value"-->
+        <!--android:defaultValue="3"-->
+        <!--android:max="10">-->
+
+        <!--</SeekBarPreference>-->
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

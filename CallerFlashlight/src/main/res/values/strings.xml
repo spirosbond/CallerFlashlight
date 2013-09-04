@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CallFlash</string>
+    <string name="howToStr">How it works</string>
+    <string name="permlab_flashlight">Flashlight Permission.</string>
+    <string name="permdesc_flashlight">Lets the app to control the flashlight.</string>
+    <string name="callToggle">Call Notification</string>
+    <string name="callFlashON">Disable</string>
+    <string name="callFlashOFF">Enable</string>
+    <string name="flashOnDuration">ON Duration (msec):</string>
+    <string name="flashOffDuration">OFF Duration (msec):</string>
+    <string name="msgToggle">Message Notification</string>
+    <string name="msgFlashON">Disable</string>
+    <string name="msgFlashOFF">Enable</string>
+
+    <string name="msgFlashDuration">Flash Duration (sec):</string>
+
+    <string name="aboutStr">About</string>
+    <string name="donateStr">Donate</string>
+    <string name="titlePrefs">Preferences</string>
+    <string name="aboutText">\n\nCallFlash controls the flash for calls and other notifications. It is an opensource project by Spiros Bondomitsidis,
+        aiming to keep things simple and functional.\n\n
+
+        For more information on how to use it, see “How it works”.\n\n
+
+        Comments and updates at:\nforum.xda-developers.com/showthread.php?t=2403340
+    </string>
+    <string name="aboutFooter">CallFlash. All Rights Reserved.</string>
+    <string name="titleAbout">About</string>
+    <string name="titleHowTo">How it works</string>
+    <string name="howTo1">1. Enable your preferred operation mode and test is using the test buttons.</string>
+    <string name="howTo2">2. ON Duration: Select the duration (in milliseconds) for which the flash is ON.</string>
+    <string name="howTo3">3. OFF Duration: Select the duration (in milliseconds) for which the flash is OFF.</string>
+    <string name="howTo4">4. Set your preferences for calls or message notifications respectively.</string>
+    <string name="logo">Application\'s Logo</string>
+    <string name="FlashTestON">Stop Test</string>
+    <string name="FlashTestOFF">Start Test</string>
+    <string name="preferences">Preferences</string>
+    <string name="operation_mode">Operation mode</string>
+    <string name="generalCateg">General Preferences</string>
+    <string name="operation_mode_sum">Select when you want the flash to be enabled.</string>
+    <string name="normal_mod_check">Phone not in silent or vibration mode.</string>
+    <string name="normal_check">Normal</string>
+    <string name="vibrate_check">Vibrate</string>
+    <string name="vibrate_mod_check">Phone in vibration mode.</string>
+    <string name="silent_check">Silent</string>
+    <string name="silent_mod_check">Phone in silent mode.</string>
+    <string name="sleep_start">Sleep time start</string>
+    <string name="sleep_stop">Sleep time stop</string>
+    <string name="sleep_categ">Sleep Time</string>
+    <string name="sleep_check">Sleeping period</string>
+    <string name="sleep_check_sum">Enable sleeping feature.</string>
+    <string name="enable_toast">Enable an operation mode in preferences first…</string>
+    <string name="notification_service">Notification Service</string>
+    <string name="Callseperator">Call Flash</string>
+    <string name="Msgseperator">Notification Flash</string>
+    <string name="titleCallPrefs">Call Flash Preferences</string>
+    <string name="titleMsgPrefs">Notification Flash Preferences</string>
+    <string name="typePrefCateg">Flash module preferences</string>
+    <string name="typeList">Module driver</string>
+    <string name="smsModeList">Notification flash mode</string>
+    <string name="sms_mode_categ">General Preferences</string>
+    <string name="sms_mode_list_1">Time based</string>
+    <string name="sms_mode_list_2">Repetitive</string>
+    <string name="type_list_1">Standard</string>
+    <string name="type_list_2">Alternative</string>
+    <string name="type_list_3">Alternative 2</string>
+    <string name="smsModeListValue">Duration</string>
+    <string name="smsModeListValueSum">In seconds or number of flashes.</string>
+    <string name="titleDonate">Donate</string>
+
+</resources>
