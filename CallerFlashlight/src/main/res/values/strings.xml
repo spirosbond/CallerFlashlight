@@ -69,5 +69,13 @@
     <string name="smsModeListValue">Duration</string>
     <string name="smsModeListValueSum">In seconds or number of flashes.</string>
     <string name="titleDonate">Donate</string>
+    <string name="app_list_tittle">Application list</string>
+    <string name="app_list_sum">Select which applications trigger the flash.</string>
+    <string name="loadingApps">Loading applications...</string>
+    <string name="AppList">Installed Applications</string>
+    <string name="clear_all_button">Clear All</string>
+    <string name="select_all_button">Select All</string>
+    <string name="app_list_check">More flash</string>
+    <string name="app_list_check_sum">Flash on more applications</string>
 
 </resources>

@@ -1,9 +1,11 @@
 package com.spirosbond.callerflashlight;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -11,12 +13,13 @@ import android.util.Log;
 /**
  * Created by spiros on 8/24/13.
  */
-public class MsgPrefs extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class MsgPrefs extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
 	private static final String TAG = MsgPrefs.class.getSimpleName();
 	ListPreference lp;
 	CallerFlashlight callerFlashlight;
 	SeekBarPreference sbp;
+	Preference appList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,9 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 		addPreferencesFromResource(R.xml.sms_prefs);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) getActionBar().setDisplayHomeAsUpEnabled(true);
 		PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
+
+		appList = findPreference("app_list");
+		appList.setOnPreferenceClickListener(this);
 
 		setModeSum();
 
@@ -59,6 +65,16 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 			sbp.updateView(getListView());
 		}
 
+	}
+
+	@Override
+	public boolean onPreferenceClick(Preference preference) {
+
+		if (preference.getKey().equals("app_list")) {
+			startActivity(new Intent(this, AppList.class));
+		}
+
+		return false;
 	}
 }
 

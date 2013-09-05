@@ -2,12 +2,12 @@ package com.spirosbond.callerflashlight;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.preference.PreferenceManager;
 import android.text.format.Time;
 import android.util.Log;
-
 
 /**
  * Created by spiros on 8/4/13.
@@ -22,12 +22,13 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	private int callFlashOnDuration = 250, callFlashOffDuration = 250, msgFlashOnDuration = 250, msgFlashOffDuration = 250, msgFlashDuration = 3;
 	private SharedPreferences prefs;
 	private SharedPreferences.Editor editor;
-	private boolean normalMode, vibrateMode, silentMode, sleepMode;
+	private boolean normalMode, vibrateMode, silentMode, sleepMode, appListCheck;
 	private String sleepStart;
 	private String sleepStop;
 	private int sleepStartHour, sleepStartMinute, sleepStopHour, sleepStopMinute;
 	private int type;
 	private int msgFlashType;
+	private boolean bootReceiver, serviceRunning;
 
 	@Override
 	public void onCreate() {
@@ -65,6 +66,9 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		sleepStopMinute = getSleepStopMinute();
 		type = prefs.getInt("type", 1);
 		msgFlashType = getMsgFlashType();
+		appListCheck = prefs.getBoolean("app_list_check", false);
+		bootReceiver = prefs.getBoolean("boot_receiver", false);
+		serviceRunning = prefs.getBoolean("service_running", false);
 
 	}
 
@@ -155,6 +159,11 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		} else if (s.equals("sms_mode_list")) {
 			setMsgFlashType(Integer.valueOf(sharedPreferences.getString("sms_mode_list", "")));
 
+		} else if (s.equals("app_list_check")) {
+			setAppListCheck(sharedPreferences.getBoolean("app_list_check", false));
+			setBootReceiver(sharedPreferences.getBoolean("app_list_check", false));
+			if (isAppListCheck()) startService(new Intent(this, NotificationService.class));
+			if (!isAppListCheck()) stopService(new Intent(this, NotificationService.class));
 		}
 		if (!(isNormalMode() || isSilentMode() || isSilentMode())) {
 			setCallFlash(false);
@@ -374,5 +383,45 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		Log.d(TAG, "sms_mode_type set to: " + msgFlashType);
 	}
 
+	public boolean loadApp(String packageName) {
+		return prefs.getBoolean(packageName, false);
+	}
 
+	public void saveApp(String packageName, boolean b) {
+		editor.putBoolean(packageName, b);
+		editor.commit();
+	}
+
+	public boolean isAppListCheck() {
+		appListCheck = prefs.getBoolean("app_list_check", false);
+		return appListCheck;
+	}
+
+	public void setAppListCheck(boolean appListCheck) {
+		this.appListCheck = appListCheck;
+		editor.putBoolean("app_list_check", appListCheck);
+		editor.commit();
+	}
+
+	public boolean isBootReceiver() {
+		bootReceiver = prefs.getBoolean("boot_receiver", false);
+		return bootReceiver;
+	}
+
+	public void setBootReceiver(boolean bootReceiver) {
+		this.bootReceiver = bootReceiver;
+		editor.putBoolean("boot_receiver", bootReceiver);
+		editor.commit();
+	}
+
+	public boolean isServiceRunning() {
+		serviceRunning = prefs.getBoolean("service_running", false);
+		return serviceRunning;
+	}
+
+	public void setServiceRunning(boolean serviceRunning) {
+		this.serviceRunning = serviceRunning;
+		editor.putBoolean("service_running", serviceRunning);
+		editor.commit();
+	}
 }

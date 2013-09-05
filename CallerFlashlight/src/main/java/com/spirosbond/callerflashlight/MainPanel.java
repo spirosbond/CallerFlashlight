@@ -55,9 +55,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 	@Override
 	public void onBackPressed() {
-//		if (startAppAd != null) {
-//			startAppAd.show();
-//			startAppAd = null;
+//
 //		}
 //		AppFlood.initialize(this, "Thib0u8GfGgfXsLX", "6GX8sMOv1791L521de8ea", AppFlood.AD_ALL);
 

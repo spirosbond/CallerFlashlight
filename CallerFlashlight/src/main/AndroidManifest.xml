@@ -13,6 +13,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
 
     <!--<uses-permission android:name="android.permission.INTERNET"/>-->
@@ -113,6 +115,16 @@
                     android:value="com.spirosbond.callerflashlight.MainPanel"/>
         </activity>
 
+        <activity
+                android:name=".AppList"
+                android:label="@string/AppList"
+                android:windowSoftInputMode="stateHidden"
+                android:configChanges="orientation"
+                >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+
+        </activity>
+
         <receiver android:name=".CallReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE"/>
@@ -136,6 +148,13 @@
             </intent-filter>
 
         </service>
+        <receiver
+                android:name=".BootReceiver"
+                android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
 
 
         <!--<activity-->

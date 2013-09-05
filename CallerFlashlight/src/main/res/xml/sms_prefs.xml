@@ -18,15 +18,18 @@
                 android:max="10">
 
         </com.spirosbond.callerflashlight.SeekBarPreference>
-
-        <!--<SeekBarPreference-->
-        <!--android:key="msgFlashDuration"-->
-        <!--android:title="SMS flash value"-->
-        <!--android:summary="Set the desired value"-->
-        <!--android:defaultValue="3"-->
-        <!--android:max="10">-->
-
-        <!--</SeekBarPreference>-->
+        <CheckBoxPreference
+                android:key="app_list_check"
+                android:title="@string/app_list_check"
+                android:summary="@string/app_list_check_sum"
+                android:defaultValue="false"
+                />
+        <Preference
+                android:key="app_list"
+                android:title="@string/app_list_tittle"
+                android:summary="@string/app_list_sum"
+                android:dependency="app_list_check"
+                />
 
     </PreferenceCategory>
 
