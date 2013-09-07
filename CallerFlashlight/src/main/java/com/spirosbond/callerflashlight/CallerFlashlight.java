@@ -2,7 +2,6 @@ package com.spirosbond.callerflashlight;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.preference.PreferenceManager;
@@ -17,6 +16,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
+	private static final String packages = "com.viber.voip, com.skype.raider, com.google.android.talk, com.google.android.gm, com.facebook.katana";
 	private static final String TAG = CallerFlashlight.class.getSimpleName();
 	private boolean callFlash = false, msgFlash = false, callFlashTest = false, msgFlashTest = false;
 	private int callFlashOnDuration = 250, callFlashOffDuration = 250, msgFlashOnDuration = 250, msgFlashOffDuration = 250, msgFlashDuration = 3;
@@ -159,12 +159,13 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		} else if (s.equals("sms_mode_list")) {
 			setMsgFlashType(Integer.valueOf(sharedPreferences.getString("sms_mode_list", "")));
 
-		} else if (s.equals("app_list_check")) {
-			setAppListCheck(sharedPreferences.getBoolean("app_list_check", false));
-			setBootReceiver(sharedPreferences.getBoolean("app_list_check", false));
-			if (isAppListCheck()) startService(new Intent(this, NotificationService.class));
-			if (!isAppListCheck()) stopService(new Intent(this, NotificationService.class));
 		}
+//		else if (s.equals("app_list_check")) {
+//			setAppListCheck(sharedPreferences.getBoolean("app_list_check", false));
+//			setBootReceiver(sharedPreferences.getBoolean("app_list_check", false));
+//			if (isAppListCheck()) startService(new Intent(this, NotificationService.class));
+//			if (!isAppListCheck()) stopService(new Intent(this, NotificationService.class));
+//		}
 		if (!(isNormalMode() || isSilentMode() || isSilentMode())) {
 			setCallFlash(false);
 			setMsgFlash(false);
@@ -423,5 +424,9 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.serviceRunning = serviceRunning;
 		editor.putBoolean("service_running", serviceRunning);
 		editor.commit();
+	}
+
+	public boolean isInPackages(String packageName) {
+		return packages.contains(packageName);
 	}
 }

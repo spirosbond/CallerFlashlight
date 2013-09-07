@@ -75,7 +75,9 @@
     <string name="AppList">Installed Applications</string>
     <string name="clear_all_button">Clear All</string>
     <string name="select_all_button">Select All</string>
-    <string name="app_list_check">More flash</string>
-    <string name="app_list_check_sum">Flash on more applications</string>
+    <string name="app_list_check">Flash on other Notifications</string>
+    <string name="app_list_check_sum">Click here to disable "Notification Service".</string>
+    <string name="sms_more_categ">Advanced Preferences</string>
+    <string name="more_flash_warning_sum">Click here to enable "Notification Service".</string>
 
 </resources>

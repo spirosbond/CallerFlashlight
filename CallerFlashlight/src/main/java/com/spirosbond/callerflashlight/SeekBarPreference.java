@@ -23,10 +23,10 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 	private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
 	private static final String APPLICATIONNS = "http://robobunny.com";
 	private static final int DEFAULT_VALUE = 50;
-	private int mMaxValue = 10;
-	private int mMinValue = 1;
-	private int mInterval = 1;
-	private int mCurrentValue;
+	private static int mMaxValue = 10;
+	private static int mMinValue = 1;
+	private static int mInterval = 1;
+	private static int mCurrentValue;
 	private String mUnitsLeft = "";
 	private String mUnitsRight = "";
 	private SeekBar mSeekBar;

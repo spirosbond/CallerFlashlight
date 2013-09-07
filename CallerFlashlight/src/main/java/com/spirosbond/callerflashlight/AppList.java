@@ -98,7 +98,7 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 		Model temp;
 		for (ApplicationInfo packageInfo : packages) {
 			//			Log.d(TAG, "Installed package :" + packageInfo.packageName);
-			if (names.contains(packageInfo.packageName)) {
+			if (names.contains(packageInfo.packageName) || !callerFlashlight.isInPackages(packageInfo.packageName)) {
 				continue;
 			}
 			names.add(packageInfo.packageName);

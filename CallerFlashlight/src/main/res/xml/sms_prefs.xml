@@ -18,17 +18,19 @@
                 android:max="10">
 
         </com.spirosbond.callerflashlight.SeekBarPreference>
-        <CheckBoxPreference
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/sms_more_categ">
+        <Preference
                 android:key="app_list_check"
                 android:title="@string/app_list_check"
                 android:summary="@string/app_list_check_sum"
-                android:defaultValue="false"
+
                 />
         <Preference
                 android:key="app_list"
                 android:title="@string/app_list_tittle"
                 android:summary="@string/app_list_sum"
-                android:dependency="app_list_check"
+
                 />
 
     </PreferenceCategory>

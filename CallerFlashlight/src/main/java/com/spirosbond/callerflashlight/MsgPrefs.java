@@ -8,6 +8,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.util.Log;
 
 /**
@@ -20,6 +21,8 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 	CallerFlashlight callerFlashlight;
 	SeekBarPreference sbp;
 	Preference appList;
+	int accessibilityEnabled = 0;
+	Preference moreFlashCheck;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +34,51 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 
 		appList = findPreference("app_list");
 		appList.setOnPreferenceClickListener(this);
+		moreFlashCheck = findPreference("app_list_check");
+		moreFlashCheck.setOnPreferenceClickListener(this);
 
 		setModeSum();
 
+		try {
+			accessibilityEnabled = Settings.Secure.getInt(this.getContentResolver(), android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
+			Log.d(TAG, "ACCESSIBILITY: " + accessibilityEnabled);
+			if (accessibilityEnabled == 0) {
+				appList.setEnabled(false);
+				moreFlashCheck.setSummary(getResources().getString(R.string.more_flash_warning_sum));
+			} else {
+				appList.setEnabled(true);
+				moreFlashCheck.setSummary(getResources().getString(R.string.app_list_check_sum));
+			}
+		} catch (Settings.SettingNotFoundException e) {
+			Log.d(TAG, "Error finding setting, default accessibility to not found: " + e.getMessage());
+			appList.setEnabled(false);
 
+		}
+
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		appList = findPreference("app_list");
+		moreFlashCheck = findPreference("app_list_check");
+
+		try {
+			accessibilityEnabled = Settings.Secure.getInt(this.getContentResolver(), android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
+			Log.d(TAG, "ACCESSIBILITY: " + accessibilityEnabled);
+			if (accessibilityEnabled == 0) {
+				appList.setEnabled(false);
+				moreFlashCheck.setSummary(getResources().getString(R.string.more_flash_warning_sum));
+			} else {
+				appList.setEnabled(true);
+				moreFlashCheck.setSummary(getResources().getString(R.string.app_list_check_sum));
+			}
+		} catch (Settings.SettingNotFoundException e) {
+			Log.d(TAG, "Error finding setting, default accessibility to not found: " + e.getMessage());
+			appList.setEnabled(false);
+
+		}
 	}
 
 	@Override
@@ -70,12 +114,18 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 	@Override
 	public boolean onPreferenceClick(Preference preference) {
 
+		Log.d(TAG, "preference clicked: " + preference.getKey());
 		if (preference.getKey().equals("app_list")) {
 			startActivity(new Intent(this, AppList.class));
+		} else if (preference.getKey().equals("app_list_check")) {
+//			Toast.makeText(this, "Please enable Notification Service at Accessibility Settings", Toast.LENGTH_LONG).show();
+			startActivityForResult(new Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS), 0);
 		}
 
 		return false;
 	}
+
+
 }
 
 
