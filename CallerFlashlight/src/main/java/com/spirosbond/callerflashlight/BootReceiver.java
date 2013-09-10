@@ -20,7 +20,7 @@ public class BootReceiver extends BroadcastReceiver {
 		Log.d(TAG, "onBootReceived");
 		callerFlashlight = (CallerFlashlight) context.getApplicationContext();
 		if (callerFlashlight.isBootReceiver()) {
-			if (callerFlashlight.isServiceRunning()) {
+			if (!callerFlashlight.isServiceRunning()) {
 				Log.d(TAG, "Restarting Service");
 				context.startService(new Intent(context, NotificationService.class));
 			}

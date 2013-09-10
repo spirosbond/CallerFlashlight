@@ -52,7 +52,7 @@
     <string name="sleep_check">Sleeping period</string>
     <string name="sleep_check_sum">Enable sleeping feature.</string>
     <string name="enable_toast">Enable an operation mode in preferences first…</string>
-    <string name="notification_service">Notification Service</string>
+    <string name="notification_service">CallFlash Notification Service</string>
     <string name="Callseperator">Call Flash</string>
     <string name="Msgseperator">Notification Flash</string>
     <string name="titleCallPrefs">Call Flash Preferences</string>
@@ -79,5 +79,8 @@
     <string name="app_list_check_sum">Click here to disable "Notification Service".</string>
     <string name="sms_more_categ">Advanced Preferences</string>
     <string name="more_flash_warning_sum">Click here to enable "Notification Service".</string>
+    <string name="accessibility_service_description">Enabling this service will let CallFlash to detect your notifications in order to enable the flash
+        according to your preferences.
+    </string>
 
 </resources>

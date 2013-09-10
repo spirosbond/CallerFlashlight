@@ -16,7 +16,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
-	private static final String packages = "com.viber.voip, com.skype.raider, com.google.android.talk, com.google.android.gm, com.facebook.katana";
+	private static final String packages = "com.viber.voip, com.skype.raider, com.google.android.talk, com.google.android.gm, com.facebook.katana, com.whatsapp, com.google.android.apps.plus";
 	private static final String TAG = CallerFlashlight.class.getSimpleName();
 	private boolean callFlash = false, msgFlash = false, callFlashTest = false, msgFlashTest = false;
 	private int callFlashOnDuration = 250, callFlashOffDuration = 250, msgFlashOnDuration = 250, msgFlashOffDuration = 250, msgFlashDuration = 3;
