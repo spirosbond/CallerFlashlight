@@ -17,7 +17,7 @@ public class NotificationService extends AccessibilityService {
 
 	@Override
 	public void onAccessibilityEvent(AccessibilityEvent event) {
-		Log.d(TAG, "Got event from: " + String.valueOf(event.getPackageName()));
+		Log.d(TAG, "Got event from: " + String.valueOf(event.getPackageName()) + " of type: " + AccessibilityEvent.eventTypeToString(event.getEventType()));
 //		Toast.makeText(getApplicationContext(), "Got event from: " + event.getPackageName(), Toast.LENGTH_LONG).show();
 
 		if (callerFlashlight.isMsgFlash() && callerFlashlight.isEnabled() && callerFlashlight.loadApp(String.valueOf(event.getPackageName()))) {

@@ -16,7 +16,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
-	private static final String packages = "com.viber.voip, com.skype.raider, com.google.android.talk, com.google.android.gm, com.facebook.katana, com.whatsapp, com.google.android.apps.plus";
+	private static final String packages = "com.viber.voip,com.skype.raider,com.google.android.talk,com.google.android.gm,com.facebook.katana,com.whatsapp,com.google.android.apps.plus,mikado.bizcalpro,netgenius.bizcal,com.ryosoftware.contactdatesnotifier,com.twitter.android,com.fsck.k9,com.onegravity.k10.pro2,com.google.android.apps.plus,de.gmx.mobile.android.mail,com.quoord.tapatalkHD,com.quoord.tapatalkpro.activity,com.android.deskclock";
 	private static final String TAG = CallerFlashlight.class.getSimpleName();
 	private boolean callFlash = false, msgFlash = false, callFlashTest = false, msgFlashTest = false;
 	private int callFlashOnDuration = 250, callFlashOffDuration = 250, msgFlashOnDuration = 250, msgFlashOffDuration = 250, msgFlashDuration = 3;
@@ -60,20 +60,20 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		sleepMode = prefs.getBoolean("sleep_check", false);
 		sleepStart = prefs.getString("sleep_start", "");
 		sleepStop = prefs.getString("sleep_stop", "");
-		sleepStartHour = getSleepStartHour();
-		sleepStopHour = getSleepStopHour();
-		sleepStartMinute = getSleepStartMinute();
-		sleepStopMinute = getSleepStopMinute();
+		sleepStartHour = prefs.getInt("sleep_start_hour", 0);
+		sleepStopHour = prefs.getInt("sleep_stop_hour", 0);
+		sleepStartMinute = prefs.getInt("sleep_start_minute", 0);
+		sleepStopMinute = prefs.getInt("sleep_stop_minute", 0);
 		type = prefs.getInt("type", 1);
-		msgFlashType = getMsgFlashType();
+		msgFlashType = prefs.getInt("sms_mode_type", 1);
 		appListCheck = prefs.getBoolean("app_list_check", false);
-		bootReceiver = prefs.getBoolean("boot_receiver", false);
+//		bootReceiver = prefs.getBoolean("boot_receiver", false);
 		serviceRunning = prefs.getBoolean("service_running", false);
 
 	}
 
 	public boolean isCallFlash() {
-		callFlash = prefs.getBoolean("callFlash", false);
+//		callFlash = prefs.getBoolean("callFlash", false);
 		return callFlash;
 	}
 
@@ -85,7 +85,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isMsgFlash() {
-		msgFlash = prefs.getBoolean("msgFlash", false);
+//		msgFlash = prefs.getBoolean("msgFlash", false);
 		return msgFlash;
 	}
 
@@ -97,7 +97,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getCallFlashOnDuration() {
-		callFlashOnDuration = prefs.getInt("callFlashOnDuration", 250);
+//		callFlashOnDuration = prefs.getInt("callFlashOnDuration", 250);
 		return callFlashOnDuration;
 	}
 
@@ -109,7 +109,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getCallFlashOffDuration() {
-		callFlashOffDuration = prefs.getInt("callFlashOffDuration", 250);
+//		callFlashOffDuration = prefs.getInt("callFlashOffDuration", 250);
 		return callFlashOffDuration;
 	}
 
@@ -122,7 +122,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getMsgFlashOnDuration() {
-		msgFlashDuration = prefs.getInt("msgFlashDuration", 3);
+//		msgFlashOnDuration = prefs.getInt("msgFlashOnDuration", 3);
 		return msgFlashOnDuration;
 	}
 
@@ -135,6 +135,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getMsgFlashOffDuration() {
+//		msgFlashOffDuration = prefs.getInt("msgFlashOffDuration", 3);
 		return msgFlashOffDuration;
 	}
 
@@ -153,6 +154,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		else if (s.equals("vibrate_mode")) setVibrateMode(sharedPreferences.getBoolean("vibrate_mode", false));
 		else if (s.equals("silent_mode")) setSilentMode(sharedPreferences.getBoolean("silent_mode", false));
 		else if (s.equals("sleep_check")) setSleepMode(sharedPreferences.getBoolean("sleep_check", false));
+		else if (s.equals("msgFlashDuration")) setMsgFlashDuration(sharedPreferences.getInt("msgFlashDuration", 3));
 		else if (s.equals("type_list")) {
 			setType(Integer.valueOf(sharedPreferences.getString("type_list", "")));
 
@@ -210,15 +212,15 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		switch (am.getRingerMode()) {
 			case AudioManager.RINGER_MODE_SILENT:
 				Log.d(TAG, "Phone in silent mode");
-				if (silentMode) enabled = true;
+				if (isSilentMode()) enabled = true;
 				break;
 			case AudioManager.RINGER_MODE_VIBRATE:
 				Log.d(TAG, "Phone in vibrate mode");
-				if (vibrateMode) enabled = true;
+				if (isVibrateMode()) enabled = true;
 				break;
 			case AudioManager.RINGER_MODE_NORMAL:
 				Log.d(TAG, "Phone in normal mode");
-				if (normalMode) enabled = true;
+				if (isNormalMode()) enabled = true;
 				break;
 		}
 
@@ -228,18 +230,18 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		Log.d(TAG, "time: " + now.hour + ":" + now.minute);
 
 		if (isSleepMode()) {
-			if (now.hour > sleepStartHour && now.hour < sleepStopHour) {
+			if (now.hour > getSleepStartHour() && now.hour < getSleepStopHour()) {
 				enabled = false;
-			} else if (now.hour == sleepStartHour && now.hour == sleepStopHour) {
-				if (now.minute >= sleepStartMinute && now.minute <= sleepStopMinute) {
+			} else if (now.hour == getSleepStartHour() && now.hour == getSleepStopHour()) {
+				if (now.minute >= getSleepStartMinute() && now.minute <= getSleepStopMinute()) {
 					enabled = false;
 				}
-			} else if (now.hour == sleepStartHour) {
-				if (now.minute >= sleepStartMinute) {
+			} else if (now.hour == getSleepStartHour()) {
+				if (now.minute >= getSleepStartMinute()) {
 					enabled = false;
 				}
-			} else if (now.hour == sleepStopHour) {
-				if (now.minute <= sleepStopMinute) {
+			} else if (now.hour == getSleepStopHour()) {
+				if (now.minute <= getSleepStopMinute()) {
 					enabled = false;
 				}
 			}
@@ -249,7 +251,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isNormalMode() {
-		normalMode = prefs.getBoolean("normal_mode", true);
+//		normalMode = prefs.getBoolean("normal_mode", true);
 		return normalMode;
 	}
 
@@ -260,7 +262,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isVibrateMode() {
-		vibrateMode = prefs.getBoolean("vibrate_mode", true);
+//		vibrateMode = prefs.getBoolean("vibrate_mode", true);
 		return vibrateMode;
 	}
 
@@ -271,7 +273,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isSilentMode() {
-		silentMode = prefs.getBoolean("silent_mode", true);
+//		silentMode = prefs.getBoolean("silent_mode", true);
 		return silentMode;
 	}
 
@@ -282,7 +284,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public String getSleepStart() {
-		sleepStart = prefs.getString("sleep_start", "");
+//		sleepStart = prefs.getString("sleep_start", "");
 		return sleepStart;
 	}
 
@@ -293,7 +295,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public String getSleepStop() {
-		sleepStart = prefs.getString("sleep_stop", "");
+//		sleepStart = prefs.getString("sleep_stop", "");
 		return sleepStop;
 	}
 
@@ -304,7 +306,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStartHour() {
-		sleepStartHour = prefs.getInt("sleep_start_hour", 0);
+//		sleepStartHour = prefs.getInt("sleep_start_hour", 0);
 		return sleepStartHour;
 	}
 
@@ -315,7 +317,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStartMinute() {
-		sleepStartMinute = prefs.getInt("sleep_start_minute", 0);
+//		sleepStartMinute = prefs.getInt("sleep_start_minute", 0);
 		return sleepStartMinute;
 	}
 
@@ -326,7 +328,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStopHour() {
-		sleepStopHour = prefs.getInt("sleep_stop_hour", 0);
+//		sleepStopHour = prefs.getInt("sleep_stop_hour", 0);
 		return sleepStopHour;
 	}
 
@@ -337,7 +339,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStopMinute() {
-		sleepStopMinute = prefs.getInt("sleep_stop_minute", 0);
+//		sleepStopMinute = prefs.getInt("sleep_stop_minute", 0);
 		return sleepStopMinute;
 	}
 
@@ -348,7 +350,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isSleepMode() {
-		sleepMode = prefs.getBoolean("sleep_check", false);
+//		sleepMode = prefs.getBoolean("sleep_check", false);
 		return sleepMode;
 	}
 
@@ -359,7 +361,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getType() {
-		type = prefs.getInt("type", 1);
+//		type = prefs.getInt("type", 1);
 		Log.d(TAG, "type is: " + type);
 		return type;
 	}
@@ -372,7 +374,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getMsgFlashType() {
-		msgFlashType = prefs.getInt("sms_mode_type", 1);
+//		msgFlashType = prefs.getInt("sms_mode_type", 1);
 		Log.d(TAG, "sms_mode_type is: " + msgFlashType);
 		return msgFlashType;
 	}
@@ -394,7 +396,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isAppListCheck() {
-		appListCheck = prefs.getBoolean("app_list_check", false);
+//		appListCheck = prefs.getBoolean("app_list_check", false);
 		return appListCheck;
 	}
 
@@ -405,7 +407,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isBootReceiver() {
-		bootReceiver = prefs.getBoolean("boot_receiver", false);
+//		bootReceiver = prefs.getBoolean("boot_receiver", false);
 		return bootReceiver;
 	}
 
@@ -416,7 +418,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isServiceRunning() {
-		serviceRunning = prefs.getBoolean("service_running", false);
+//		serviceRunning = prefs.getBoolean("service_running", false);
 		return serviceRunning;
 	}
 
