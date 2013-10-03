@@ -79,8 +79,13 @@ public class CallReceiver extends BroadcastReceiver {
 			@Override
 			protected String doInBackground(Integer... integers) {
 				Log.d(TAG, "doInBackgroung Started");
-				while (callState.equals("RINGING")) {
+				int tries = 3;
+				while (callState.equals("RINGING") && tries > 0) {
 					flash.enableFlash(Long.valueOf(integers[0]), Long.valueOf(integers[1]));
+					if (!Flash.gotCam) {
+						Log.d(TAG, "Flash failed, retrying..." + tries);
+						tries = tries - 1;
+					}
 				}
 				return null;
 			}

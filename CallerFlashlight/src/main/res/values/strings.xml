@@ -71,14 +71,14 @@
     <string name="titleDonate">Donate</string>
     <string name="app_list_tittle">Application list</string>
     <string name="app_list_sum">Select which applications trigger the flash.</string>
-    <string name="loadingApps">Loading applications...</string>
+    <string name="loadingApps">Loading applications…</string>
     <string name="AppList">Installed Applications</string>
     <string name="clear_all_button">Clear All</string>
     <string name="select_all_button">Select All</string>
     <string name="app_list_check">Flash on other Notifications</string>
-    <string name="app_list_check_sum">Click here to disable "Notification Service".</string>
+    <string name="app_list_check_sum">Click here to disable “Notification Service”.</string>
     <string name="sms_more_categ">Advanced Preferences</string>
-    <string name="more_flash_warning_sum">Click here to enable "Notification Service".</string>
+    <string name="more_flash_warning_sum">Click here to enable “Notification Service”.</string>
     <string name="accessibility_service_description">Enabling this service will let CallFlash to detect your notifications in order to enable the flash
         according to your preferences.
     </string>

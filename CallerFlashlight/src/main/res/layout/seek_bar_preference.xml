@@ -9,10 +9,10 @@
                 android:paddingTop="5dp">
 
     <TextView
-            android:id="@+id/seekBarPrefUnitsRight"
+            android:id="@+id/seekBarPrefUnitsLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true">
     </TextView>
 
@@ -20,23 +20,24 @@
             android:id="@+id/seekBarPrefValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/seekBarPrefUnitsRight"
+            android:layout_toRightOf="@id/seekBarPrefUnitsLeft"
             android:gravity="right">
     </TextView>
 
     <TextView
-            android:id="@+id/seekBarPrefUnitsLeft"
+            android:id="@+id/seekBarPrefUnitsRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/seekBarPrefValue">
+            android:layout_toRightOf="@id/seekBarPrefValue">
     </TextView>
+
 
     <LinearLayout
             android:id="@+id/seekBarPrefBarContainer"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/seekBarPrefUnitsRight"
+            android:layout_below="@id/seekBarPrefUnitsRight"
             android:orientation="horizontal">
 
         <SeekBar

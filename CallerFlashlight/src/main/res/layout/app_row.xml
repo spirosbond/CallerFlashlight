@@ -9,7 +9,8 @@
             android:layout_height="@android:dimen/app_icon_size"
             android:id="@+id/app_img"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:contentDescription="Application's Image"/>
 
     <CheckBox
             android:layout_height="wrap_content"

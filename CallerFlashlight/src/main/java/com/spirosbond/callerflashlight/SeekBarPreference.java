@@ -31,7 +31,6 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 	private String mUnitsRight = "";
 	private SeekBar mSeekBar;
 	private TextView mStatusText;
-	private CallerFlashlight cf;
 
 	public SeekBarPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -44,8 +43,8 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 	}
 
 	private void initPreference(Context context, AttributeSet attrs) {
-		cf = (CallerFlashlight) context.getApplicationContext();
-		;
+		CallerFlashlight cf = (CallerFlashlight) context.getApplicationContext();
+
 		setValuesFromXml(attrs);
 		mSeekBar = new SeekBar(context, attrs);
 		mSeekBar.setMax(mMaxValue - mMinValue);
@@ -192,8 +191,8 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 	@Override
 	protected Object onGetDefaultValue(TypedArray ta, int index) {
 
-		int defaultValue = ta.getInt(index, DEFAULT_VALUE);
-		return defaultValue;
+//		int defaultValue = ta.getInt(index, DEFAULT_VALUE);
+		return ta.getInt(index, DEFAULT_VALUE);
 
 	}
 

@@ -17,7 +17,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 
-public class MainPanel extends Activity implements View.OnClickListener, TextWatcher {
+public class MainPanel extends Activity implements View.OnClickListener, TextWatcher, View.OnFocusChangeListener {
 
 	private static final String TAG = MainPanel.class.getSimpleName();
 	private CallerFlashlight callerFlashlight;
@@ -28,7 +28,6 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	private ToggleButton msgFlashButton;
 	private ToggleButton callFlashTestButton;
 	private ToggleButton msgFlashTestButton;
-	private Button callPrefs, msgPrefs;
 	private SeekBarChange seekBarChange = new SeekBarChange();
 //	private StartAppAd startAppAd = null;
 
@@ -82,9 +81,9 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		this.callerFlashlight = (CallerFlashlight) this.getApplication();
 		this.mainPanel = this;
 //		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		callPrefs = (Button) findViewById(R.id.CallPref);
+		Button callPrefs = (Button) findViewById(R.id.CallPref);
 		callPrefs.setOnClickListener(this);
-		msgPrefs = (Button) findViewById(R.id.MsgPref);
+		Button msgPrefs = (Button) findViewById(R.id.MsgPref);
 		msgPrefs.setOnClickListener(this);
 
 		callFlashCreate();
@@ -122,10 +121,12 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		msgFlashOnBarValue = (EditText) findViewById(R.id.flashOnDurationValueMsg);
 		msgFlashOnBarValue.setText(String.valueOf(msgFlashOnBar.getProgress()));
 		msgFlashOnBarValue.addTextChangedListener(this);
+		msgFlashOnBarValue.setOnFocusChangeListener(this);
 
 		msgFlashOffBarValue = (EditText) findViewById(R.id.flashOffDurationValueMsg);
 		msgFlashOffBarValue.setText(String.valueOf(msgFlashOffBar.getProgress()));
 		msgFlashOffBarValue.addTextChangedListener(this);
+		msgFlashOffBarValue.setOnFocusChangeListener(this);
 
 
 //		msgFlashDurBarValue = (EditText) findViewById(R.id.flashDurationValueMsg);
@@ -159,10 +160,12 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		callFlashOnBarValue = (EditText) findViewById(R.id.flashOnDurationValue);
 		callFlashOnBarValue.setText(String.valueOf(callFlashOnBar.getProgress()));
 		callFlashOnBarValue.addTextChangedListener(this);
+		callFlashOnBarValue.setOnFocusChangeListener(this);
 
 		callFlashOffBarValue = (EditText) findViewById(R.id.flashOffDurationValue);
 		callFlashOffBarValue.setText(String.valueOf(callFlashOffBar.getProgress()));
 		callFlashOffBarValue.addTextChangedListener(this);
+		callFlashOffBarValue.setOnFocusChangeListener(this);
 
 		callFlashOnBar.setOnSeekBarChangeListener(seekBarChange);
 
@@ -268,10 +271,10 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	@Override
 	public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
 //		Log.d(TAG, "onTextChanged with char: " + charSequence);
-		if (charSequence.length() == 0) {
-//			Log.d(TAG, "Empty editText. Set it to 0");
-			((EditText) getCurrentFocus()).setText(String.valueOf(0));
-		}
+//		if (charSequence.length() == 0) {
+////			Log.d(TAG, "Empty editText. Set it to 0");
+//			((EditText) getCurrentFocus()).setText(String.valueOf(0));
+//		}
 
 	}
 
@@ -280,9 +283,15 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		EditText editText;
 		int value;
 		int editId;
+
 		try {
 			editText = (EditText) getCurrentFocus();
-			value = Integer.valueOf(String.valueOf(editable));
+			if (editable.length() == 0) {
+				value = 0;
+//				editText.setText(String.valueOf(value));
+			} else {
+				value = Integer.valueOf(String.valueOf(editable));
+			}
 			editId = editText.getId();
 //			Log.d(TAG, "Value: " + value);
 		} catch (NumberFormatException e) {
@@ -364,6 +373,40 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		}
 
 
+	}
+
+	@Override
+	public void onFocusChange(View view, boolean b) {
+		EditText temp = (EditText) view;
+		switch (view.getId()) {
+			case R.id.flashOnDurationValue:
+				if (!b && callerFlashlight.getCallFlashOnDuration() == 0) {
+					temp.setText("50");
+					callerFlashlight.setCallFlashOnDuration(50);
+					break;
+				}
+
+			case R.id.flashOffDurationValue:
+				if (!b && callerFlashlight.getCallFlashOffDuration() == 0) {
+					temp.setText("50");
+					callerFlashlight.setCallFlashOffDuration(50);
+					break;
+				}
+
+			case R.id.flashOnDurationValueMsg:
+				if (!b && callerFlashlight.getMsgFlashOnDuration() == 0) {
+					temp.setText("50");
+					callerFlashlight.setMsgFlashOnDuration(50);
+					break;
+				}
+
+			case R.id.flashOffDurationValueMsg:
+				if (!b && callerFlashlight.getMsgFlashOffDuration() == 0) {
+					temp.setText("50");
+					callerFlashlight.setMsgFlashOffDuration(50);
+					break;
+				}
+		}
 	}
 
 	private class SeekBarChange implements SeekBar.OnSeekBarChangeListener {

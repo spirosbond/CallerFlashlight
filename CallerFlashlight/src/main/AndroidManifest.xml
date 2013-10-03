@@ -121,8 +121,11 @@
                 android:label="@string/AppList"
                 android:windowSoftInputMode="stateHidden"
                 android:configChanges="orientation"
-                >
-            <!-- Parent activity meta-data to support 4.0 and lower -->
+                android:parentActivityName="com.spirosbond.callerflashlight.MsgPrefs">
+
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.spirosbond.callerflashlight.MsgPrefs"/>
 
         </activity>
 

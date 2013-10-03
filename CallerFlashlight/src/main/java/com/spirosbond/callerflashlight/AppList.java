@@ -28,25 +28,26 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 
 	private static final String TAG = AppList.class.getSimpleName();
 	protected InteractiveArrayAdapter adapter;
-	LinearLayout progBar;
+	private LinearLayout progBar;
 	private PackageManager packageManager;
 	private ArrayList<Model> activities;
 	private List<String> names;
 	private CallerFlashlight callerFlashlight;
 	private ListView lv;
-	private Button clearAll, selectAll;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.app_list);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) getActionBar().setDisplayHomeAsUpEnabled(true);
+
 		callerFlashlight = (CallerFlashlight) getApplication();
 		names = new ArrayList<String>();
 		activities = new ArrayList<Model>();
 		names = new ArrayList<String>();
-		clearAll = (Button) findViewById(R.id.clear_button);
+		Button clearAll = (Button) findViewById(R.id.clear_button);
 		clearAll.setOnClickListener(this);
-		selectAll = (Button) findViewById(R.id.selectall_button);
+		Button selectAll = (Button) findViewById(R.id.selectall_button);
 		selectAll.setOnClickListener(this);
 		lv = (ListView) findViewById(R.id.appList);
 //		this.adapter = new InteractiveArrayAdapter(this, activities);
@@ -131,8 +132,8 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 	@Override
 	public Object onRetainNonConfigurationInstance() {
 		Log.d(TAG, "onRetain");
-		final ArrayList<Model> data = activities;
-		return data;
+//		final ArrayList<Model> data = activities;
+		return activities;
 	}
 
 	@Override

@@ -36,18 +36,27 @@ public class SmsReceiver extends BroadcastReceiver {
 		protected String doInBackground(Integer... integers) {
 			Log.d(TAG, "doInBackgroung Started");
 			long start = System.currentTimeMillis();
-
+			int tries = 3;
 			if (callerFlashlight.getMsgFlashType() == 1) {
 				int durMillis = integers[2] * 1000;
-				while (System.currentTimeMillis() - start <= durMillis) {
+				while (System.currentTimeMillis() - start <= durMillis && tries > 0) {
 					flash.enableFlash(Long.valueOf(integers[0]), Long.valueOf(integers[1]));
+					if (!Flash.gotCam) {
+						Log.d(TAG, "Flash failed, retrying..." + tries);
+						tries = tries - 1;
+					}
 				}
 			} else if (callerFlashlight.getMsgFlashType() == 2) {
 				int times = 0;
 				int repeats = integers[2];
-				while (times < repeats) {
+				while (times < repeats && tries > 0) {
 					flash.enableFlash(Long.valueOf(integers[0]), Long.valueOf(integers[1]));
-					times = times + 1;
+					if (!Flash.gotCam) {
+						Log.d(TAG, "Flash failed, retrying..." + tries);
+						tries = tries - 1;
+					} else {
+						times = times + 1;
+					}
 				}
 			}
 

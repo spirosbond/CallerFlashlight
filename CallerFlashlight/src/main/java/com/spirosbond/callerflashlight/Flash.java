@@ -4,7 +4,6 @@ import android.app.Service;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
 import android.util.Log;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -16,20 +15,18 @@ import android.widget.LinearLayout;
 public class Flash {
 
 	private final static String TAG = Flash.class.getSimpleName();
+	public static boolean gotCam = false;
 	private static Camera cam;
 	private static int running;
 	//	private static SurfaceView preview;
 	private static CallerFlashlight cf;
-	private static SurfaceHolder mHolder;
+	//	private static SurfaceHolder mHolder;
 	private static Camera.Parameters pon, poff;
-	private static CameraSurface preview;
 	private static LinearLayout orientationChanger;
-	private static WindowManager wm;
-	private static boolean gotCam = false;
 
 
 	public Flash(CallerFlashlight cf) {
-		this.cf = cf;
+		Flash.cf = cf;
 		if (!gotCam) {
 			try {
 				cam = Camera.open();
@@ -72,9 +69,12 @@ public class Flash {
 		if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE) {
 			orientationChanger.setVisibility(View.GONE);
 		}
-		cam.stopPreview();
-		cam.release();
-		gotCam = false;
+		if (gotCam) {
+			cam.stopPreview();
+			cam.release();
+			gotCam = false;
+			Log.d(TAG, "Cam released");
+		}
 	}
 
 	private void loadParameters() {
@@ -91,11 +91,11 @@ public class Flash {
 			WindowManager.LayoutParams orientationLayout = new WindowManager.LayoutParams(WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY, 0,
 							PixelFormat.RGBA_8888);
 
-			wm = (WindowManager) cf.getApplicationContext().getSystemService(Service.WINDOW_SERVICE);
+			WindowManager wm = (WindowManager) cf.getApplicationContext().getSystemService(Service.WINDOW_SERVICE);
 
 			FrameLayout frame = new FrameLayout(cf.getApplicationContext());
 			frame.setLayoutParams(layoutParams);
-			preview = new CameraSurface(cf.getApplicationContext(), cam);
+			CameraSurface preview = new CameraSurface(cf.getApplicationContext(), cam);
 			preview.setLayoutParams(layoutParams);
 
 			frame.addView(preview);
@@ -159,7 +159,10 @@ public class Flash {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		disableFlash();
+		//disable flash
+
+		cam.setParameters(poff);
+
 		try {
 			Thread.sleep(offMillis);
 

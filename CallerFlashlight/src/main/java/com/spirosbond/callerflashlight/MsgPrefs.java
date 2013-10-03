@@ -106,7 +106,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 			Log.d(TAG, "sum type 2");
 			lp.setSummary(getResources().getString(R.string.sms_mode_list_2));
 			sbp.setmUnitsRight(" times");
-			sbp.updateView(getListView());
+//			sbp.updateView(getListView());
 		}
 
 	}
