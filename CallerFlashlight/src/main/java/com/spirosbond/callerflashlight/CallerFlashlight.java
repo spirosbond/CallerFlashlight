@@ -8,6 +8,9 @@ import android.preference.PreferenceManager;
 import android.text.format.Time;
 import android.util.Log;
 
+import com.appflood.AppFlood;
+import com.bugsense.trace.BugSenseHandler;
+
 /**
  * Created by spiros on 8/4/13.
  */
@@ -34,6 +37,9 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	public void onCreate() {
 		super.onCreate();
 
+		AppFlood.initialize(this, "Thib0u8GfGgfXsLX", "6GX8sMOv1791L521de8ea", AppFlood.AD_ALL);
+		BugSenseHandler.initAndStartSession(CallerFlashlight.this, "2b2cf28e");
+//		StartAppAd.init(this, "108632531", "208372780");
 
 		Log.d(TAG, "onCreated");
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -431,4 +437,16 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	public boolean isInPackages(String packageName) {
 		return packages.contains(packageName);
 	}
+
+	public boolean loadDonate(String type) {
+		return prefs.getBoolean(type, false);
+	}
+
+//	public void registerShared(Donate donateActivity) {
+//		prefs.registerOnSharedPreferenceChangeListener(donateActivity);
+//	}
+//
+//	public void unregisterShared(Donate donateActivity) {
+//		prefs.unregisterOnSharedPreferenceChangeListener(donateActivity);
+//	}
 }

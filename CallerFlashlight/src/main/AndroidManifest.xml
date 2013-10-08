@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.spirosbond.callerflashlight"
           android:versionCode="1"
-          android:versionName="1.3-Beta">
+          android:versionName="1.5-Beta">
 
     <uses-sdk
             android:minSdkVersion="7"
@@ -18,13 +18,13 @@
     <!--<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>-->
 
 
-    <!--<uses-permission android:name="android.permission.INTERNET"/>-->
-    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>-->
-    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
-    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>-->
     <!--<uses-permission android:name="android.permission.GET_TASKS"/>-->
-    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 
     <uses-feature
@@ -167,49 +167,49 @@
         <!--</receiver>-->
 
 
-        <!--<activity-->
-        <!--android:name="com.startapp.android.publish.list3d.List3DActivity"-->
-        <!--android:taskAffinity="com.spirosbond.callerflashlight.AppWall"/>-->
-        <!--<activity-->
-        <!--android:name="com.startapp.android.publish.AppWallActivity"-->
-        <!--android:theme="@android:style/Theme.Translucent"-->
-        <!--android:taskAffinity="com.spirosbond.callerflashlight.AppWall"/>-->
+        <activity
+                android:name="com.startapp.android.publish.list3d.List3DActivity"
+                android:taskAffinity="com.spirosbond.callerflashlight.AppWall"/>
+        <activity
+                android:name="com.startapp.android.publish.AppWallActivity"
+                android:theme="@android:style/Theme.Translucent"
+                android:taskAffinity="com.spirosbond.callerflashlight.AppWall"/>
 
-        <!--<meta-data-->
-        <!--android:name="com.startapp.android.DEV_ID"-->
-        <!--android:value="108632531"/>-->
-        <!--<meta-data-->
-        <!--android:name="com.startapp.android.APP_ID"-->
-        <!--android:value="208372780"/>-->
+        <meta-data
+                android:name="com.startapp.android.DEV_ID"
+                android:value="108632531"/>
+        <meta-data
+                android:name="com.startapp.android.APP_ID"
+                android:value="208372780"/>
 
 
-        <!--<activity-->
-        <!--android:name="com.appflood.AFPanelActivity"-->
-        <!--android:configChanges="keyboardHidden">-->
-        <!--</activity>-->
-        <!--<activity-->
-        <!--android:name="com.appflood.AFFullScreenActivity"-->
-        <!--android:configChanges="keyboardHidden|orientation"-->
-        <!--android:theme="@android:style/Theme.Translucent"-->
-        <!--android:launchMode="singleTask">-->
-        <!--</activity>-->
-        <!--<activity-->
-        <!--android:name="com.appflood.AFListActivity"-->
-        <!--android:configChanges="keyboardHidden|orientation"-->
-        <!--android:launchMode="singleTask"-->
-        <!--android:theme="@android:style/Theme.Translucent">-->
-        <!--<intent-filter>-->
-        <!--<action android:name=""/>-->
-        <!--</intent-filter>-->
-        <!--</activity>-->
-        <!--<activity-->
-        <!--android:name="com.appflood.AFInterstitialActivity"-->
-        <!--android:configChanges="keyboardHidden|orientation"-->
-        <!--android:launchMode="singleTask"-->
-        <!--android:screenOrientation="portrait"-->
-        <!--android:theme="@android:style/Theme.Translucent">-->
+        <activity
+                android:name="com.appflood.AFPanelActivity"
+                android:configChanges="keyboardHidden">
+        </activity>
+        <activity
+                android:name="com.appflood.AFFullScreenActivity"
+                android:configChanges="keyboardHidden|orientation"
+                android:theme="@android:style/Theme.Translucent"
+                android:launchMode="singleTask">
+        </activity>
+        <activity
+                android:name="com.appflood.AFListActivity"
+                android:configChanges="keyboardHidden|orientation"
+                android:launchMode="singleTask"
+                android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name=""/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="com.appflood.AFInterstitialActivity"
+                android:configChanges="keyboardHidden|orientation"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:theme="@android:style/Theme.Translucent">
 
-        <!--</activity>-->
+        </activity>
 
 
     </application>

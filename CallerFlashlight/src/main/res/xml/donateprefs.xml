@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/donateTitle">
+
+        <Preference
+                android:title="@string/appoftheday"
+                android:summary="@string/appofthedaysum"
+                android:key="appoftheday"/>
+        <Preference
+                android:title="@string/startapp"
+                android:summary="@string/startappsum"
+                android:key="startapp"/>
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

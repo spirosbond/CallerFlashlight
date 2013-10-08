@@ -83,4 +83,21 @@
         according to your preferences.
     </string>
 
+    <string name="donate">Donate!</string>
+    <string name="donate1">AppFlood</string>
+    <string name="summaryDonate1">Enable AppFlood Ads</string>
+
+    <string name="donateTitle">Donate using Ads</string>
+    <string name="donateSummary">Install any app and donate without spending a dime!</string>
+    <string name="summaryDontDonate1">Disable AppFlood Ads</string>
+    <string name="donate2">AppFlood</string>
+    <string name="summaryDonate2">Enable start-up Ads</string>
+    <string name="summaryDontDonate2">Disable start-up Ad</string>
+    <string name="appoftheday">App Of The Day!</string>
+    <string name="appofthedaysum">Click to see the app of the day</string>
+    <string name="startapp">Start App</string>
+    <string name="startappsum">Show the apps of the day</string>
+    <string name="donateDialog">"1. Choose to see the app of the day\n2. Download any app you like\n3. You donated!\n…without spending a dime!"</string>
+
+
 </resources>
