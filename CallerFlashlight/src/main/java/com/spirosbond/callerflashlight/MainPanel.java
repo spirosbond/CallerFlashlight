@@ -29,7 +29,6 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	private ToggleButton callFlashTestButton;
 	private ToggleButton msgFlashTestButton;
 	private SeekBarChange seekBarChange = new SeekBarChange();
-//	private StartAppAd startAppAd = null;
 
 	@Override
 	protected void onResume() {
@@ -43,25 +42,9 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		msgFlashButton.setChecked(callerFlashlight.isMsgFlash());
 		msgFlashTestButton = (ToggleButton) findViewById(R.id.msgFlashTestToggle);
 		msgFlashTestButton.setChecked(callerFlashlight.isMsgFlashTest());
-//		if (startAppAd == null) {
-//			startAppAd = new StartAppAd(this);
-//			startAppAd.load();
-//		}
 
-//		callFlashCreate();
-//		msgFlashCreate();
 	}
 
-	@Override
-	public void onBackPressed() {
-//
-//		}
-//		AppFlood.initialize(this, "Thib0u8GfGgfXsLX", "6GX8sMOv1791L521de8ea", AppFlood.AD_ALL);
-
-//		AppFlood.showFullScreen(this);
-
-		super.onBackPressed();
-	}
 
 	@Override
 	protected void onPause() {
@@ -88,12 +71,6 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 		callFlashCreate();
 		msgFlashCreate();
-
-
-//		callerFlashlight.setPreview((SurfaceView) findViewById(R.id.surfaceView));
-//		startActivityForResult( new Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS), 0);
-//		startService(new Intent(this, NotificationService.class));
-
 
 	}
 
