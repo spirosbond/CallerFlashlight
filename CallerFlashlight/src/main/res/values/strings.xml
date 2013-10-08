@@ -94,9 +94,9 @@
     <string name="summaryDonate2">Enable start-up Ads</string>
     <string name="summaryDontDonate2">Disable start-up Ad</string>
     <string name="appoftheday">App Of The Day!</string>
-    <string name="appofthedaysum">Click to see the app of the day</string>
-    <string name="startapp">Start App</string>
-    <string name="startappsum">Show the apps of the day</string>
+    <string name="appofthedaysum">Click to see the app of the day by Appflood...</string>
+    <string name="startapp">Free Apps!</string>
+    <string name="startappsum">Show the apps of the day by Startapp...</string>
     <string name="donateDialog">"1. Choose to see the app of the day\n2. Download any app you like\n3. You donated!\n…without spending a dime!"</string>
 
 

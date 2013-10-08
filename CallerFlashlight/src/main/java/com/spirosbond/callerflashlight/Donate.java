@@ -20,6 +20,7 @@ import com.startapp.android.publish.StartAppAd;
  */
 public class Donate extends PreferenceActivity implements Preference.OnPreferenceClickListener { //
 
+	private static final String TAG = Donate.class.getSimpleName();
 	private CallerFlashlight myapp;
 	private SwitchPreference appflood2, appflood;
 	private Preference appoftheday;
@@ -33,7 +34,7 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 			startAppAd = new StartAppAd(this);
 			startAppAd.load();
 		}
-		Log.d("MPIKA", "RESUME");
+		Log.d(TAG, "RESUME");
 		super.onResume();
 	}
 
