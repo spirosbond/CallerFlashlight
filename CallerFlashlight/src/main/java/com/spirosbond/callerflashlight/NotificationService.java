@@ -1,7 +1,7 @@
 package com.spirosbond.callerflashlight;
 
 import android.accessibilityservice.AccessibilityService;
-import android.accessibilityservice.AccessibilityServiceInfo;
+import android.app.Notification;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
@@ -14,16 +14,30 @@ public class NotificationService extends AccessibilityService {
 
 	public static final String TAG = NotificationService.class.getSimpleName();
 	CallerFlashlight callerFlashlight;
+	Notification notification;
+	int flags = -10;
 
 	@Override
 	public void onAccessibilityEvent(AccessibilityEvent event) {
-		Log.d(TAG, "Got event from: " + String.valueOf(event.getPackageName()) + " of type: " + AccessibilityEvent.eventTypeToString(event.getEventType()));
+		notification = (Notification) event.getParcelableData();
+		flags = -10;
+		try {
+			flags = notification.flags;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.d(TAG, "Got event from: " + String.valueOf(event.getPackageName()) + " of type: " + AccessibilityEvent.eventTypeToString(event.getEventType()) + " with notification flag: " + flags);
 //		Toast.makeText(getApplicationContext(), "Got event from: " + event.getPackageName(), Toast.LENGTH_LONG).show();
 
-		if (callerFlashlight.isMsgFlash() && callerFlashlight.isEnabled() && callerFlashlight.loadApp(String.valueOf(event.getPackageName()))) {
+		if (callerFlashlight.isMsgFlash() && callerFlashlight.isEnabled() && callerFlashlight.loadApp(String.valueOf(event.getPackageName())) && isValidFlag(flags)) {
 			new ManageFlash().execute(callerFlashlight.getMsgFlashOnDuration(), callerFlashlight.getMsgFlashOffDuration(),
-							callerFlashlight.getMsgFlashDuration());
+					callerFlashlight.getMsgFlashDuration());
 		}
+	}
+
+	private boolean isValidFlag(int flags) {
+		if (flags != -10 && flags != 0 && flags != 10) return true;
+		return false;
 	}
 
 	@Override
@@ -39,11 +53,13 @@ public class NotificationService extends AccessibilityService {
 		callerFlashlight = (CallerFlashlight) getApplication();
 		callerFlashlight.setServiceRunning(true);
 
-		AccessibilityServiceInfo info = new AccessibilityServiceInfo();
-		info.eventTypes = AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED;
-		info.notificationTimeout = 100;
-		info.feedbackType = AccessibilityEvent.TYPES_ALL_MASK;
-		setServiceInfo(info);
+//		AccessibilityServiceInfo info = new AccessibilityServiceInfo();
+//		info.eventTypes = AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED;
+//		info.notificationTimeout = 100;
+
+//		info.feedbackType = AccessibilityEvent.TYPES_ALL_MASK;
+//		info.feedbackType = AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED;
+//		setServiceInfo(info);
 
 	}
 

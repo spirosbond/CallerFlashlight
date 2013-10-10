@@ -3,4 +3,7 @@
 <accessibility-service
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:accessibilityEventTypes="typeNotificationStateChanged"
-        android:description="@string/accessibility_service_description"/>
+        android:description="@string/accessibility_service_description"
+        android:notificationTimeout="500"
+        android:accessibilityFeedbackType="feedbackAllMask"
+        android:accessibilityFlags="flagDefault"/>

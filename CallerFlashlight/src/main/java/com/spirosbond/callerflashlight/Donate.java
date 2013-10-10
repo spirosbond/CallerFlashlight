@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.SwitchPreference;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -22,7 +21,7 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 
 	private static final String TAG = Donate.class.getSimpleName();
 	private CallerFlashlight myapp;
-	private SwitchPreference appflood2, appflood;
+	//	private SwitchPreference appflood2, appflood;
 	private Preference appoftheday;
 	private ConnectivityManager connectivityManager;
 	private Preference startapp;
@@ -30,21 +29,36 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 
 	@Override
 	protected void onResume() {
+		super.onResume();
 		if (startAppAd == null) {
 			startAppAd = new StartAppAd(this);
-			startAppAd.load();
+			startAppAd.loadAd();
 		}
-		Log.d(TAG, "RESUME");
-		super.onResume();
+		Log.d(TAG, "onResume");
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) { //
 		super.onCreate(savedInstanceState);
-		addPreferencesFromResource(R.xml.donateprefs); //
+		Log.d(TAG, "onCreate");
+		addPreferencesFromResource(R.xml.donateprefs);
+		StartAppAd.init(this, "108632531", "208372780");
+		AppFlood.initialize(this, "Thib0u8GfGgfXsLX", "6GX8sMOv1791L521de8ea", AppFlood.AD_ALL);
+		startAppAd = new StartAppAd(this);
+		startAppAd.loadAd();
+		connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+		appoftheday = findPreference("appoftheday");
+		startapp = findPreference("startapp");
+		startapp.setOnPreferenceClickListener(this);
+		appoftheday.setOnPreferenceClickListener(this);
+		myapp = (CallerFlashlight) getApplication();
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+			getActionBar().setDisplayHomeAsUpEnabled(true);
+//		appflood = (SwitchPreference) findPreference("appflood");
+//		appflood2 = (SwitchPreference) findPreference("appflood2");
 		AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 		builder1.setTitle("Thank you for donating!");
-		connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		builder1.setMessage(getResources().getString(R.string.donateDialog));
 		builder1.setCancelable(true);
 		builder1.setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_info));
@@ -57,15 +71,6 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 
 		AlertDialog alert11 = builder1.create();
 		alert11.show();
-		appoftheday = findPreference("appoftheday");
-		startapp = findPreference("startapp");
-		startapp.setOnPreferenceClickListener(this);
-		appoftheday.setOnPreferenceClickListener(this);
-		myapp = (CallerFlashlight) getApplication();
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
-			getActionBar().setDisplayHomeAsUpEnabled(true);
-		appflood = (SwitchPreference) findPreference("appflood");
-		appflood2 = (SwitchPreference) findPreference("appflood2");
 //		if (!myapp.loadDonate("appflood")) appflood.setSummary(R.string.summaryDonate1);
 //		else appflood.setSummary(R.string.summaryDontDonate1);
 //		if (!myapp.loadDonate("appflood2")) appflood2.setSummary(R.string.summaryDonate2);
@@ -124,11 +129,10 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 				AppFlood.showInterstitial(this);
 			}
 			if (preference.getKey().equals("startapp")) {
-				if (startAppAd != null) {
-					startAppAd.show();
-					startAppAd = new StartAppAd(this);
-					startAppAd.load();
-				}
+
+				startAppAd.showAd();
+				startAppAd.loadAd();
+
 			}
 			return true;
 		} else {
