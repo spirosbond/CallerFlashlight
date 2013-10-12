@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -38,8 +37,7 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 		moduleList = (Spinner) findViewById(R.id.module_list);
 		moduleList.setOnItemSelectedListener(this);
 		logo = (ImageView) findViewById(R.id.logo);
-		Animation pulse = AnimationUtils.loadAnimation(this, R.anim.pulse);
-		logo.startAnimation(pulse);
+		logo.startAnimation(AnimationUtils.loadAnimation(this, R.anim.round));
 
 	}
 

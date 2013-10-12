@@ -33,6 +33,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	private ToggleButton msgFlashButton;
 	private ToggleButton callFlashTestButton;
 	private ToggleButton msgFlashTestButton;
+	private Button callPrefs, msgPrefs;
 	private SeekBarChange seekBarChange = new SeekBarChange();
 	private ImageView img;
 	private int imgIndex;
@@ -68,21 +69,21 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		this.callerFlashlight = (CallerFlashlight) this.getApplication();
 		setContentView(R.layout.activity_main);
 
+
+		this.mainPanel = this;
+		//		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+		callPrefs = (Button) findViewById(R.id.CallPref);
+		callPrefs.setOnClickListener(this);
+		msgPrefs = (Button) findViewById(R.id.MsgPref);
+		msgPrefs.setOnClickListener(this);
+
+		callFlashCreate();
+		msgFlashCreate();
 		if (callerFlashlight.isFirstTime()) {
 			Intent intent = new Intent(this, FirstTimeUtilisation.class);
 			startActivityForResult(intent, 1);
 			showHowTo();
 		}
-
-		this.mainPanel = this;
-		//		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		Button callPrefs = (Button) findViewById(R.id.CallPref);
-		callPrefs.setOnClickListener(this);
-		Button msgPrefs = (Button) findViewById(R.id.MsgPref);
-		msgPrefs.setOnClickListener(this);
-
-		callFlashCreate();
-		msgFlashCreate();
 
 	}
 
@@ -110,6 +111,8 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		imgIndex = 1;
 		img = (ImageView) layout.findViewById(R.id.howto_img);
 		img.setImageResource(R.drawable.i1);
+		callFlashButton.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
+		msgFlashButton.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 		img.setOnClickListener(new View.OnClickListener() {
 
 
@@ -118,13 +121,24 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 				switch (imgIndex) {
 					case 2:
 						img.setImageResource(R.drawable.i2);
-						callFlashButton.startAnimation(AnimationUtils.loadAnimation(act, R.anim.pulse));
+						callFlashOnBar.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
+						callFlashOffBar.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
+						callFlashOnBarValue.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
+						callFlashOffBarValue.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
+						msgFlashOnBarValue.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
+						msgFlashOffBarValue.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
+						msgFlashOnBar.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
+						msgFlashOffBar.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 						break;
 					case 3:
 						img.setImageResource(R.drawable.i3);
+						callFlashTestButton.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
+						msgFlashTestButton.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 						break;
 					case 4:
 						img.setImageResource(R.drawable.i4);
+						callPrefs.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
+						msgPrefs.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 						break;
 					case 5:
 						dialog.dismiss();
