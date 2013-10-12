@@ -7,9 +7,9 @@
                 android:title="@string/typeList"
                 android:entries="@array/type_list"
                 android:entryValues="@array/type_list_values"
-                android:defaultValue="1"
 
-                />
+
+            />
 
     </PreferenceCategory>
 

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.spirosbond.callerflashlight"
           android:versionCode="1"
-          android:versionName="1.6-Beta">
+          android:versionName="2.0">
 
     <uses-sdk
             android:minSdkVersion="7"
@@ -105,6 +105,13 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.spirosbond.callerflashlight.MainPanel"/>
         </activity>
+
+        <activity
+            android:name=".FirstTimeUtilisation"
+            android:label="@string/first_time"
+            android:windowSoftInputMode="stateHidden"/>
+
+
         <activity
                 android:name=".Donate"
                 android:label="@string/titleDonate"

@@ -25,7 +25,8 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) getActionBar().setDisplayHomeAsUpEnabled(true);
 		PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
 
-//		lp = (ListPreference) findPreference("type_list");
+		lp = (ListPreference) findPreference("type_list");
+		lp.setValue(String.valueOf(callerFlashlight.getType()));
 		setTypeSum();
 
 

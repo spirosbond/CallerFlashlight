@@ -30,7 +30,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	private int sleepStartHour, sleepStartMinute, sleepStopHour, sleepStopMinute;
 	private int type;
 	private int msgFlashType;
-	private boolean bootReceiver, serviceRunning;
+	private boolean bootReceiver, serviceRunning, firstTime;
 
 	@Override
 	public void onCreate() {
@@ -70,13 +70,14 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		type = prefs.getInt("type", 1);
 		msgFlashType = prefs.getInt("sms_mode_type", 1);
 		appListCheck = prefs.getBoolean("app_list_check", false);
-//		bootReceiver = prefs.getBoolean("boot_receiver", false);
+		//		bootReceiver = prefs.getBoolean("boot_receiver", false);
 		serviceRunning = prefs.getBoolean("service_running", false);
+		firstTime = prefs.getBoolean("first_time", true);
 
 	}
 
 	public boolean isCallFlash() {
-//		callFlash = prefs.getBoolean("callFlash", false);
+		//		callFlash = prefs.getBoolean("callFlash", false);
 		return callFlash;
 	}
 
@@ -88,7 +89,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isMsgFlash() {
-//		msgFlash = prefs.getBoolean("msgFlash", false);
+		//		msgFlash = prefs.getBoolean("msgFlash", false);
 		return msgFlash;
 	}
 
@@ -100,7 +101,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getCallFlashOnDuration() {
-//		callFlashOnDuration = prefs.getInt("callFlashOnDuration", 250);
+		//		callFlashOnDuration = prefs.getInt("callFlashOnDuration", 250);
 		return callFlashOnDuration;
 	}
 
@@ -112,7 +113,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getCallFlashOffDuration() {
-//		callFlashOffDuration = prefs.getInt("callFlashOffDuration", 250);
+		//		callFlashOffDuration = prefs.getInt("callFlashOffDuration", 250);
 		return callFlashOffDuration;
 	}
 
@@ -125,7 +126,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getMsgFlashOnDuration() {
-//		msgFlashOnDuration = prefs.getInt("msgFlashOnDuration", 3);
+		//		msgFlashOnDuration = prefs.getInt("msgFlashOnDuration", 3);
 		return msgFlashOnDuration;
 	}
 
@@ -138,7 +139,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getMsgFlashOffDuration() {
-//		msgFlashOffDuration = prefs.getInt("msgFlashOffDuration", 3);
+		//		msgFlashOffDuration = prefs.getInt("msgFlashOffDuration", 3);
 		return msgFlashOffDuration;
 	}
 
@@ -165,12 +166,12 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 			setMsgFlashType(Integer.valueOf(sharedPreferences.getString("sms_mode_list", "")));
 
 		}
-//		else if (s.equals("app_list_check")) {
-//			setAppListCheck(sharedPreferences.getBoolean("app_list_check", false));
-//			setBootReceiver(sharedPreferences.getBoolean("app_list_check", false));
-//			if (isAppListCheck()) startService(new Intent(this, NotificationService.class));
-//			if (!isAppListCheck()) stopService(new Intent(this, NotificationService.class));
-//		}
+		//		else if (s.equals("app_list_check")) {
+		//			setAppListCheck(sharedPreferences.getBoolean("app_list_check", false));
+		//			setBootReceiver(sharedPreferences.getBoolean("app_list_check", false));
+		//			if (isAppListCheck()) startService(new Intent(this, NotificationService.class));
+		//			if (!isAppListCheck()) stopService(new Intent(this, NotificationService.class));
+		//		}
 		if (!(isNormalMode() || isSilentMode() || isSilentMode())) {
 			setCallFlash(false);
 			setMsgFlash(false);
@@ -254,7 +255,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isNormalMode() {
-//		normalMode = prefs.getBoolean("normal_mode", true);
+		//		normalMode = prefs.getBoolean("normal_mode", true);
 		return normalMode;
 	}
 
@@ -265,7 +266,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isVibrateMode() {
-//		vibrateMode = prefs.getBoolean("vibrate_mode", true);
+		//		vibrateMode = prefs.getBoolean("vibrate_mode", true);
 		return vibrateMode;
 	}
 
@@ -276,7 +277,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isSilentMode() {
-//		silentMode = prefs.getBoolean("silent_mode", true);
+		//		silentMode = prefs.getBoolean("silent_mode", true);
 		return silentMode;
 	}
 
@@ -287,7 +288,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public String getSleepStart() {
-//		sleepStart = prefs.getString("sleep_start", "");
+		//		sleepStart = prefs.getString("sleep_start", "");
 		return sleepStart;
 	}
 
@@ -298,7 +299,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public String getSleepStop() {
-//		sleepStart = prefs.getString("sleep_stop", "");
+		//		sleepStart = prefs.getString("sleep_stop", "");
 		return sleepStop;
 	}
 
@@ -309,7 +310,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStartHour() {
-//		sleepStartHour = prefs.getInt("sleep_start_hour", 0);
+		//		sleepStartHour = prefs.getInt("sleep_start_hour", 0);
 		return sleepStartHour;
 	}
 
@@ -320,7 +321,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStartMinute() {
-//		sleepStartMinute = prefs.getInt("sleep_start_minute", 0);
+		//		sleepStartMinute = prefs.getInt("sleep_start_minute", 0);
 		return sleepStartMinute;
 	}
 
@@ -331,7 +332,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStopHour() {
-//		sleepStopHour = prefs.getInt("sleep_stop_hour", 0);
+		//		sleepStopHour = prefs.getInt("sleep_stop_hour", 0);
 		return sleepStopHour;
 	}
 
@@ -342,7 +343,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStopMinute() {
-//		sleepStopMinute = prefs.getInt("sleep_stop_minute", 0);
+		//		sleepStopMinute = prefs.getInt("sleep_stop_minute", 0);
 		return sleepStopMinute;
 	}
 
@@ -353,7 +354,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isSleepMode() {
-//		sleepMode = prefs.getBoolean("sleep_check", false);
+		//		sleepMode = prefs.getBoolean("sleep_check", false);
 		return sleepMode;
 	}
 
@@ -364,7 +365,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getType() {
-//		type = prefs.getInt("type", 1);
+		//		type = prefs.getInt("type", 1);
 		Log.d(TAG, "type is: " + type);
 		return type;
 	}
@@ -377,7 +378,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getMsgFlashType() {
-//		msgFlashType = prefs.getInt("sms_mode_type", 1);
+		//		msgFlashType = prefs.getInt("sms_mode_type", 1);
 		Log.d(TAG, "sms_mode_type is: " + msgFlashType);
 		return msgFlashType;
 	}
@@ -399,7 +400,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isAppListCheck() {
-//		appListCheck = prefs.getBoolean("app_list_check", false);
+		//		appListCheck = prefs.getBoolean("app_list_check", false);
 		return appListCheck;
 	}
 
@@ -410,7 +411,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isBootReceiver() {
-//		bootReceiver = prefs.getBoolean("boot_receiver", false);
+		//		bootReceiver = prefs.getBoolean("boot_receiver", false);
 		return bootReceiver;
 	}
 
@@ -421,7 +422,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isServiceRunning() {
-//		serviceRunning = prefs.getBoolean("service_running", false);
+		//		serviceRunning = prefs.getBoolean("service_running", false);
 		return serviceRunning;
 	}
 
@@ -439,11 +440,22 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		return prefs.getBoolean(type, false);
 	}
 
-//	public void registerShared(Donate donateActivity) {
-//		prefs.registerOnSharedPreferenceChangeListener(donateActivity);
-//	}
-//
-//	public void unregisterShared(Donate donateActivity) {
-//		prefs.unregisterOnSharedPreferenceChangeListener(donateActivity);
-//	}
+	public boolean isFirstTime() {
+		//		firstTime = prefs.getBoolean("first_time", true);
+		return firstTime;
+	}
+
+	public void setFirstTime(boolean firstTime) {
+		this.firstTime = firstTime;
+		editor.putBoolean("first_time", firstTime);
+		editor.commit();
+	}
+
+	//	public void registerShared(Donate donateActivity) {
+	//		prefs.registerOnSharedPreferenceChangeListener(donateActivity);
+	//	}
+	//
+	//	public void unregisterShared(Donate donateActivity) {
+	//		prefs.unregisterOnSharedPreferenceChangeListener(donateActivity);
+	//	}
 }

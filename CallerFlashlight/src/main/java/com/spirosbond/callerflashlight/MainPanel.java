@@ -1,7 +1,9 @@
 package com.spirosbond.callerflashlight;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -29,6 +33,8 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	private ToggleButton callFlashTestButton;
 	private ToggleButton msgFlashTestButton;
 	private SeekBarChange seekBarChange = new SeekBarChange();
+	private ImageView img;
+	private int imgIndex;
 
 	@Override
 	protected void onResume() {
@@ -45,7 +51,6 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 	}
 
-
 	@Override
 	protected void onPause() {
 		Log.d(TAG, "onPaused");
@@ -59,11 +64,17 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		super.onCreate(savedInstanceState);
 
 		Log.d(TAG, "onCreated");
-
-		setContentView(R.layout.activity_main);
 		this.callerFlashlight = (CallerFlashlight) this.getApplication();
+		setContentView(R.layout.activity_main);
+
+		if (callerFlashlight.isFirstTime()) {
+			Intent intent = new Intent(this, FirstTimeUtilisation.class);
+			startActivityForResult(intent, 1);
+			showHowTo();
+		}
+
 		this.mainPanel = this;
-//		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+		//		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		Button callPrefs = (Button) findViewById(R.id.CallPref);
 		callPrefs.setOnClickListener(this);
 		Button msgPrefs = (Button) findViewById(R.id.MsgPref);
@@ -72,6 +83,56 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		callFlashCreate();
 		msgFlashCreate();
 
+	}
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		if (requestCode == 1) {
+
+			if (resultCode == RESULT_OK) {
+				callerFlashlight.setFirstTime(false);
+			}
+
+		}
+
+	}
+
+	private void showHowTo() {
+		Log.d(TAG, "showHowTo");
+		final Dialog dialog = new Dialog(this, android.R.style.Theme_Translucent_NoTitleBar);
+
+		dialog.setContentView(R.layout.transparent_howto);
+
+		LinearLayout layout = (LinearLayout) dialog.findViewById(R.id.transp_how_to);
+		layout.setBackgroundColor(Color.TRANSPARENT);
+
+		imgIndex = 1;
+		img = (ImageView) layout.findViewById(R.id.howto_img);
+		img.setImageResource(R.drawable.i1);
+		img.setOnClickListener(new View.OnClickListener() {
+
+
+			public void onClick(View arg0) {
+
+				imgIndex += 1;
+				switch (imgIndex) {
+					case 2:
+						img.setImageResource(R.drawable.i2);
+						break;
+					case 3:
+						img.setImageResource(R.drawable.i3);
+						break;
+					case 4:
+						img.setImageResource(R.drawable.i4);
+						break;
+					case 5:
+						dialog.dismiss();
+				}
+
+			}
+
+		});
+		dialog.show();
 	}
 
 	private void msgFlashCreate() {
@@ -91,9 +152,9 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		msgFlashOffBar.setProgress(callerFlashlight.getMsgFlashOffDuration());
 		msgFlashOffBar.setMax(1000);
 
-//		msgFlashDurBar = (SeekBar) findViewById(R.id.flashDurationBarMsg);
-//		msgFlashDurBar.setProgress(callerFlashlight.getMsgFlashDuration());
-//		msgFlashDurBar.setMax(10);
+		//		msgFlashDurBar = (SeekBar) findViewById(R.id.flashDurationBarMsg);
+		//		msgFlashDurBar.setProgress(callerFlashlight.getMsgFlashDuration());
+		//		msgFlashDurBar.setMax(10);
 
 		msgFlashOnBarValue = (EditText) findViewById(R.id.flashOnDurationValueMsg);
 		msgFlashOnBarValue.setText(String.valueOf(msgFlashOnBar.getProgress()));
@@ -106,15 +167,15 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		msgFlashOffBarValue.setOnFocusChangeListener(this);
 
 
-//		msgFlashDurBarValue = (EditText) findViewById(R.id.flashDurationValueMsg);
-//		msgFlashDurBarValue.setText(String.valueOf(msgFlashDurBar.getProgress()));
-//		msgFlashDurBarValue.addTextChangedListener(this);
+		//		msgFlashDurBarValue = (EditText) findViewById(R.id.flashDurationValueMsg);
+		//		msgFlashDurBarValue.setText(String.valueOf(msgFlashDurBar.getProgress()));
+		//		msgFlashDurBarValue.addTextChangedListener(this);
 
 		msgFlashOnBar.setOnSeekBarChangeListener(seekBarChange);
 
 		msgFlashOffBar.setOnSeekBarChangeListener(seekBarChange);
 
-//		msgFlashDurBar.setOnSeekBarChangeListener(seekBarChange);
+		//		msgFlashDurBar.setOnSeekBarChangeListener(seekBarChange);
 	}
 
 	private void callFlashCreate() {
@@ -153,12 +214,12 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	public void onClick(View view) {
 
 		ToggleButton tb = null;
-//		try {
-//			tb = (ToggleButton) view;
-//		} catch (ClassCastException e) {
-//			tb = (Button) view;
-//		}
-//		Log.d(TAG, "onClicked: " + tb.isChecked());
+		//		try {
+		//			tb = (ToggleButton) view;
+		//		} catch (ClassCastException e) {
+		//			tb = (Button) view;
+		//		}
+		//		Log.d(TAG, "onClicked: " + tb.isChecked());
 
 		switch (view.getId()) {
 			case R.id.callFlashToggle:
@@ -184,7 +245,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 					msgFlashTestButton.setChecked(false);
 					callerFlashlight.setMsgFlashTest(false);
 					new ManageFlash(callFlashTestButton).execute();
-//					startActivity(new Intent(this, CameraSurface.class));
+					//					startActivity(new Intent(this, CameraSurface.class));
 				}//else if (!msgFlashTestButton.isChecked()){
 				//	Flash.releaseCam();
 				//}
@@ -196,7 +257,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 					callerFlashlight.setCallFlashTest(false);
 
 					new ManageFlash(msgFlashTestButton).execute();
-//					startActivity(new Intent(this, CameraSurface.class));
+					//					startActivity(new Intent(this, CameraSurface.class));
 				}//else if(!callFlashTestButton.isChecked()){
 				//	Flash.releaseCam();
 				//}
@@ -224,7 +285,8 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		//return super.onOptionsItemSelected(item);
 		switch (item.getItemId()) {     // figure out what was pressed
 			case R.id.howTo:
-				startActivity(new Intent(this, HowTo.class)); //
+				//				startActivity(new Intent(this, HowTo.class)); //
+				showHowTo();
 				break;
 			case R.id.about:
 				startActivity(new Intent(this, About.class));   // start the About Dialog
@@ -242,16 +304,16 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 	@Override
 	public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-//		Log.d(TAG, "beforeTextChanged with char: " + charSequence);
+		//		Log.d(TAG, "beforeTextChanged with char: " + charSequence);
 	}
 
 	@Override
 	public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-//		Log.d(TAG, "onTextChanged with char: " + charSequence);
-//		if (charSequence.length() == 0) {
-////			Log.d(TAG, "Empty editText. Set it to 0");
-//			((EditText) getCurrentFocus()).setText(String.valueOf(0));
-//		}
+		//		Log.d(TAG, "onTextChanged with char: " + charSequence);
+		//		if (charSequence.length() == 0) {
+		////			Log.d(TAG, "Empty editText. Set it to 0");
+		//			((EditText) getCurrentFocus()).setText(String.valueOf(0));
+		//		}
 
 	}
 
@@ -265,12 +327,12 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 			editText = (EditText) getCurrentFocus();
 			if (editable.length() == 0) {
 				value = 0;
-//				editText.setText(String.valueOf(value));
+				//				editText.setText(String.valueOf(value));
 			} else {
 				value = Integer.valueOf(String.valueOf(editable));
 			}
 			editId = editText.getId();
-//			Log.d(TAG, "Value: " + value);
+			//			Log.d(TAG, "Value: " + value);
 		} catch (NumberFormatException e) {
 			return;
 		} catch (NullPointerException e) {
@@ -283,16 +345,16 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 			editText.setText(String.valueOf(value));
 		}
 
-//		Log.d(TAG, "EditID: " + editId);
+		//		Log.d(TAG, "EditID: " + editId);
 
 		switch (editId) {
 			case -1:
 				break;
 			case R.id.flashOnDurationValue:
-//				if(value<50){
-//					value=50;
-//					editText.setText(String.valueOf(value));
-//				}
+				//				if(value<50){
+				//					value=50;
+				//					editText.setText(String.valueOf(value));
+				//				}
 				callerFlashlight.setCallFlashOnDuration(value);
 				callFlashOnBar.setOnSeekBarChangeListener(null);
 				callFlashOnBar.setProgress(value);
@@ -300,10 +362,10 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 				break;
 			case R.id.flashOffDurationValue:
-//				if(value<50){
-//					value=50;
-//					editText.setText(String.valueOf(value));
-//				}
+				//				if(value<50){
+				//					value=50;
+				//					editText.setText(String.valueOf(value));
+				//				}
 				callerFlashlight.setCallFlashOffDuration(value);
 				callFlashOffBar.setOnSeekBarChangeListener(null);
 				callFlashOffBar.setProgress(value);
@@ -311,10 +373,10 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 				break;
 			case R.id.flashOnDurationValueMsg:
-//				if(value<50){
-//					value=50;
-//					editText.setText(String.valueOf(value));
-//				}
+				//				if(value<50){
+				//					value=50;
+				//					editText.setText(String.valueOf(value));
+				//				}
 				callerFlashlight.setMsgFlashOnDuration(value);
 				msgFlashOnBar.setOnSeekBarChangeListener(null);
 				msgFlashOnBar.setProgress(value);
@@ -322,31 +384,31 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 				break;
 			case R.id.flashOffDurationValueMsg:
-//				if(value<50){
-//					value=50;
-//					editText.setText(String.valueOf(value));
-//				}
+				//				if(value<50){
+				//					value=50;
+				//					editText.setText(String.valueOf(value));
+				//				}
 				callerFlashlight.setMsgFlashOffDuration(value);
 				msgFlashOffBar.setOnSeekBarChangeListener(null);
 				msgFlashOffBar.setProgress(value);
 				msgFlashOffBar.setOnSeekBarChangeListener(seekBarChange);
 
 				break;
-//			case R.id.flashDurationValueMsg:
-//				if (value > 10) {
-//					value = 10;
-//					editText.setText(String.valueOf(value));
-//				}
-////				else if(value<1){
-////					value=1;
-////					editText.setText(String.valueOf(value));
-////				}
-//				callerFlashlight.setMsgFlashDuration(value);
-//				msgFlashDurBar.setOnSeekBarChangeListener(null);
-//				msgFlashDurBar.setProgress(value);
-//				msgFlashDurBar.setOnSeekBarChangeListener(seekBarChange);
-//
-//				break;
+			//			case R.id.flashDurationValueMsg:
+			//				if (value > 10) {
+			//					value = 10;
+			//					editText.setText(String.valueOf(value));
+			//				}
+			////				else if(value<1){
+			////					value=1;
+			////					editText.setText(String.valueOf(value));
+			////				}
+			//				callerFlashlight.setMsgFlashDuration(value);
+			//				msgFlashDurBar.setOnSeekBarChangeListener(null);
+			//				msgFlashDurBar.setProgress(value);
+			//				msgFlashDurBar.setOnSeekBarChangeListener(seekBarChange);
+			//
+			//				break;
 		}
 
 
@@ -434,15 +496,15 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 					msgFlashOffBarValue.addTextChangedListener(mainPanel);
 					callerFlashlight.setMsgFlashOffDuration(progress);
 					break;
-//				case R.id.flashDurationBarMsg:
-//					progress = progress / 1;
-//					progress = progress * 1;
-//					if (progress < 1) progress = 1;
-//					msgFlashDurBarValue.removeTextChangedListener(mainPanel);
-//					msgFlashDurBarValue.setText(String.valueOf(progress));
-//					msgFlashDurBarValue.addTextChangedListener(mainPanel);
-//					callerFlashlight.setMsgFlashDuration(progress);
-//					break;
+				//				case R.id.flashDurationBarMsg:
+				//					progress = progress / 1;
+				//					progress = progress * 1;
+				//					if (progress < 1) progress = 1;
+				//					msgFlashDurBarValue.removeTextChangedListener(mainPanel);
+				//					msgFlashDurBarValue.setText(String.valueOf(progress));
+				//					msgFlashDurBarValue.addTextChangedListener(mainPanel);
+				//					callerFlashlight.setMsgFlashDuration(progress);
+				//					break;
 
 
 			}
