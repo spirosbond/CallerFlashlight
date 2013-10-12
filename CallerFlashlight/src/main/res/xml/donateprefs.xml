@@ -13,6 +13,11 @@
                 android:title="@string/startapp"
                 android:summary="@string/startappsum"
                 android:key="startapp"/>
+
+        <Preference
+            android:title="@string/adColony"
+            android:summary="@string/adColonysum"
+            android:key="adcolony"/>
     </PreferenceCategory>
 
 

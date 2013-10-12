@@ -6,8 +6,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.ToggleButton;
 
@@ -21,6 +24,7 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 	ToggleButton testButton;
 	Button contButton;
 	Spinner moduleList;
+	ImageView logo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,9 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 		contButton.setOnClickListener(this);
 		moduleList = (Spinner) findViewById(R.id.module_list);
 		moduleList.setOnItemSelectedListener(this);
+		logo = (ImageView) findViewById(R.id.logo);
+		Animation pulse = AnimationUtils.loadAnimation(this, R.anim.pulse);
+		logo.startAnimation(pulse);
 
 	}
 

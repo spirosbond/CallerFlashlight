@@ -101,5 +101,7 @@
     <string name="first_time">First Time Settings</string>
     <string name="firstcontinue">Continue</string>
     <string name="first_time_desc">Welcome to Callflash. The application which controls your flash on every call or notification.\n\nPlease select the flash driver which works with your device. You can change it afterwards from “Preferences”.\n(Prefer “Standard” over “Alternative” and “Alternative” over “Alternative 2”)</string>
+    <string name="adColony">See an HD video!</string>
+    <string name="adColonysum">App of the day by adColony...</string>
 
 </resources>

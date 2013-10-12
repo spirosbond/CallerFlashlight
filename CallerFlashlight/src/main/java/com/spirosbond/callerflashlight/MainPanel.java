@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -35,6 +36,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	private SeekBarChange seekBarChange = new SeekBarChange();
 	private ImageView img;
 	private int imgIndex;
+	private Activity act = this;
 
 	@Override
 	protected void onResume() {
@@ -48,7 +50,6 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		msgFlashButton.setChecked(callerFlashlight.isMsgFlash());
 		msgFlashTestButton = (ToggleButton) findViewById(R.id.msgFlashTestToggle);
 		msgFlashTestButton.setChecked(callerFlashlight.isMsgFlashTest());
-
 	}
 
 	@Override
@@ -113,11 +114,11 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 
 			public void onClick(View arg0) {
-
 				imgIndex += 1;
 				switch (imgIndex) {
 					case 2:
 						img.setImageResource(R.drawable.i2);
+						callFlashButton.startAnimation(AnimationUtils.loadAnimation(act, R.anim.pulse));
 						break;
 					case 3:
 						img.setImageResource(R.drawable.i3);
