@@ -9,12 +9,12 @@
         android:toDegrees="360"
         android:duration="1000"/>
 
-    <rotate
-        android:pivotX="20%"
-        android:pivotY="30%"
-        android:fromDegrees="0"
-        android:toDegrees="360"
-        android:duration="1200"
-        android:startOffset="1000"/>
+    <!--<rotate-->
+    <!--android:pivotX="20%"-->
+    <!--android:pivotY="30%"-->
+    <!--android:fromDegrees="0"-->
+    <!--android:toDegrees="360"-->
+    <!--android:duration="1200"-->
+    <!--android:startOffset="1000"/>-->
 
 </set>

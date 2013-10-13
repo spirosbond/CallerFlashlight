@@ -102,6 +102,10 @@
     <string name="firstcontinue">Continue</string>
     <string name="first_time_desc">Welcome to Callflash. The application which controls your flash on every call or notification.\n\nPlease select the flash driver which works with your device. You can change it afterwards from “Preferences”.\n(Prefer “Standard” over “Alternative” and “Alternative” over “Alternative 2”)</string>
     <string name="adColony">See an HD video!</string>
-    <string name="adColonysum">App of the day by adColony...</string>
+    <string name="adColonysum">App of the day by adColony…</string>
+    <string name="bubble1">Enable Flash on Call and on Notification\nwith these buttons…\n</string>
+    <string name="bubble2">Select the duration (in milliseconds)\nfor which the flash is ON and OFF,\nusing the sliders or the textfields…\n</string>
+    <string name="bubble3">Test your settings using the test buttons…\n</string>
+    <string name="bubble4">Edit the preferences of each section\nand you are done!\n</string>
 
 </resources>

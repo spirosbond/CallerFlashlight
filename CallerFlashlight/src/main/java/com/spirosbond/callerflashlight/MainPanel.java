@@ -16,8 +16,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -36,6 +37,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	private Button callPrefs, msgPrefs;
 	private SeekBarChange seekBarChange = new SeekBarChange();
 	private ImageView img;
+	private TextView bubbleDesc;
 	private int imgIndex;
 	private Activity act = this;
 
@@ -105,22 +107,26 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 		dialog.setContentView(R.layout.transparent_howto);
 
-		LinearLayout layout = (LinearLayout) dialog.findViewById(R.id.transp_how_to);
+		RelativeLayout layout = (RelativeLayout) dialog.findViewById(R.id.transp_how_to);
 		layout.setBackgroundColor(Color.TRANSPARENT);
 
 		imgIndex = 1;
 		img = (ImageView) layout.findViewById(R.id.howto_img);
-		img.setImageResource(R.drawable.i1);
+		img.setImageResource(R.drawable.ic_popup_bubble);
+		bubbleDesc = (TextView) layout.findViewById(R.id.howto_text);
+		bubbleDesc.setText(getResources().getString(R.string.bubble1));
+		img.setAnimation(AnimationUtils.loadAnimation(act, R.anim.fade_in));
+		bubbleDesc.setAnimation(AnimationUtils.loadAnimation(act, R.anim.fade_in));
 		callFlashButton.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 		msgFlashButton.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
-		img.setOnClickListener(new View.OnClickListener() {
-
-
+		layout.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
 				imgIndex += 1;
 				switch (imgIndex) {
 					case 2:
-						img.setImageResource(R.drawable.i2);
+						bubbleDesc.setText(getResources().getString(R.string.bubble2));
+						img.setAnimation(AnimationUtils.loadAnimation(act, R.anim.fade_in));
+						bubbleDesc.setAnimation(AnimationUtils.loadAnimation(act, R.anim.fade_in));
 						callFlashOnBar.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 						callFlashOffBar.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 						callFlashOnBarValue.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
@@ -131,18 +137,23 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 						msgFlashOffBar.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 						break;
 					case 3:
-						img.setImageResource(R.drawable.i3);
+						bubbleDesc.setText(getResources().getString(R.string.bubble3));
+						img.setAnimation(AnimationUtils.loadAnimation(act, R.anim.fade_in));
+						bubbleDesc.setAnimation(AnimationUtils.loadAnimation(act, R.anim.fade_in));
 						callFlashTestButton.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 						msgFlashTestButton.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 						break;
 					case 4:
-						img.setImageResource(R.drawable.i4);
+						bubbleDesc.setText(getResources().getString(R.string.bubble4));
+						img.setAnimation(AnimationUtils.loadAnimation(act, R.anim.fade_in));
+						bubbleDesc.setAnimation(AnimationUtils.loadAnimation(act, R.anim.fade_in));
 						callPrefs.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 						msgPrefs.startAnimation(AnimationUtils.loadAnimation(act, R.anim.blink));
 						break;
 					case 5:
 						dialog.dismiss();
 				}
+
 
 			}
 
