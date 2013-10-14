@@ -63,6 +63,8 @@
     <string name="sms_mode_categ">General Preferences</string>
     <string name="sms_mode_list_1">Time based</string>
     <string name="sms_mode_list_2">Repetitive</string>
+    <string name="sms_mode_list_value_1">Seconds</string>
+    <string name="sms_mode_list_value_2">Times</string>
     <string name="type_list_1">Standard</string>
     <string name="type_list_2">Alternative</string>
     <string name="type_list_3">Alternative 2</string>
@@ -100,12 +102,14 @@
     <string name="donateDialog">"1. Choose to see the apps of the day\n2. Download any app you like\n3. You donated!\n…without spending a dime!"</string>
     <string name="first_time">First Time Settings</string>
     <string name="firstcontinue">Continue</string>
-    <string name="first_time_desc">Welcome to Callflash. The application which controls your flash on every call or notification.\n\nPlease select the flash driver which works with your device. You can change it afterwards from “Preferences”.\n(Prefer “Standard” over “Alternative” and “Alternative” over “Alternative 2”)</string>
+    <string name="first_time_desc">Welcome to Callflash, the application which controls your flash on every call or notification.\n\nPlease select the flash driver which works with your device. You can change it afterwards from “Preferences”.\n(Prefer “Standard” over “Alternative” and “Alternative” over “Alternative 2”)</string>
     <string name="adColony">See an HD video!</string>
     <string name="adColonysum">App of the day by adColony…</string>
     <string name="bubble1">Enable Flash on Call and on Notification\nwith these buttons…\n</string>
     <string name="bubble2">Select the duration (in milliseconds)\nfor which the flash is ON and OFF,\nusing the sliders or the textfields…\n</string>
     <string name="bubble3">Test your settings using the test buttons…\n</string>
     <string name="bubble4">Edit the preferences of each section\nand you are done!\n</string>
+    <string name="adMob">Free Apps!</string>
+    <string name="adMobsum">Free apps of the day by AdMob…</string>
 
 </resources>

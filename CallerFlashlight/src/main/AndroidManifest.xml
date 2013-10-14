@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.spirosbond.callerflashlight"
           android:versionCode="1"
-          android:versionName="2.0">
+          android:versionName="2.0.1">
 
     <uses-sdk
-            android:minSdkVersion="7"
-            android:targetSdkVersion="18"/>
+        android:minSdkVersion="7"
+        android:targetSdkVersion="18"/>
 
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.FLASHLIGHT"/>
@@ -28,26 +28,25 @@
 
 
     <uses-feature
-            android:name="android.hardware.camera"
-            android:required="true"
-            />
+        android:name="android.hardware.camera"
+        android:required="true"
+        />
     <uses-feature
-            android:name="android.hardware.camera.flash"
-            android:required="true"/>
+        android:name="android.hardware.camera.flash"
+        android:required="true"/>
 
     <application
-            android:allowBackup="true"
-            android:icon="@drawable/ic_launcher"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme"
-            android:name=".CallerFlashlight"
-            >
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:name=".CallerFlashlight">
 
         <activity
-                android:name="com.spirosbond.callerflashlight.MainPanel"
-                android:label="@string/app_name"
-                android:windowSoftInputMode="stateHidden"
-                >
+            android:name="com.spirosbond.callerflashlight.MainPanel"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -56,54 +55,54 @@
         </activity>
 
         <activity
-                android:name=".PrefsActivity"
-                android:label="@string/titlePrefs"
-                android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
+            android:name=".PrefsActivity"
+            android:label="@string/titlePrefs"
+            android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.spirosbond.callerflashlight.MainPanel"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.spirosbond.callerflashlight.MainPanel"/>
         </activity>
 
         <activity
-                android:name=".CallPrefs"
-                android:label="@string/titleCallPrefs"
-                android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
+            android:name=".CallPrefs"
+            android:label="@string/titleCallPrefs"
+            android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.spirosbond.callerflashlight.MainPanel"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.spirosbond.callerflashlight.MainPanel"/>
         </activity>
 
         <activity
-                android:name=".MsgPrefs"
-                android:label="@string/titleMsgPrefs"
-                android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
+            android:name=".MsgPrefs"
+            android:label="@string/titleMsgPrefs"
+            android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.spirosbond.callerflashlight.MainPanel"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.spirosbond.callerflashlight.MainPanel"/>
         </activity>
 
         <activity
-                android:name=".About"
-                android:label="@string/titleAbout"
-                android:screenOrientation="portrait"
-                android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
+            android:name=".About"
+            android:label="@string/titleAbout"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.spirosbond.callerflashlight.MainPanel"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.spirosbond.callerflashlight.MainPanel"/>
         </activity>
         <activity
-                android:name=".HowTo"
-                android:label="@string/titleHowTo"
-                android:windowSoftInputMode="stateHidden"
-                android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
+            android:name=".HowTo"
+            android:label="@string/titleHowTo"
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.spirosbond.callerflashlight.MainPanel"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.spirosbond.callerflashlight.MainPanel"/>
         </activity>
 
         <activity
@@ -113,26 +112,26 @@
 
 
         <activity
-                android:name=".Donate"
-                android:label="@string/titleDonate"
-                android:windowSoftInputMode="stateHidden"
-                android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
+            android:name=".Donate"
+            android:label="@string/titleDonate"
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName="com.spirosbond.callerflashlight.MainPanel">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.spirosbond.callerflashlight.MainPanel"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.spirosbond.callerflashlight.MainPanel"/>
         </activity>
 
         <activity
-                android:name=".AppList"
-                android:label="@string/AppList"
-                android:windowSoftInputMode="stateHidden"
-                android:configChanges="orientation"
-                android:parentActivityName="com.spirosbond.callerflashlight.MsgPrefs">
+            android:name=".AppList"
+            android:label="@string/AppList"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation"
+            android:parentActivityName="com.spirosbond.callerflashlight.MsgPrefs">
 
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.spirosbond.callerflashlight.MsgPrefs"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.spirosbond.callerflashlight.MsgPrefs"/>
 
         </activity>
 
@@ -149,19 +148,19 @@
         </receiver>
 
         <service
-                android:name=".NotificationService"
-                android:label="@string/notification_service"
-                android:enabled="true"
-                android:exported="false"
-                android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            android:name=".NotificationService"
+            android:label="@string/notification_service"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
 
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService"/>
             </intent-filter>
 
             <meta-data
-                    android:name="android.accessibilityservice"
-                    android:resource="@xml/accessibility_service"/>
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service"/>
 
         </service>
 
@@ -175,15 +174,15 @@
 
 
         <activity
-                android:name="com.startapp.android.publish.list3d.List3DActivity"
-                android:taskAffinity="com.spirosbond.callerflashlight.AppWall"
-                android:theme="@android:style/Theme"/>
+            android:name="com.startapp.android.publish.list3d.List3DActivity"
+            android:taskAffinity="com.spirosbond.callerflashlight.AppWall"
+            android:theme="@android:style/Theme"/>
 
         <activity
-                android:name="com.startapp.android.publish.AppWallActivity"
-                android:theme="@android:style/Theme.Translucent"
-                android:taskAffinity="com.spirosbond.callerflashlight.AppWall"
-                android:configChanges="orientation|keyboardHidden"/>
+            android:name="com.startapp.android.publish.AppWallActivity"
+            android:theme="@android:style/Theme.Translucent"
+            android:taskAffinity="com.spirosbond.callerflashlight.AppWall"
+            android:configChanges="orientation|keyboardHidden"/>
 
 
         <!--<meta-data-->
@@ -195,30 +194,30 @@
 
 
         <activity
-                android:name="com.appflood.AFPanelActivity"
-                android:configChanges="keyboardHidden">
+            android:name="com.appflood.AFPanelActivity"
+            android:configChanges="keyboardHidden">
         </activity>
         <activity
-                android:name="com.appflood.AFFullScreenActivity"
-                android:configChanges="keyboardHidden|orientation"
-                android:theme="@android:style/Theme.Translucent"
-                android:launchMode="singleTask">
+            android:name="com.appflood.AFFullScreenActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent"
+            android:launchMode="singleTask">
         </activity>
         <activity
-                android:name="com.appflood.AFListActivity"
-                android:configChanges="keyboardHidden|orientation"
-                android:launchMode="singleTask"
-                android:theme="@android:style/Theme.Translucent">
+            android:name="com.appflood.AFListActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent">
             <intent-filter>
                 <action android:name=""/>
             </intent-filter>
         </activity>
         <activity
-                android:name="com.appflood.AFInterstitialActivity"
-                android:configChanges="keyboardHidden|orientation"
-                android:launchMode="singleTask"
-                android:screenOrientation="portrait"
-                android:theme="@android:style/Theme.Translucent">
+            android:name="com.appflood.AFInterstitialActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent">
 
         </activity>
 
@@ -236,6 +235,16 @@
             android:name="com.jirbo.adcolony.AdColonyBrowser"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+
+        <activity
+            android:name="com.google.ads.AdActivity"
+            android:configChanges="keyboard|screenLayout|uiMode|smallestScreenSize|keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+
+            <meta-data
+                android:name="ADMOB_PUBLISHER_ID"
+                android:value="pub-4450409123751393"/>
+        </activity>
 
 
     </application>

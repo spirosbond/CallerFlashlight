@@ -67,13 +67,23 @@ public class Flash {
 	public static void releaseCam() {
 		Log.d(TAG, "releaseCam");
 		if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE) {
-			orientationChanger.setVisibility(View.GONE);
+			try {
+				orientationChanger.setVisibility(View.GONE);
+			} catch (Exception e) {
+				e.printStackTrace();
+				Log.d(TAG, "Failed to destroy SurfaceView");
+			}
 		}
 		if (gotCam) {
-			cam.stopPreview();
-			cam.release();
-			gotCam = false;
-			Log.d(TAG, "Cam released");
+			try {
+				cam.stopPreview();
+				cam.release();
+				gotCam = false;
+				Log.d(TAG, "Cam released");
+			} catch (Exception e) {
+				e.printStackTrace();
+				Log.d(TAG, "failed to release cam");
+			}
 		}
 	}
 
@@ -83,13 +93,13 @@ public class Flash {
 			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(1, 1);
 			layoutParams.setMargins(1000, 1000, 1000, 1000);
 
-//		preview.setLayoutParams(layoutParams);
-//			FrameLayout frame = new FrameLayout(cf.getApplicationContext());
+			//		preview.setLayoutParams(layoutParams);
+			//			FrameLayout frame = new FrameLayout(cf.getApplicationContext());
 
 			orientationChanger = new LinearLayout(cf.getApplicationContext());
 
 			WindowManager.LayoutParams orientationLayout = new WindowManager.LayoutParams(WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY, 0,
-							PixelFormat.RGBA_8888);
+					PixelFormat.RGBA_8888);
 
 			WindowManager wm = (WindowManager) cf.getApplicationContext().getSystemService(Service.WINDOW_SERVICE);
 
@@ -151,7 +161,12 @@ public class Flash {
 			loadParameters();
 		}
 
-		cam.setParameters(pon);
+		try {
+			cam.setParameters(pon);
+		} catch (Exception e) {
+			e.printStackTrace();
+			Log.d(TAG, "failed to set parameters");
+		}
 
 		try {
 			Thread.sleep(onMillis);
@@ -161,7 +176,12 @@ public class Flash {
 		}
 		//disable flash
 
-		cam.setParameters(poff);
+		try {
+			cam.setParameters(poff);
+		} catch (Exception e) {
+			e.printStackTrace();
+			Log.d(TAG, "failed to set parameters");
+		}
 
 		try {
 			Thread.sleep(offMillis);
@@ -176,7 +196,12 @@ public class Flash {
 	public void disableFlash() {
 		Log.d(TAG, "disableFlash");
 
-		cam.setParameters(poff);
+		try {
+			cam.setParameters(poff);
+		} catch (Exception e) {
+			e.printStackTrace();
+			Log.d(TAG, "failed to set parameters");
+		}
 
 	}
 

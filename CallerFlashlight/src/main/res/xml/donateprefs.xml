@@ -6,18 +6,22 @@
     <PreferenceCategory android:title="@string/donateTitle">
 
         <Preference
-                android:title="@string/appoftheday"
-                android:summary="@string/appofthedaysum"
-                android:key="appoftheday"/>
+            android:title="@string/appoftheday"
+            android:summary="@string/appofthedaysum"
+            android:key="appoftheday"/>
         <Preference
-                android:title="@string/startapp"
-                android:summary="@string/startappsum"
-                android:key="startapp"/>
+            android:title="@string/startapp"
+            android:summary="@string/startappsum"
+            android:key="startapp"/>
 
         <Preference
             android:title="@string/adColony"
             android:summary="@string/adColonysum"
             android:key="adcolony"/>
+        <Preference
+            android:title="@string/adMob"
+            android:summary="@string/adMobsum"
+            android:key="adMob"/>
     </PreferenceCategory>
 
 

@@ -31,6 +31,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 	private String mUnitsRight = "";
 	private SeekBar mSeekBar;
 	private TextView mStatusText;
+	private CallerFlashlight cf;
 
 	public SeekBarPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -43,7 +44,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 	}
 
 	private void initPreference(Context context, AttributeSet attrs) {
-		CallerFlashlight cf = (CallerFlashlight) context.getApplicationContext();
+		cf = (CallerFlashlight) context.getApplicationContext();
 
 		setValuesFromXml(attrs);
 		mSeekBar = new SeekBar(context, attrs);
@@ -51,9 +52,11 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 		mSeekBar.setOnSeekBarChangeListener(this);
 
 		if (cf.getMsgFlashType() == 1) {
-			setmUnitsRight(" seconds");
+			Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
+			setmUnitsRight(" " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
 		} else if (cf.getMsgFlashType() == 2) {
-			setmUnitsRight(" times");
+			Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
+			setmUnitsRight(" " + cf.getMyResources().getString(R.string.sms_mode_list_value_2));
 		}
 
 		setWidgetLayoutResource(R.layout.seek_bar_preference);
@@ -64,8 +67,8 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 		mMinValue = attrs.getAttributeIntValue(APPLICATIONNS, "min", 1);
 
 		mUnitsLeft = getAttributeStringValue(attrs, APPLICATIONNS, "unitsLeft", "");
-//		String units = getAttributeStringValue(attrs, APPLICATIONNS, "units", "");
-//		mUnitsRight = getAttributeStringValue(attrs, APPLICATIONNS, "unitsRight", units);
+		//		String units = getAttributeStringValue(attrs, APPLICATIONNS, "units", "");
+		//		mUnitsRight = getAttributeStringValue(attrs, APPLICATIONNS, "unitsRight", units);
 
 		try {
 			String newInterval = attrs.getAttributeValue(APPLICATIONNS, "interval");
@@ -114,7 +117,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 				// remove the existing seekbar (there may not be one) and add ours
 				newContainer.removeAllViews();
 				newContainer.addView(mSeekBar, ViewGroup.LayoutParams.FILL_PARENT,
-								ViewGroup.LayoutParams.WRAP_CONTENT);
+						ViewGroup.LayoutParams.WRAP_CONTENT);
 			}
 		} catch (Exception ex) {
 			Log.e(TAG, "Error binding view: " + ex.toString());
@@ -144,6 +147,13 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 			mSeekBar.setProgress(mCurrentValue - mMinValue);
 
 			TextView unitsRight = (TextView) view.findViewById(R.id.seekBarPrefUnitsRight);
+			if (cf.getMsgFlashType() == 1) {
+				Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
+				setmUnitsRight(" " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
+			} else if (cf.getMsgFlashType() == 2) {
+				Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
+				setmUnitsRight(" " + cf.getMyResources().getString(R.string.sms_mode_list_value_2));
+			}
 			unitsRight.setText(mUnitsRight);
 
 			TextView unitsLeft = (TextView) view.findViewById(R.id.seekBarPrefUnitsLeft);
@@ -191,7 +201,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 	@Override
 	protected Object onGetDefaultValue(TypedArray ta, int index) {
 
-//		int defaultValue = ta.getInt(index, DEFAULT_VALUE);
+		//		int defaultValue = ta.getInt(index, DEFAULT_VALUE);
 		return ta.getInt(index, DEFAULT_VALUE);
 
 	}

@@ -3,6 +3,7 @@ package com.spirosbond.callerflashlight;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.media.AudioManager;
 import android.preference.PreferenceManager;
 import android.text.format.Time;
@@ -18,7 +19,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
-	private static final String packages = "com.viber.voip,com.skype.raider,com.google.android.talk,com.google.android.gm,com.facebook.katana,com.whatsapp,com.google.android.apps.plus,mikado.bizcalpro,netgenius.bizcal,com.ryosoftware.contactdatesnotifier,com.twitter.android,com.fsck.k9,com.onegravity.k10.pro2,com.google.android.apps.plus,de.gmx.mobile.android.mail,com.quoord.tapatalkHD,com.quoord.tapatalkpro.activity,com.android.deskclock";
+	private static final String packages = "com.viber.voip,com.skype.raider,com.google.android.talk,com.google.android.gm,com.facebook.katana,com.whatsapp,com.google.android.apps.plus,mikado.bizcalpro,netgenius.bizcal,com.ryosoftware.contactdatesnotifier,com.twitter.android,com.fsck.k9,com.onegravity.k10.pro2,com.google.android.apps.plus,de.gmx.mobile.android.mail,com.quoord.tapatalkHD,com.quoord.tapatalkpro.activity,com.android.deskclock,com.facebook.orca,com.joelapenna.foursquared,com.snapchat.android,com.instagram.android";
 	private static final String TAG = CallerFlashlight.class.getSimpleName();
 	private boolean callFlash = false, msgFlash = false, callFlashTest = false, msgFlashTest = false;
 	private int callFlashOnDuration = 250, callFlashOffDuration = 250, msgFlashOnDuration = 250, msgFlashOffDuration = 250, msgFlashDuration = 3;
@@ -35,15 +36,21 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		Log.d(TAG, "onCreated");
 
 		BugSenseHandler.initAndStartSession(CallerFlashlight.this, "2b2cf28e");
 
-		Log.d(TAG, "onCreated");
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
 		editor = prefs.edit();
 		loadPreferences();
 
+	}
+
+	public Resources getMyResources() {
+
+		//		getResources().updateConfiguration(getResources().getConfiguration(),getResources().getDisplayMetrics());
+		return getResources();
 	}
 
 	private void loadPreferences() {
@@ -231,23 +238,34 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		Time now = new Time();
 		now.setToNow();
 
-		Log.d(TAG, "time: " + now.hour + ":" + now.minute);
+		Log.d(TAG, "time: " + now.hour + ":" + now.minute + " - " + "sleep start: " + getSleepStartHour() + ":" + getSleepStartMinute() + " - " + "sleep stop: " + getSleepStopHour() + ":" + getSleepStopMinute());
 
-		if (isSleepMode()) {
+		if (isSleepMode() && enabled) {
+			Log.d(TAG, "Checking Sleep periods");
 			if (now.hour > getSleepStartHour() && now.hour < getSleepStopHour()) {
+				Log.d(TAG, "1");
 				enabled = false;
 			} else if (now.hour == getSleepStartHour() && now.hour == getSleepStopHour()) {
 				if (now.minute >= getSleepStartMinute() && now.minute <= getSleepStopMinute()) {
+					Log.d(TAG, "2");
 					enabled = false;
 				}
 			} else if (now.hour == getSleepStartHour()) {
 				if (now.minute >= getSleepStartMinute()) {
+					Log.d(TAG, "3");
 					enabled = false;
 				}
 			} else if (now.hour == getSleepStopHour()) {
 				if (now.minute <= getSleepStopMinute()) {
+					Log.d(TAG, "4");
 					enabled = false;
 				}
+			} else if (now.hour < getSleepStartHour() && now.hour < getSleepStopHour() && getSleepStartHour() > getSleepStopHour()) {
+				Log.d(TAG, "5");
+				enabled = false;
+			} else if (now.hour > getSleepStartHour() && now.hour > getSleepStopHour() && getSleepStartHour() > getSleepStopHour()) {
+				Log.d(TAG, "6");
+				enabled = false;
 			}
 		}
 		Log.d(TAG, "enabled: " + enabled);
@@ -310,7 +328,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStartHour() {
-		//		sleepStartHour = prefs.getInt("sleep_start_hour", 0);
+		sleepStartHour = prefs.getInt("sleep_start_hour", 0);
 		return sleepStartHour;
 	}
 
@@ -321,7 +339,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStartMinute() {
-		//		sleepStartMinute = prefs.getInt("sleep_start_minute", 0);
+		sleepStartMinute = prefs.getInt("sleep_start_minute", 0);
 		return sleepStartMinute;
 	}
 
@@ -332,7 +350,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStopHour() {
-		//		sleepStopHour = prefs.getInt("sleep_stop_hour", 0);
+		sleepStopHour = prefs.getInt("sleep_stop_hour", 0);
 		return sleepStopHour;
 	}
 
@@ -343,7 +361,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public int getSleepStopMinute() {
-		//		sleepStopMinute = prefs.getInt("sleep_stop_minute", 0);
+		sleepStopMinute = prefs.getInt("sleep_stop_minute", 0);
 		return sleepStopMinute;
 	}
 
