@@ -50,7 +50,7 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 		Button selectAll = (Button) findViewById(R.id.selectall_button);
 		selectAll.setOnClickListener(this);
 		lv = (ListView) findViewById(R.id.appList);
-//		this.adapter = new InteractiveArrayAdapter(this, activities);
+		//		this.adapter = new InteractiveArrayAdapter(this, activities);
 		lv.setOnItemClickListener(this);
 		lv.setAdapter(adapter);
 		packageManager = getPackageManager();
@@ -59,7 +59,7 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 
 		// Fill the list
 		if (data == null) { // List not stored
-			Log.d(TAG, "null");
+			if (CallerFlashlight.LOG) Log.d(TAG, "null");
 			packageManager = getPackageManager();
 			this.adapter = new InteractiveArrayAdapter(this, activities);
 			lv.setAdapter(adapter);
@@ -68,7 +68,7 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 				updateData.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void[]) null);
 			else updateData.execute((Void[]) null);
 		} else { // List stored
-			Log.d(TAG, "ok");
+			if (CallerFlashlight.LOG) Log.d(TAG, "ok");
 			activities = data;
 			this.adapter = new InteractiveArrayAdapter(this, activities);
 			lv.setAdapter(adapter);
@@ -85,20 +85,20 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 		//		Log.d(TAG, "0");
 		Intent localIntent = new Intent("android.intent.action.MAIN", null);
 		localIntent.addCategory("android.intent.category.LAUNCHER");
-		//		Log.d(TAG, "1");
-//		this.adapter = new InteractiveArrayAdapter(this, activities, callerFlashlight);
+		//		if(CallerFlashlight.LOG) Log.d(TAG, "1");
+		//		this.adapter = new InteractiveArrayAdapter(this, activities, callerFlashlight);
 		packageManager = getPackageManager();
-		//		Log.d(TAG, "2");
+		//		if(CallerFlashlight.LOG) Log.d(TAG, "2");
 		List<ResolveInfo> rInfo = packageManager.queryIntentActivities(localIntent, 1);
-		//		Log.d(TAG, "3");
+		//		if(CallerFlashlight.LOG) Log.d(TAG, "3");
 		List<ApplicationInfo> packages = new ArrayList<ApplicationInfo>();
-		//		Log.d(TAG, "4");
+		//		if(CallerFlashlight.LOG) Log.d(TAG, "4");
 		for (ResolveInfo info : rInfo) {
 			packages.add(info.activityInfo.applicationInfo);
 		}
 		Model temp;
 		for (ApplicationInfo packageInfo : packages) {
-			//			Log.d(TAG, "Installed package :" + packageInfo.packageName);
+			//			if(CallerFlashlight.LOG) Log.d(TAG, "Installed package :" + packageInfo.packageName);
 			if (names.contains(packageInfo.packageName) || !callerFlashlight.isInPackages(packageInfo.packageName)) {
 				continue;
 			}
@@ -107,21 +107,21 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 			temp.setPackageName(packageInfo.packageName);
 			Drawable pic = packageInfo.loadIcon(packageManager);
 			temp.setLabel(pic);
-			//			Log.d(TAG, "Installed package :" + temp.getName());
+			//			if(CallerFlashlight.LOG) Log.d(TAG, "Installed package :" + temp.getName());
 			//temp.put(IS_CHECKED, true);
 			if (callerFlashlight.loadApp(packageInfo.packageName)) temp.setSelected(true);
 
 			activities.add(temp);
-			//			Log.d(TAG, "Launch Activity :" + packageManager.getLaunchIntentForPackage(packageInfo.packageName));
+			//			if(CallerFlashlight.LOG) Log.d(TAG, "Launch Activity :" + packageManager.getLaunchIntentForPackage(packageInfo.packageName));
 		}
 		Collections.sort(activities, new SortByString());
 		Collections.sort(activities, new SortByCheck());
-		//		Log.d(TAG, "END");
+		//		if(CallerFlashlight.LOG) Log.d(TAG, "END");
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-		Log.d(TAG, "onItemClick");
+		if (CallerFlashlight.LOG) Log.d(TAG, "onItemClick");
 		CheckBox temp = (CheckBox) view.findViewById(R.id.app_list_checkbox);
 		if (activities.get(i).isSelected()) {
 			temp.setChecked(false);
@@ -131,8 +131,8 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 
 	@Override
 	public Object onRetainNonConfigurationInstance() {
-		Log.d(TAG, "onRetain");
-//		final ArrayList<Model> data = activities;
+		if (CallerFlashlight.LOG) Log.d(TAG, "onRetain");
+		//		final ArrayList<Model> data = activities;
 		return activities;
 	}
 
@@ -162,23 +162,23 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 
 		@Override
 		protected Void doInBackground(Void... voids) {
-			//            Log.d(TAG, "doInBackground");
+			//            if(CallerFlashlight.LOG) Log.d(TAG, "doInBackground");
 			updateApps();
 			return null;
 		}
 
 		@Override
 		protected void onPreExecute() {
-			//            Log.d(TAG, "onPreExecute1");
+			//            if(CallerFlashlight.LOG) Log.d(TAG, "onPreExecute1");
 			super.onPreExecute();
-			//            Log.d(TAG, "onPreExecute2");
-//			buttonsLayout = (LinearLayout) findViewById(R.id.twoButtons);
+			//            if(CallerFlashlight.LOG) Log.d(TAG, "onPreExecute2");
+			//			buttonsLayout = (LinearLayout) findViewById(R.id.twoButtons);
 
-			//            Log.d(TAG, "onPreExecute3");
+			//            if(CallerFlashlight.LOG) Log.d(TAG, "onPreExecute3");
 			lv.setVisibility(View.GONE);
 
 			progBar.setVisibility(View.VISIBLE);
-			//            Log.d(TAG, "onPreExecute3");
+			//            if(CallerFlashlight.LOG) Log.d(TAG, "onPreExecute3");
 		}
 
 		@Override

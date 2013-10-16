@@ -27,7 +27,7 @@ public class TimePreference extends DialogPreference {
 
 		setPositiveButtonText("Set");
 		setNegativeButtonText("Cancel");
-		Log.d(TAG, "My key: " + getKey());
+		if (CallerFlashlight.LOG) Log.d(TAG, "My key: " + getKey());
 		prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 		editor = prefs.edit();
 		setSummary();
@@ -84,7 +84,7 @@ public class TimePreference extends DialogPreference {
 			else if (getKey().equals("sleep_stop")) editor.putString("sleep_stop", time);
 			editor.commit();
 
-			Log.d(TAG, time);
+			if (CallerFlashlight.LOG) Log.d(TAG, time);
 			setSummary();
 
 			if (callChangeListener(time)) {

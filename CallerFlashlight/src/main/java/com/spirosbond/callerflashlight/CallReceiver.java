@@ -18,13 +18,13 @@ public class CallReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 
-		Log.d(TAG, "onReceived");
+		if (CallerFlashlight.LOG) Log.d(TAG, "onReceived");
 
 		CallerFlashlight callerFlashlight = (CallerFlashlight) context.getApplicationContext();
 		MyPhoneStateListener phoneListener = new MyPhoneStateListener(callerFlashlight);
 		TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		telephony.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
-//		}
+		//		}
 
 	}
 
@@ -46,19 +46,19 @@ public class CallReceiver extends BroadcastReceiver {
 					case TelephonyManager.CALL_STATE_IDLE:
 
 						callState = "IDLE";
-						Log.d(TAG, callState);
+						if (CallerFlashlight.LOG) Log.d(TAG, callState);
 						break;
 
 					case TelephonyManager.CALL_STATE_OFFHOOK:
 
 						callState = "OFFHOOK";
-						Log.d(TAG, callState);
+						if (CallerFlashlight.LOG) Log.d(TAG, callState);
 						break;
 
 					case TelephonyManager.CALL_STATE_RINGING:
 
 						callState = "RINGING";
-						Log.d(TAG, callState);
+						if (CallerFlashlight.LOG) Log.d(TAG, callState);
 						if (Flash.getRunning() < 1)
 							new ManageFlash().execute(callerFlashlight.getCallFlashOnDuration(), callerFlashlight.getCallFlashOffDuration());
 						break;
@@ -78,12 +78,12 @@ public class CallReceiver extends BroadcastReceiver {
 
 			@Override
 			protected String doInBackground(Integer... integers) {
-				Log.d(TAG, "doInBackgroung Started");
+				if (CallerFlashlight.LOG) Log.d(TAG, "doInBackgroung Started");
 				int tries = 3;
 				while (callState.equals("RINGING") && tries > 0) {
 					flash.enableFlash(Long.valueOf(integers[0]), Long.valueOf(integers[1]));
 					if (!Flash.gotCam) {
-						Log.d(TAG, "Flash failed, retrying..." + tries);
+						if (CallerFlashlight.LOG) Log.d(TAG, "Flash failed, retrying..." + tries);
 						tries = tries - 1;
 					}
 				}
@@ -93,7 +93,7 @@ public class CallReceiver extends BroadcastReceiver {
 			@Override
 			protected void onPostExecute(String s) {
 				super.onPostExecute(s);
-				Log.d(TAG, "onPostExecute Started");
+				if (CallerFlashlight.LOG) Log.d(TAG, "onPostExecute Started");
 				Flash.decRunning();
 				if (Flash.getRunning() == 0) Flash.releaseCam();
 			}
@@ -101,7 +101,7 @@ public class CallReceiver extends BroadcastReceiver {
 			@Override
 			protected void onCancelled() {
 				super.onCancelled();
-				Log.d(TAG, "onCancelled Started");
+				if (CallerFlashlight.LOG) Log.d(TAG, "onCancelled Started");
 				Flash.decRunning();
 				if (Flash.getRunning() == 0) Flash.releaseCam();
 			}

@@ -34,7 +34,7 @@ public class SmsReceiver extends BroadcastReceiver {
 
 		@Override
 		protected String doInBackground(Integer... integers) {
-			Log.d(TAG, "doInBackgroung Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "doInBackgroung Started");
 			long start = System.currentTimeMillis();
 			int tries = 3;
 			if (callerFlashlight.getMsgFlashType() == 1) {
@@ -42,7 +42,7 @@ public class SmsReceiver extends BroadcastReceiver {
 				while (System.currentTimeMillis() - start <= durMillis && tries > 0) {
 					flash.enableFlash(Long.valueOf(integers[0]), Long.valueOf(integers[1]));
 					if (!Flash.gotCam) {
-						Log.d(TAG, "Flash failed, retrying..." + tries);
+						if (CallerFlashlight.LOG) Log.d(TAG, "Flash failed, retrying..." + tries);
 						tries = tries - 1;
 					}
 				}
@@ -52,7 +52,7 @@ public class SmsReceiver extends BroadcastReceiver {
 				while (times < repeats && tries > 0) {
 					flash.enableFlash(Long.valueOf(integers[0]), Long.valueOf(integers[1]));
 					if (!Flash.gotCam) {
-						Log.d(TAG, "Flash failed, retrying..." + tries);
+						if (CallerFlashlight.LOG) Log.d(TAG, "Flash failed, retrying..." + tries);
 						tries = tries - 1;
 					} else {
 						times = times + 1;
@@ -66,7 +66,7 @@ public class SmsReceiver extends BroadcastReceiver {
 		@Override
 		protected void onPostExecute(String s) {
 			super.onPostExecute(s);
-			Log.d(TAG, "onPostExecute Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "onPostExecute Started");
 			Flash.decRunning();
 			if (Flash.getRunning() == 0) Flash.releaseCam();
 		}
@@ -74,7 +74,7 @@ public class SmsReceiver extends BroadcastReceiver {
 		@Override
 		protected void onCancelled() {
 			super.onCancelled();
-			Log.d(TAG, "onCancelled Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "onCancelled Started");
 			Flash.decRunning();
 			if (Flash.getRunning() == 0) Flash.releaseCam();
 		}

@@ -27,7 +27,7 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.d(TAG, "onCreated");
+		if (CallerFlashlight.LOG) Log.d(TAG, "onCreated");
 		setContentView(R.layout.first_time);
 		callerFlashlight = (CallerFlashlight) getApplication();
 		testButton = (Button) findViewById(R.id.firstFlashTest);
@@ -44,7 +44,7 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Log.d(TAG, "onResumed");
+		if (CallerFlashlight.LOG) Log.d(TAG, "onResumed");
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 
 	@Override
 	public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-		Log.d(TAG, "onItemClick " + i + 1);
+		if (CallerFlashlight.LOG) Log.d(TAG, "onItemClick " + i + 1);
 		callerFlashlight.setType(i + 1);
 
 	}
@@ -90,7 +90,7 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 
 		@Override
 		protected String doInBackground(Integer... integers) {
-			Log.d(TAG, "doInBackgroung Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "doInBackgroung Started");
 
 			while (flashes > 0) {
 				flash.enableFlash(callerFlashlight.getCallFlashOnDuration(), callerFlashlight.getCallFlashOffDuration());
@@ -104,7 +104,7 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 		@Override
 		protected void onPostExecute(String s) {
 			super.onPostExecute(s);
-			Log.d(TAG, "onPostExecute Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "onPostExecute Started");
 			Flash.decRunning();
 			if (Flash.getRunning() == 0) Flash.releaseCam();
 		}
@@ -112,7 +112,7 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 		@Override
 		protected void onCancelled() {
 			super.onCancelled();
-			Log.d(TAG, "onCancelled Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "onCancelled Started");
 			Flash.decRunning();
 			if (Flash.getRunning() == 0) Flash.releaseCam();
 		}

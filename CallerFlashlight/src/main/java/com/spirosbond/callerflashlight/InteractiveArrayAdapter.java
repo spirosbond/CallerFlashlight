@@ -44,8 +44,8 @@ public class InteractiveArrayAdapter extends ArrayAdapter<Model> {
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 					Model element = (Model) viewHolder.checkbox.getTag();
-					Log.d("Adapter", "enter");
-					Log.d("Adapter", element.getName() + " " + element.isSelected());
+					if (CallerFlashlight.LOG) Log.d("Adapter", "enter");
+					if (CallerFlashlight.LOG) Log.d("Adapter", element.getName() + " " + element.isSelected());
 					element.setSelected(buttonView.isChecked());
 					myapp.saveApp(element.getPackageName(), element.isSelected());
 

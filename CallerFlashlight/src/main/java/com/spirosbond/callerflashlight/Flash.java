@@ -30,7 +30,7 @@ public class Flash {
 		if (!gotCam) {
 			try {
 				cam = Camera.open();
-				Log.d(TAG, "Constructor: Camera opened successfully");
+				if (CallerFlashlight.LOG) Log.d(TAG, "Constructor: Camera opened successfully");
 				gotCam = true;
 
 			} catch (NullPointerException e) {
@@ -38,7 +38,7 @@ public class Flash {
 				gotCam = false;
 				return;
 			} catch (RuntimeException e) {
-				Log.d(TAG, "Constructor: Unable to open the camera. Is already Opened??");
+				if (CallerFlashlight.LOG) Log.d(TAG, "Constructor: Unable to open the camera. Is already Opened??");
 				gotCam = false;
 				return;
 
@@ -55,23 +55,23 @@ public class Flash {
 	public static void incRunning() {
 
 		Flash.running = Flash.running + 1;
-		Log.d(TAG, "running: " + running);
+		if (CallerFlashlight.LOG) Log.d(TAG, "running: " + running);
 	}
 
 	public static void decRunning() {
 
 		Flash.running = Flash.running - 1;
-		Log.d(TAG, "running: " + running);
+		if (CallerFlashlight.LOG) Log.d(TAG, "running: " + running);
 	}
 
 	public static void releaseCam() {
-		Log.d(TAG, "releaseCam");
+		if (CallerFlashlight.LOG) Log.d(TAG, "releaseCam");
 		if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE) {
 			try {
 				orientationChanger.setVisibility(View.GONE);
 			} catch (Exception e) {
 				e.printStackTrace();
-				Log.d(TAG, "Failed to destroy SurfaceView");
+				if (CallerFlashlight.LOG) Log.d(TAG, "Failed to destroy SurfaceView");
 			}
 		}
 		if (gotCam) {
@@ -79,10 +79,10 @@ public class Flash {
 				cam.stopPreview();
 				cam.release();
 				gotCam = false;
-				Log.d(TAG, "Cam released");
+				if (CallerFlashlight.LOG) Log.d(TAG, "Cam released");
 			} catch (Exception e) {
 				e.printStackTrace();
-				Log.d(TAG, "failed to release cam");
+				if (CallerFlashlight.LOG) Log.d(TAG, "failed to release cam");
 			}
 		}
 	}
@@ -130,12 +130,12 @@ public class Flash {
 	}
 
 	public void enableFlash(long onMillis, long offMillis) {
-		Log.d(TAG, "enableFlash. ON: " + onMillis + " OFF: " + offMillis + " gotCam= " + gotCam);
+		if (CallerFlashlight.LOG) Log.d(TAG, "enableFlash. ON: " + onMillis + " OFF: " + offMillis + " gotCam= " + gotCam);
 
 		if (!gotCam) {
 			try {
 				cam = Camera.open();
-				Log.d(TAG, "enableFlash: Camera opened successfully");
+				if (CallerFlashlight.LOG) Log.d(TAG, "enableFlash: Camera opened successfully");
 				gotCam = true;
 
 			} catch (NullPointerException e) {
@@ -148,7 +148,7 @@ public class Flash {
 				}
 				return;
 			} catch (RuntimeException e) {
-				Log.d(TAG, "enableFlash: Unable to open the camera. Is already Opened??");
+				if (CallerFlashlight.LOG) Log.d(TAG, "enableFlash: Unable to open the camera. Is already Opened??");
 				gotCam = false;
 				try {
 					Thread.sleep(onMillis + offMillis);
@@ -165,7 +165,7 @@ public class Flash {
 			cam.setParameters(pon);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Log.d(TAG, "failed to set parameters");
+			if (CallerFlashlight.LOG) Log.d(TAG, "failed to set parameters");
 		}
 
 		try {
@@ -180,7 +180,7 @@ public class Flash {
 			cam.setParameters(poff);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Log.d(TAG, "failed to set parameters");
+			if (CallerFlashlight.LOG) Log.d(TAG, "failed to set parameters");
 		}
 
 		try {
@@ -194,13 +194,13 @@ public class Flash {
 	}
 
 	public void disableFlash() {
-		Log.d(TAG, "disableFlash");
+		if (CallerFlashlight.LOG) Log.d(TAG, "disableFlash");
 
 		try {
 			cam.setParameters(poff);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Log.d(TAG, "failed to set parameters");
+			if (CallerFlashlight.LOG) Log.d(TAG, "failed to set parameters");
 		}
 
 	}

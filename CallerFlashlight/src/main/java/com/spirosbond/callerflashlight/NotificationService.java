@@ -26,8 +26,9 @@ public class NotificationService extends AccessibilityService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Log.d(TAG, "Got event from: " + String.valueOf(event.getPackageName()) + " of type: " + AccessibilityEvent.eventTypeToString(event.getEventType()) + " with notification flag: " + flags);
-//		Toast.makeText(getApplicationContext(), "Got event from: " + event.getPackageName(), Toast.LENGTH_LONG).show();
+		if (CallerFlashlight.LOG)
+			Log.d(TAG, "Got event from: " + String.valueOf(event.getPackageName()) + " of type: " + AccessibilityEvent.eventTypeToString(event.getEventType()) + " with notification flag: " + flags);
+		//		Toast.makeText(getApplicationContext(), "Got event from: " + event.getPackageName(), Toast.LENGTH_LONG).show();
 
 		if (callerFlashlight.isMsgFlash() && callerFlashlight.isEnabled() && callerFlashlight.loadApp(String.valueOf(event.getPackageName())) && isValidFlag(flags)) {
 			new ManageFlash().execute(callerFlashlight.getMsgFlashOnDuration(), callerFlashlight.getMsgFlashOffDuration(),
@@ -42,13 +43,13 @@ public class NotificationService extends AccessibilityService {
 
 	@Override
 	public void onInterrupt() {
-		Log.d(TAG, "***** onInterrupt");
+		if (CallerFlashlight.LOG) Log.d(TAG, "***** onInterrupt");
 		callerFlashlight.setServiceRunning(false);
 	}
 
 	@Override
 	public void onServiceConnected() {
-		Log.d(TAG, "***** onServiceConnected");
+		if (CallerFlashlight.LOG) Log.d(TAG, "***** onServiceConnected");
 
 		callerFlashlight = (CallerFlashlight) getApplication();
 		callerFlashlight.setServiceRunning(true);
@@ -66,7 +67,7 @@ public class NotificationService extends AccessibilityService {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		Log.d(TAG, "***** onDestroyed");
+		if (CallerFlashlight.LOG) Log.d(TAG, "***** onDestroyed");
 		callerFlashlight.setServiceRunning(false);
 	}
 
@@ -81,7 +82,7 @@ public class NotificationService extends AccessibilityService {
 
 		@Override
 		protected String doInBackground(Integer... integers) {
-			Log.d(TAG, "doInBackgroung Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "doInBackgroung Started");
 			long start = System.currentTimeMillis();
 			int tries = 3;
 			if (callerFlashlight.getMsgFlashType() == 1) {
@@ -89,7 +90,7 @@ public class NotificationService extends AccessibilityService {
 				while (System.currentTimeMillis() - start <= durMillis && tries > 0) {
 					flash.enableFlash(Long.valueOf(integers[0]), Long.valueOf(integers[1]));
 					if (!Flash.gotCam) {
-						Log.d(TAG, "Flash failed, retrying..." + tries);
+						if (CallerFlashlight.LOG) Log.d(TAG, "Flash failed, retrying..." + tries);
 						tries = tries - 1;
 					}
 				}
@@ -100,7 +101,7 @@ public class NotificationService extends AccessibilityService {
 					flash.enableFlash(Long.valueOf(integers[0]), Long.valueOf(integers[1]));
 
 					if (!Flash.gotCam) {
-						Log.d(TAG, "Flash failed, retrying..." + tries);
+						if (CallerFlashlight.LOG) Log.d(TAG, "Flash failed, retrying..." + tries);
 						tries = tries - 1;
 					} else {
 						times = times + 1;
@@ -114,7 +115,7 @@ public class NotificationService extends AccessibilityService {
 		@Override
 		protected void onPostExecute(String s) {
 			super.onPostExecute(s);
-			Log.d(TAG, "onPostExecute Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "onPostExecute Started");
 			Flash.decRunning();
 			if (Flash.getRunning() == 0) Flash.releaseCam();
 		}
@@ -122,7 +123,7 @@ public class NotificationService extends AccessibilityService {
 		@Override
 		protected void onCancelled() {
 			super.onCancelled();
-			Log.d(TAG, "onCancelled Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "onCancelled Started");
 			Flash.decRunning();
 			if (Flash.getRunning() == 0) Flash.releaseCam();
 		}

@@ -16,6 +16,7 @@ import com.bugsense.trace.BugSenseHandler;
  */
 public class CallerFlashlight extends Application implements SharedPreferences.OnSharedPreferenceChangeListener {
 
+	public static final boolean LOG = false;
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
@@ -36,7 +37,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		Log.d(TAG, "onCreated");
+		if (LOG) Log.d(TAG, "onCreated");
 
 		BugSenseHandler.initAndStartSession(CallerFlashlight.this, "2b2cf28e");
 
@@ -55,7 +56,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	private void loadPreferences() {
 
-		Log.d(TAG, "loadPreferences");
+		if (LOG) Log.d(TAG, "loadPreferences");
 
 		callFlash = prefs.getBoolean("callFlash", false);
 		msgFlash = prefs.getBoolean("msgFlash", false);
@@ -92,7 +93,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.callFlash = callFlash;
 		editor.putBoolean("callFlash", callFlash);
 		editor.commit();
-		Log.d(TAG, "setCallFlash: " + callFlash);
+		if (LOG) Log.d(TAG, "setCallFlash: " + callFlash);
 	}
 
 	public boolean isMsgFlash() {
@@ -104,7 +105,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.msgFlash = msgFlash;
 		editor.putBoolean("msgFlash", msgFlash);
 		editor.commit();
-		Log.d(TAG, "setMsgFlash: " + msgFlash);
+		if (LOG) Log.d(TAG, "setMsgFlash: " + msgFlash);
 	}
 
 	public int getCallFlashOnDuration() {
@@ -116,7 +117,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.callFlashOnDuration = callFlashOnDuration;
 		editor.putInt("callFlashOnDuration", callFlashOnDuration);
 		editor.commit();
-		Log.d(TAG, "setCallFlashOnDuration: " + callFlashOnDuration);
+		if (LOG) Log.d(TAG, "setCallFlashOnDuration: " + callFlashOnDuration);
 	}
 
 	public int getCallFlashOffDuration() {
@@ -128,7 +129,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.callFlashOffDuration = callFlashOffDuration;
 		editor.putInt("callFlashOffDuration", callFlashOffDuration);
 		editor.commit();
-		Log.d(TAG, "setCallFlashOffDuration: " + callFlashOffDuration);
+		if (LOG) Log.d(TAG, "setCallFlashOffDuration: " + callFlashOffDuration);
 
 	}
 
@@ -141,7 +142,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.msgFlashOnDuration = msgFlashOnDuration;
 		editor.putInt("msgFlashOnDuration", msgFlashOnDuration);
 		editor.commit();
-		Log.d(TAG, "setMsgFlashOnDuration: " + msgFlashOnDuration);
+		if (LOG) Log.d(TAG, "setMsgFlashOnDuration: " + msgFlashOnDuration);
 
 	}
 
@@ -154,13 +155,13 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.msgFlashOffDuration = msgFlashOffDuration;
 		editor.putInt("msgFlashOffDuration", msgFlashOffDuration);
 		editor.commit();
-		Log.d(TAG, "setMsgFlashOffDuration: " + msgFlashOffDuration);
+		if (LOG) Log.d(TAG, "setMsgFlashOffDuration: " + msgFlashOffDuration);
 
 	}
 
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-		Log.d(TAG, s + " changed!");
+		if (LOG) Log.d(TAG, s + " changed!");
 		if (s.equals("normal_mode")) setNormalMode(sharedPreferences.getBoolean("normal_mode", false));
 		else if (s.equals("vibrate_mode")) setVibrateMode(sharedPreferences.getBoolean("vibrate_mode", false));
 		else if (s.equals("silent_mode")) setSilentMode(sharedPreferences.getBoolean("silent_mode", false));
@@ -195,7 +196,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.msgFlashDuration = msgFlashDuration;
 		editor.putInt("msgFlashDuration", msgFlashDuration);
 		editor.commit();
-		Log.d(TAG, "setMsgFlashDuration: " + msgFlashDuration);
+		if (LOG) Log.d(TAG, "setMsgFlashDuration: " + msgFlashDuration);
 
 	}
 
@@ -222,15 +223,15 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 		switch (am.getRingerMode()) {
 			case AudioManager.RINGER_MODE_SILENT:
-				Log.d(TAG, "Phone in silent mode");
+				if (LOG) Log.d(TAG, "Phone in silent mode");
 				if (isSilentMode()) enabled = true;
 				break;
 			case AudioManager.RINGER_MODE_VIBRATE:
-				Log.d(TAG, "Phone in vibrate mode");
+				if (LOG) Log.d(TAG, "Phone in vibrate mode");
 				if (isVibrateMode()) enabled = true;
 				break;
 			case AudioManager.RINGER_MODE_NORMAL:
-				Log.d(TAG, "Phone in normal mode");
+				if (LOG) Log.d(TAG, "Phone in normal mode");
 				if (isNormalMode()) enabled = true;
 				break;
 		}
@@ -238,37 +239,38 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		Time now = new Time();
 		now.setToNow();
 
-		Log.d(TAG, "time: " + now.hour + ":" + now.minute + " - " + "sleep start: " + getSleepStartHour() + ":" + getSleepStartMinute() + " - " + "sleep stop: " + getSleepStopHour() + ":" + getSleepStopMinute());
+		if (LOG)
+			Log.d(TAG, "time: " + now.hour + ":" + now.minute + " - " + "sleep start: " + getSleepStartHour() + ":" + getSleepStartMinute() + " - " + "sleep stop: " + getSleepStopHour() + ":" + getSleepStopMinute());
 
 		if (isSleepMode() && enabled) {
-			Log.d(TAG, "Checking Sleep periods");
+			if (LOG) Log.d(TAG, "Checking Sleep periods");
 			if (now.hour > getSleepStartHour() && now.hour < getSleepStopHour()) {
-				Log.d(TAG, "1");
+				if (LOG) Log.d(TAG, "1");
 				enabled = false;
 			} else if (now.hour == getSleepStartHour() && now.hour == getSleepStopHour()) {
 				if (now.minute >= getSleepStartMinute() && now.minute <= getSleepStopMinute()) {
-					Log.d(TAG, "2");
+					if (LOG) Log.d(TAG, "2");
 					enabled = false;
 				}
 			} else if (now.hour == getSleepStartHour()) {
 				if (now.minute >= getSleepStartMinute()) {
-					Log.d(TAG, "3");
+					if (LOG) Log.d(TAG, "3");
 					enabled = false;
 				}
 			} else if (now.hour == getSleepStopHour()) {
 				if (now.minute <= getSleepStopMinute()) {
-					Log.d(TAG, "4");
+					if (LOG) Log.d(TAG, "4");
 					enabled = false;
 				}
 			} else if (now.hour < getSleepStartHour() && now.hour < getSleepStopHour() && getSleepStartHour() > getSleepStopHour()) {
-				Log.d(TAG, "5");
+				if (LOG) Log.d(TAG, "5");
 				enabled = false;
 			} else if (now.hour > getSleepStartHour() && now.hour > getSleepStopHour() && getSleepStartHour() > getSleepStopHour()) {
-				Log.d(TAG, "6");
+				if (LOG) Log.d(TAG, "6");
 				enabled = false;
 			}
 		}
-		Log.d(TAG, "enabled: " + enabled);
+		if (LOG) Log.d(TAG, "enabled: " + enabled);
 		return enabled;
 	}
 
@@ -384,7 +386,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public int getType() {
 		//		type = prefs.getInt("type", 1);
-		Log.d(TAG, "type is: " + type);
+		if (LOG) Log.d(TAG, "type is: " + type);
 		return type;
 	}
 
@@ -392,12 +394,12 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.type = type;
 		editor.putInt("type", type);
 		editor.commit();
-		Log.d(TAG, "type set to: " + type);
+		if (LOG) Log.d(TAG, "type set to: " + type);
 	}
 
 	public int getMsgFlashType() {
 		//		msgFlashType = prefs.getInt("sms_mode_type", 1);
-		Log.d(TAG, "sms_mode_type is: " + msgFlashType);
+		if (LOG) Log.d(TAG, "sms_mode_type is: " + msgFlashType);
 		return msgFlashType;
 	}
 
@@ -405,7 +407,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.msgFlashType = msgFlashType;
 		editor.putInt("sms_mode_type", msgFlashType);
 		editor.commit();
-		Log.d(TAG, "sms_mode_type set to: " + msgFlashType);
+		if (LOG) Log.d(TAG, "sms_mode_type set to: " + msgFlashType);
 	}
 
 	public boolean loadApp(String packageName) {

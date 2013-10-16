@@ -41,7 +41,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 
 		try {
 			accessibilityEnabled = Settings.Secure.getInt(this.getContentResolver(), android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
-			Log.d(TAG, "ACCESSIBILITY: " + accessibilityEnabled);
+			if (CallerFlashlight.LOG) Log.d(TAG, "ACCESSIBILITY: " + accessibilityEnabled);
 			if (accessibilityEnabled == 0) {
 				appList.setEnabled(false);
 				moreFlashCheck.setSummary(getResources().getString(R.string.more_flash_warning_sum));
@@ -50,7 +50,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 				moreFlashCheck.setSummary(getResources().getString(R.string.app_list_check_sum));
 			}
 		} catch (Settings.SettingNotFoundException e) {
-			Log.d(TAG, "Error finding setting, default accessibility to not found: " + e.getMessage());
+			if (CallerFlashlight.LOG) Log.d(TAG, "Error finding setting, default accessibility to not found: " + e.getMessage());
 			appList.setEnabled(false);
 
 		}
@@ -66,7 +66,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 
 		try {
 			accessibilityEnabled = Settings.Secure.getInt(this.getContentResolver(), android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
-			Log.d(TAG, "ACCESSIBILITY: " + accessibilityEnabled);
+			if (CallerFlashlight.LOG) Log.d(TAG, "ACCESSIBILITY: " + accessibilityEnabled);
 			if (accessibilityEnabled == 0) {
 				appList.setEnabled(false);
 				moreFlashCheck.setSummary(getResources().getString(R.string.more_flash_warning_sum));
@@ -75,7 +75,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 				moreFlashCheck.setSummary(getResources().getString(R.string.app_list_check_sum));
 			}
 		} catch (Settings.SettingNotFoundException e) {
-			Log.d(TAG, "Error finding setting, default accessibility to not found: " + e.getMessage());
+			if (CallerFlashlight.LOG) Log.d(TAG, "Error finding setting, default accessibility to not found: " + e.getMessage());
 			appList.setEnabled(false);
 
 		}
@@ -83,7 +83,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-		Log.d(TAG, "onSharedPreferenceChanged: " + s);
+		if (CallerFlashlight.LOG) Log.d(TAG, "onSharedPreferenceChanged: " + s);
 		if (s.equals("sms_mode_type")) {
 //			lp = (ListPreference) findPreference("type_list");
 			setModeSum();
@@ -95,15 +95,15 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 
 		lp = (ListPreference) findPreference("sms_mode_list");
 		sbp = (SeekBarPreference) findPreference("msgFlashDuration");
-		Log.d(TAG, "setSMSModeSum");
+		if (CallerFlashlight.LOG) Log.d(TAG, "setSMSModeSum");
 		int type = callerFlashlight.getMsgFlashType();
 		if (type == 1) {
-			Log.d(TAG, "sum type 1");
+			if (CallerFlashlight.LOG) Log.d(TAG, "sum type 1");
 			lp.setSummary(getResources().getString(R.string.sms_mode_list_1));
 			sbp.setmUnitsRight(" seconds");
 			sbp.updateView(getListView());
 		} else if (type == 2) {
-			Log.d(TAG, "sum type 2");
+			if (CallerFlashlight.LOG) Log.d(TAG, "sum type 2");
 			lp.setSummary(getResources().getString(R.string.sms_mode_list_2));
 			sbp.setmUnitsRight(" times");
 //			sbp.updateView(getListView());
@@ -114,7 +114,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 	@Override
 	public boolean onPreferenceClick(Preference preference) {
 
-		Log.d(TAG, "preference clicked: " + preference.getKey());
+		if (CallerFlashlight.LOG) Log.d(TAG, "preference clicked: " + preference.getKey());
 		if (preference.getKey().equals("app_list")) {
 			startActivity(new Intent(this, AppList.class));
 		} else if (preference.getKey().equals("app_list_check")) {

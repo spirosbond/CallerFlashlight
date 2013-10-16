@@ -52,10 +52,10 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 		mSeekBar.setOnSeekBarChangeListener(this);
 
 		if (cf.getMsgFlashType() == 1) {
-			Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
+			if (CallerFlashlight.LOG) Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
 			setmUnitsRight(" " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
 		} else if (cf.getMsgFlashType() == 2) {
-			Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
+			if (CallerFlashlight.LOG) Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
 			setmUnitsRight(" " + cf.getMyResources().getString(R.string.sms_mode_list_value_2));
 		}
 
@@ -148,10 +148,10 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 
 			TextView unitsRight = (TextView) view.findViewById(R.id.seekBarPrefUnitsRight);
 			if (cf.getMsgFlashType() == 1) {
-				Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
+				if (CallerFlashlight.LOG) Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
 				setmUnitsRight(" " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
 			} else if (cf.getMsgFlashType() == 2) {
-				Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
+				if (CallerFlashlight.LOG) Log.d(TAG, "units: " + cf.getMyResources().getString(R.string.sms_mode_list_value_1));
 				setmUnitsRight(" " + cf.getMyResources().getString(R.string.sms_mode_list_value_2));
 			}
 			unitsRight.setText(mUnitsRight);

@@ -46,7 +46,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Log.d(TAG, "onResumed");
+		if (CallerFlashlight.LOG) Log.d(TAG, "onResumed");
 		callFlashButton = (ToggleButton) findViewById(R.id.callFlashToggle);
 		callFlashButton.setChecked(callerFlashlight.isCallFlash());
 		callFlashTestButton = (ToggleButton) findViewById(R.id.callFlashTestToggle);
@@ -59,7 +59,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 	@Override
 	protected void onPause() {
-		Log.d(TAG, "onPaused");
+		if (CallerFlashlight.LOG) Log.d(TAG, "onPaused");
 		super.onPause();
 		callerFlashlight.setCallFlashTest(false);
 		callerFlashlight.setMsgFlashTest(false);
@@ -69,11 +69,11 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		Log.d(TAG, "onCreated");
+		if (CallerFlashlight.LOG) Log.d(TAG, "onCreated");
 		this.callerFlashlight = (CallerFlashlight) this.getApplication();
 		setContentView(R.layout.activity_main);
 
-		AdColony.configure(this, "version=1,store:google", "appc0bebfc9f4a3489fb82153", "vz9bf8a5eb30ef477798b82b", "vz81c21390fa4e4b25aaa8ed", "vzf738e644f1394a9abcf4cf");
+		AdColony.configure(this, "version=1,store:google", "appc0bebfc9f4a3489fb82153", "vz9bf8a5eb30ef477798b82b", "vz81c21390fa4e4b25aaa8ed", "vzf738e644f1394a9abcf4cf", "vz6494ace59eb4446db403f4");
 
 		this.mainPanel = this;
 		//		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -105,7 +105,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	}
 
 	private void showHowTo() {
-		Log.d(TAG, "showHowTo");
+		if (CallerFlashlight.LOG) Log.d(TAG, "showHowTo");
 		final Dialog dialog = new Dialog(this, android.R.style.Theme_Translucent_NoTitleBar);
 
 		dialog.setContentView(R.layout.transparent_howto);
@@ -248,7 +248,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		//		} catch (ClassCastException e) {
 		//			tb = (Button) view;
 		//		}
-		//		Log.d(TAG, "onClicked: " + tb.isChecked());
+		//		if(CallerFlashlight.LOG) Log.d(TAG, "onClicked: " + tb.isChecked());
 
 		switch (view.getId()) {
 			case R.id.callFlashToggle:
@@ -333,14 +333,14 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 	@Override
 	public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-		//		Log.d(TAG, "beforeTextChanged with char: " + charSequence);
+		//		if(CallerFlashlight.LOG) Log.d(TAG, "beforeTextChanged with char: " + charSequence);
 	}
 
 	@Override
 	public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-		//		Log.d(TAG, "onTextChanged with char: " + charSequence);
+		//		if(CallerFlashlight.LOG) Log.d(TAG, "onTextChanged with char: " + charSequence);
 		//		if (charSequence.length() == 0) {
-		////			Log.d(TAG, "Empty editText. Set it to 0");
+		////			if(CallerFlashlight.LOG) Log.d(TAG, "Empty editText. Set it to 0");
 		//			((EditText) getCurrentFocus()).setText(String.valueOf(0));
 		//		}
 
@@ -361,7 +361,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 				value = Integer.valueOf(String.valueOf(editable));
 			}
 			editId = editText.getId();
-			//			Log.d(TAG, "Value: " + value);
+			//			if(CallerFlashlight.LOG) Log.d(TAG, "Value: " + value);
 		} catch (NumberFormatException e) {
 			return;
 		} catch (NullPointerException e) {
@@ -374,7 +374,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 			editText.setText(String.valueOf(value));
 		}
 
-		//		Log.d(TAG, "EditID: " + editId);
+		//		if(CallerFlashlight.LOG) Log.d(TAG, "EditID: " + editId);
 
 		switch (editId) {
 			case -1:
@@ -566,7 +566,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 		@Override
 		protected String doInBackground(Integer... integers) {
-			Log.d(TAG, "doInBackgroung Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "doInBackgroung Started");
 
 
 			switch (button.getId()) {
@@ -589,7 +589,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		@Override
 		protected void onPostExecute(String s) {
 			super.onPostExecute(s);
-			Log.d(TAG, "onPostExecute Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "onPostExecute Started");
 			Flash.decRunning();
 			if (Flash.getRunning() == 0) Flash.releaseCam();
 		}
@@ -597,7 +597,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		@Override
 		protected void onCancelled() {
 			super.onCancelled();
-			Log.d(TAG, "onCancelled Started");
+			if (CallerFlashlight.LOG) Log.d(TAG, "onCancelled Started");
 			Flash.decRunning();
 			if (Flash.getRunning() == 0) Flash.releaseCam();
 		}

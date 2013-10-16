@@ -19,7 +19,6 @@ import com.google.ads.doubleclick.DfpInterstitialAd;
 import com.jirbo.adcolony.AdColonyAd;
 import com.jirbo.adcolony.AdColonyAdListener;
 import com.jirbo.adcolony.AdColonyVideoAd;
-import com.startapp.android.publish.StartAppAd;
 
 
 /**
@@ -28,12 +27,12 @@ import com.startapp.android.publish.StartAppAd;
 public class Donate extends PreferenceActivity implements Preference.OnPreferenceClickListener, AdListener, AdColonyAdListener { //
 
 	private static final String TAG = Donate.class.getSimpleName();
-	private static StartAppAd startAppAd;
+	//	private static StartAppAd startAppAd;
 	private static AdColonyVideoAd adColonyVideoAd;
 	private CallerFlashlight myapp;
-	private Preference appoftheday;
+	//	private Preference appoftheday;
 	private ConnectivityManager connectivityManager;
-	private Preference startapp;
+	//	private Preference startapp;
 	private Preference adcolony;
 	private Preference adMob;
 	private DfpInterstitialAd interstitialAdMob;
@@ -43,34 +42,34 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 	protected void onResume() {
 		super.onResume();
 
-		startAppAd = new StartAppAd(this);
-		startAppAd.loadAd();
+		//		startAppAd = new StartAppAd(this);
+		//		startAppAd.loadAd();
 
 		adColonyVideoAd = new AdColonyVideoAd();
-		Log.d(TAG, "onResume");
+		if (CallerFlashlight.LOG) Log.d(TAG, "onResume");
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) { //
 		super.onCreate(savedInstanceState);
-		Log.d(TAG, "onCreate");
+		if (CallerFlashlight.LOG) Log.d(TAG, "onCreate");
 		addPreferencesFromResource(R.xml.donateprefs);
-		StartAppAd.init(this, "108632531", "208372780");
-		AppFlood.initialize(this, "Thib0u8GfGgfXsLX", "6GX8sMOv1791L521de8ea", AppFlood.AD_ALL);
+		//		StartAppAd.init(this, "108632531", "208372780");
+		//		AppFlood.initialize(this, "Thib0u8GfGgfXsLX", "6GX8sMOv1791L521de8ea", AppFlood.AD_ALL);
 		//		AdColony.configure(this, "version=1,store:google", "appc0bebfc9f4a3489fb82153", "vz9bf8a5eb30ef477798b82b", "vz81c21390fa4e4b25aaa8ed", "vzf738e644f1394a9abcf4cf");
-		startAppAd = new StartAppAd(this);
-		startAppAd.loadAd();
+		//		startAppAd = new StartAppAd(this);
+		//		startAppAd.loadAd();
 		connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		adColonyVideoAd = new AdColonyVideoAd();
 
 		interstitialAdMob = new DfpInterstitialAd(this, "ca-app-pub-4450409123751393/1956296862");
 
-		appoftheday = findPreference("appoftheday");
-		startapp = findPreference("startapp");
+		//		appoftheday = findPreference("appoftheday");
+		//		startapp = findPreference("startapp");
 		adcolony = findPreference("adcolony");
 		adMob = findPreference("adMob");
-		startapp.setOnPreferenceClickListener(this);
-		appoftheday.setOnPreferenceClickListener(this);
+		//		startapp.setOnPreferenceClickListener(this);
+		//		appoftheday.setOnPreferenceClickListener(this);
 		adcolony.setOnPreferenceClickListener(this);
 		adMob.setOnPreferenceClickListener(this);
 		myapp = (CallerFlashlight) getApplication();
@@ -102,8 +101,8 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 				AppFlood.showInterstitial(this);
 			} else if ("startapp".equals(preference.getKey())) {
 
-				startAppAd.showAd();
-				startAppAd.loadAd();
+				//				startAppAd.showAd();
+				//				startAppAd.loadAd();
 
 			} else if ("adcolony".equals(preference.getKey())) {
 				//				adColonyVideoAd = new AdColonyVideoAd();
@@ -139,7 +138,7 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 
 	@Override
 	public void onReceiveAd(Ad ad) {
-		Log.d("OK", "Received ad");
+		if (CallerFlashlight.LOG) Log.d("OK", "Received ad");
 		if (ad == interstitialAdMob) {
 			interstitialAdMob.show();
 		}
@@ -168,13 +167,13 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 
 	@Override
 	public void onAdColonyAdAttemptFinished(AdColonyAd adColonyAd) {
-		Log.d(TAG, "onAdColonyAdAttemptFinished");
-		adColonyVideoAd.show();
+		if (CallerFlashlight.LOG) Log.d(TAG, "onAdColonyAdAttemptFinished");
+		//		adColonyVideoAd.show();
 
 	}
 
 	@Override
 	public void onAdColonyAdStarted(AdColonyAd adColonyAd) {
-		Log.d(TAG, "onAdColonyAdStarted");
+		if (CallerFlashlight.LOG) Log.d(TAG, "onAdColonyAdStarted");
 	}
 }

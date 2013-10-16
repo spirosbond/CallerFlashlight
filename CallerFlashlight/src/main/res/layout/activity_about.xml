@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:weightSum="2"
-        tools:context=".About">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:weightSum="2"
+    tools:context=".About">
 
     <ImageView
-            android:layout_width="150dip"
-            android:layout_height="150dip"
-            android:id="@+id/aboutImageView"
-            android:layout_gravity="center"
-            android:background="@drawable/ic_launcher"
-            android:contentDescription="@string/logo"/>
+        android:layout_width="150dip"
+        android:layout_height="150dip"
+        android:id="@+id/aboutImageView"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_launcher"
+        android:contentDescription="@string/logo"/>
 
     <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/aboutText"
-            android:id="@+id/aboutTextView"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="0.6"
-            android:autoLink="web"
-            />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/aboutText"
+        android:id="@+id/aboutTextView"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight="0.6"
+        android:autoLink="web"
+        />
+
 
     <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/aboutFooter"
-            android:layout_gravity="bottom"
-            android:gravity="center"
-            android:layout_weight="1.4"
-            android:id="@+id/aboutFooterTextView"/>
-
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/aboutFooter"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:layout_weight="1.4"
+        android:id="@+id/aboutFooterTextView"/>
 
 </LinearLayout>

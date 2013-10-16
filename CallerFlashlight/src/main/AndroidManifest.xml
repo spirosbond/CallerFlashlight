@@ -173,16 +173,16 @@
         <!--</receiver>-->
 
 
-        <activity
-            android:name="com.startapp.android.publish.list3d.List3DActivity"
-            android:taskAffinity="com.spirosbond.callerflashlight.AppWall"
-            android:theme="@android:style/Theme"/>
+        <!--<activity-->
+        <!--android:name="com.startapp.android.publish.list3d.List3DActivity"-->
+        <!--android:taskAffinity="com.spirosbond.callerflashlight.AppWall"-->
+        <!--android:theme="@android:style/Theme"/>-->
 
-        <activity
-            android:name="com.startapp.android.publish.AppWallActivity"
-            android:theme="@android:style/Theme.Translucent"
-            android:taskAffinity="com.spirosbond.callerflashlight.AppWall"
-            android:configChanges="orientation|keyboardHidden"/>
+        <!--<activity-->
+        <!--android:name="com.startapp.android.publish.AppWallActivity"-->
+        <!--android:theme="@android:style/Theme.Translucent"-->
+        <!--android:taskAffinity="com.spirosbond.callerflashlight.AppWall"-->
+        <!--android:configChanges="orientation|keyboardHidden"/>-->
 
 
         <!--<meta-data-->
@@ -193,33 +193,33 @@
         <!--android:value="208372780"/>-->
 
 
-        <activity
-            android:name="com.appflood.AFPanelActivity"
-            android:configChanges="keyboardHidden">
-        </activity>
-        <activity
-            android:name="com.appflood.AFFullScreenActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:theme="@android:style/Theme.Translucent"
-            android:launchMode="singleTask">
-        </activity>
-        <activity
-            android:name="com.appflood.AFListActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Translucent">
-            <intent-filter>
-                <action android:name=""/>
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.appflood.AFInterstitialActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent">
+        <!--<activity-->
+        <!--android:name="com.appflood.AFPanelActivity"-->
+        <!--android:configChanges="keyboardHidden">-->
+        <!--</activity>-->
+        <!--<activity-->
+        <!--android:name="com.appflood.AFFullScreenActivity"-->
+        <!--android:configChanges="keyboardHidden|orientation"-->
+        <!--android:theme="@android:style/Theme.Translucent"-->
+        <!--android:launchMode="singleTask">-->
+        <!--</activity>-->
+        <!--<activity-->
+        <!--android:name="com.appflood.AFListActivity"-->
+        <!--android:configChanges="keyboardHidden|orientation"-->
+        <!--android:launchMode="singleTask"-->
+        <!--android:theme="@android:style/Theme.Translucent">-->
+        <!--<intent-filter>-->
+        <!--<action android:name=""/>-->
+        <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<activity-->
+        <!--android:name="com.appflood.AFInterstitialActivity"-->
+        <!--android:configChanges="keyboardHidden|orientation"-->
+        <!--android:launchMode="singleTask"-->
+        <!--android:screenOrientation="portrait"-->
+        <!--android:theme="@android:style/Theme.Translucent">-->
 
-        </activity>
+        <!--</activity>-->
 
         <activity
             android:name="com.jirbo.adcolony.AdColonyOverlay"

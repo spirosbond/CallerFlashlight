@@ -17,7 +17,7 @@
     <string name="aboutStr">Σχετικά με</string>
     <string name="donateStr">Δωρεά</string>
     <string name="titlePrefs">Ρυθμίσεις</string>
-    <string name="aboutText">\n\nΗ εφαρμογή CallFlash ελέγχει το φλας του κινητού σας ενώ δέχεστε κλήσεις και άλλες ειδοποιήσεις. Είναι ένα project ανοικτού κώδικα από τον Σπύρο Μποντομητσίδη, με στόχο να κρατήσει τα πράγματα απλά και λειτουργικά.\n\nΓια περισσότερες πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε την εφαρμογή, δείτε τις \“Οδηγίες λειτουργίας\”.\n\nΣχόλια και ενημερώσεις στο:\nforum.xda-developers.com/showthread.php?t=2403340</string>
+    <string name="aboutText">\n\nΗ εφαρμογή CallFlash ελέγχει το φλας του κινητού σας ενώ δέχεστε κλήσεις και άλλες ειδοποιήσεις. Είναι ένα project ανοικτού κώδικα από τον Σπύρο Μποντομητσίδη, με στόχο να κρατήσει τα πράγματα απλά και λειτουργικά.\n\nΓια περισσότερες πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε την εφαρμογή, δείτε τις \“Οδηγίες λειτουργίας\”.\n\nΣχόλια και ενημερώσεις στο:\nforum.xda-developers.com/showthread.php?t=2403340\n\nΒοηθήστε με τη μετάφραση της εφαρμογής:\nhttp://crowdin.net/project/callflash/invite\n</string>
     <string name="aboutFooter">CallFlash. All Rights Reserved.</string>
     <string name="titleAbout">Σχετικά με</string>
     <string name="titleHowTo">Οδηγίες λειτουργίας</string>
