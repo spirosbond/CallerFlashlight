@@ -36,8 +36,12 @@ public class NotificationService extends AccessibilityService {
 		}
 	}
 
+	/**
+	 * @param flags 98:Viber during call
+	 * @return
+	 */
 	private boolean isValidFlag(int flags) {
-		if (flags != -10 && flags != 0 && flags != 10) return true;
+		if (flags != -10 && flags != 0 && flags != 10 && flags != 98) return true;
 		return false;
 	}
 
