@@ -11,11 +11,10 @@ import android.preference.PreferenceActivity;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.appflood.AppFlood;
 import com.google.ads.Ad;
 import com.google.ads.AdListener;
 import com.google.ads.AdRequest;
-import com.google.ads.doubleclick.DfpInterstitialAd;
+import com.google.ads.InterstitialAd;
 import com.jirbo.adcolony.AdColonyAd;
 import com.jirbo.adcolony.AdColonyAdListener;
 import com.jirbo.adcolony.AdColonyVideoAd;
@@ -29,13 +28,13 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 	private static final String TAG = Donate.class.getSimpleName();
 	//	private static StartAppAd startAppAd;
 	private static AdColonyVideoAd adColonyVideoAd;
-	private CallerFlashlight myapp;
+	private CallerFlashlight callerFlashlight;
 	//	private Preference appoftheday;
 	private ConnectivityManager connectivityManager;
 	//	private Preference startapp;
 	private Preference adcolony;
 	private Preference adMob;
-	private DfpInterstitialAd interstitialAdMob;
+	private InterstitialAd interstitialAdMob;
 	private Donate donate = this;
 
 	@Override
@@ -54,15 +53,17 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 		super.onCreate(savedInstanceState);
 		if (CallerFlashlight.LOG) Log.d(TAG, "onCreate");
 		addPreferencesFromResource(R.xml.donateprefs);
+		callerFlashlight = (CallerFlashlight) getApplication();
 		//		StartAppAd.init(this, "108632531", "208372780");
 		//		AppFlood.initialize(this, "Thib0u8GfGgfXsLX", "6GX8sMOv1791L521de8ea", AppFlood.AD_ALL);
 		//		AdColony.configure(this, "version=1,store:google", "appc0bebfc9f4a3489fb82153", "vz9bf8a5eb30ef477798b82b", "vz81c21390fa4e4b25aaa8ed", "vzf738e644f1394a9abcf4cf");
 		//		startAppAd = new StartAppAd(this);
 		//		startAppAd.loadAd();
+		callerFlashlight.configureAdColony(this);
 		connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		adColonyVideoAd = new AdColonyVideoAd();
 
-		interstitialAdMob = new DfpInterstitialAd(this, "ca-app-pub-4450409123751393/1956296862");
+		interstitialAdMob = new InterstitialAd(this, "ca-app-pub-4450409123751393/1956296862");
 
 		//		appoftheday = findPreference("appoftheday");
 		//		startapp = findPreference("startapp");
@@ -72,7 +73,7 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 		//		appoftheday.setOnPreferenceClickListener(this);
 		adcolony.setOnPreferenceClickListener(this);
 		adMob.setOnPreferenceClickListener(this);
-		myapp = (CallerFlashlight) getApplication();
+
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			getActionBar().setDisplayHomeAsUpEnabled(true);
 		}
@@ -98,7 +99,7 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 	public boolean onPreferenceClick(Preference preference) {
 		if (connectivityManager.getActiveNetworkInfo() != null) {
 			if ("appoftheday".equals(preference.getKey())) {
-				AppFlood.showInterstitial(this);
+				//				AppFlood.showInterstitial(this);
 			} else if ("startapp".equals(preference.getKey())) {
 
 				//				startAppAd.showAd();
@@ -131,7 +132,7 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 
 			}
 		} else {
-			Toast.makeText(getApplicationContext(), "No internet connection!", Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), getResources().getString(R.string.no_internet_connection), Toast.LENGTH_LONG).show();
 		}
 		return true;
 	}

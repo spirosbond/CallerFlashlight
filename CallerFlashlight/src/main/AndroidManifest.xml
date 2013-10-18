@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.spirosbond.callerflashlight"
-          android:versionCode="1"
-          android:versionName="2.0.1">
+          android:versionCode="2"
+          android:versionName="2.0.2_BETA">
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -146,6 +146,13 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
+
+        <!--<receiver android:name=".MediaButtonReceiver">-->
+        <!--<intent-filter>-->
+        <!--&lt;!&ndash;<action android:name="android.intent.action.MEDIA_BUTTON"/>&ndash;&gt;-->
+        <!--<action android:name="android.media.VOLUME_CHANGED_ACTION" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
 
         <service
             android:name=".NotificationService"

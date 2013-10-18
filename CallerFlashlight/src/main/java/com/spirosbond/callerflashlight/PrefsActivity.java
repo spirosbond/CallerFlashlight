@@ -3,6 +3,7 @@ package com.spirosbond.callerflashlight;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
@@ -16,6 +17,7 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 	private static final String TAG = PrefsActivity.class.getSimpleName();
 	ListPreference lp;
 	CallerFlashlight callerFlashlight;
+	CheckBoxPreference screenOfPreference;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +31,28 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 		lp.setValue(String.valueOf(callerFlashlight.getType()));
 		setTypeSum();
 
+		screenOfPreference = (CheckBoxPreference) findPreference("screen_off");
+		setScreenOffSum();
 
+	}
+
+	private void setScreenOffSum() {
+		if (screenOfPreference.isChecked()) {
+			screenOfPreference.setSummary(getResources().getString(R.string.screen_off_ticked_sum));
+		} else {
+			screenOfPreference.setSummary(getResources().getString(R.string.screen_off_sum));
+		}
 	}
 
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
 		if (CallerFlashlight.LOG) Log.d(TAG, "onSharedPreferenceChanged: " + s);
 		if (s.equals("type")) {
-//			lp = (ListPreference) findPreference("type_list");
+			//			lp = (ListPreference) findPreference("type_list");
 			setTypeSum();
 
+		} else if (s.equals("screen_off")) {
+			setScreenOffSum();
 		}
 	}
 

@@ -3,10 +3,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/typePrefCateg">
         <ListPreference
-                android:key="type_list"
-                android:title="@string/typeList"
-                android:entries="@array/type_list"
-                android:entryValues="@array/type_list_values"
+            android:key="type_list"
+            android:title="@string/typeList"
+            android:entries="@array/type_list"
+            android:entryValues="@array/type_list_values"
 
 
             />
@@ -16,40 +16,50 @@
     <PreferenceCategory android:title="@string/generalCateg">
 
         <PreferenceScreen
-                android:key="operation_mode"
-                android:title="@string/operation_mode"
-                android:summary="@string/operation_mode_sum">
-            <CheckBoxPreference
+            android:key="operation_mode"
+            android:title="@string/operation_mode"
+            android:summary="@string/operation_mode_sum">
+
+            <PreferenceCategory android:title="@string/sound_profiles">
+                <CheckBoxPreference
                     android:key="normal_mode"
                     android:title="@string/normal_check"
                     android:summary="@string/normal_mod_check"
                     android:defaultValue="true"/>
-            <CheckBoxPreference
+                <CheckBoxPreference
                     android:key="vibrate_mode"
                     android:title="@string/vibrate_check"
                     android:summary="@string/vibrate_mod_check"
                     android:defaultValue="true"/>
-            <CheckBoxPreference
+                <CheckBoxPreference
                     android:key="silent_mode"
                     android:title="@string/silent_check"
                     android:summary="@string/silent_mod_check"
                     android:defaultValue="true"/>
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/screen_state">
+                <CheckBoxPreference
+                    android:key="screen_off"
+                    android:title="@string/screen_off"
+                    android:summary="@string/screen_off_sum"
+                    android:defaultValue="false"/>
+            </PreferenceCategory>
 
         </PreferenceScreen>
 
         <CheckBoxPreference
-                android:key="sleep_check"
-                android:title="@string/sleep_check"
-                android:summary="@string/sleep_check_sum"
-                android:defaultValue="false"/>
+            android:key="sleep_check"
+            android:title="@string/sleep_check"
+            android:summary="@string/sleep_check_sum"
+            android:defaultValue="false"/>
         <com.spirosbond.callerflashlight.TimePreference
-                android:key="sleep_start"
-                android:title="@string/sleep_start"
-                android:dependency="sleep_check"/>
+            android:key="sleep_start"
+            android:title="@string/sleep_start"
+            android:dependency="sleep_check"/>
         <com.spirosbond.callerflashlight.TimePreference
-                android:key="sleep_stop"
-                android:title="@string/sleep_stop"
-                android:dependency="sleep_check"/>
+            android:key="sleep_stop"
+            android:title="@string/sleep_stop"
+            android:dependency="sleep_check"/>
 
 
     </PreferenceCategory>

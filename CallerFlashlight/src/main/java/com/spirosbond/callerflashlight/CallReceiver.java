@@ -24,7 +24,6 @@ public class CallReceiver extends BroadcastReceiver {
 		MyPhoneStateListener phoneListener = new MyPhoneStateListener(callerFlashlight);
 		TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		telephony.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
-		//		}
 
 	}
 
@@ -41,7 +40,7 @@ public class CallReceiver extends BroadcastReceiver {
 
 		public void onCallStateChanged(int state, String incomingNumber) {
 
-			if (callerFlashlight.isCallFlash() && callerFlashlight.isEnabled()) {
+			if (callerFlashlight.isCallFlash()) {
 				switch (state) {
 					case TelephonyManager.CALL_STATE_IDLE:
 
@@ -59,8 +58,10 @@ public class CallReceiver extends BroadcastReceiver {
 
 						callState = "RINGING";
 						if (CallerFlashlight.LOG) Log.d(TAG, callState);
-						if (Flash.getRunning() < 1)
+						if (Flash.getRunning() < 1 && callerFlashlight.isEnabled()) {
+							callerFlashlight.registerVolumeButtonReceiver();
 							new ManageFlash().execute(callerFlashlight.getCallFlashOnDuration(), callerFlashlight.getCallFlashOffDuration());
+						}
 						break;
 				}
 			}
@@ -80,7 +81,7 @@ public class CallReceiver extends BroadcastReceiver {
 			protected String doInBackground(Integer... integers) {
 				if (CallerFlashlight.LOG) Log.d(TAG, "doInBackgroung Started");
 				int tries = 3;
-				while (callState.equals("RINGING") && tries > 0) {
+				while (callState.equals("RINGING") && tries > 0 && !callerFlashlight.isVolumeButtonPressed()) {
 					flash.enableFlash(Long.valueOf(integers[0]), Long.valueOf(integers[1]));
 					if (!Flash.gotCam) {
 						if (CallerFlashlight.LOG) Log.d(TAG, "Flash failed, retrying..." + tries);
@@ -95,7 +96,10 @@ public class CallReceiver extends BroadcastReceiver {
 				super.onPostExecute(s);
 				if (CallerFlashlight.LOG) Log.d(TAG, "onPostExecute Started");
 				Flash.decRunning();
-				if (Flash.getRunning() == 0) Flash.releaseCam();
+				if (Flash.getRunning() == 0) {
+					Flash.releaseCam();
+					callerFlashlight.unregisterVolumeButtonReceiver();
+				}
 			}
 
 			@Override

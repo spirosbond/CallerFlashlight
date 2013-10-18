@@ -21,12 +21,14 @@ public class TimePreference extends DialogPreference {
 	private TimePicker picker = null;
 	private SharedPreferences prefs;
 	private SharedPreferences.Editor editor;
+	private CallerFlashlight callerFlashlight;
 
 	public TimePreference(Context ctxt, AttributeSet attrs) {
 		super(ctxt, attrs);
+		callerFlashlight = (CallerFlashlight) ctxt.getApplicationContext();
 
-		setPositiveButtonText("Set");
-		setNegativeButtonText("Cancel");
+		setPositiveButtonText(callerFlashlight.getResources().getString(R.string.set));
+		setNegativeButtonText(callerFlashlight.getResources().getString(R.string.cancel));
 		if (CallerFlashlight.LOG) Log.d(TAG, "My key: " + getKey());
 		prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 		editor = prefs.edit();

@@ -1,15 +1,21 @@
 package com.spirosbond.callerflashlight;
 
+import android.app.Activity;
 import android.app.Application;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.media.AudioManager;
+import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.text.format.Time;
 import android.util.Log;
 
 import com.bugsense.trace.BugSenseHandler;
+import com.jirbo.adcolony.AdColony;
 
 /**
  * Created by spiros on 8/4/13.
@@ -33,6 +39,9 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	private int type;
 	private int msgFlashType;
 	private boolean bootReceiver, serviceRunning, firstTime;
+	private boolean volumeButtonPressed;
+	private BroadcastReceiver mediaButtonReceiver;
+	private boolean screenOffPref;
 
 	@Override
 	public void onCreate() {
@@ -46,6 +55,21 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		editor = prefs.edit();
 		loadPreferences();
 
+	}
+
+	public void registerVolumeButtonReceiver() {
+
+		volumeButtonPressed = false;
+		IntentFilter filter = new IntentFilter();
+		filter.addAction("android.media.VOLUME_CHANGED_ACTION");
+		mediaButtonReceiver = new MediaButtonReceiver();
+		registerReceiver(mediaButtonReceiver, filter);
+		//		((AudioManager)getSystemService(AUDIO_SERVICE)).registerMediaButtonEventReceiver(new ComponentName(this, MediaButtonReceiver.class));
+	}
+
+	public void unregisterVolumeButtonReceiver() {
+
+		unregisterReceiver(mediaButtonReceiver);
 	}
 
 	public Resources getMyResources() {
@@ -81,6 +105,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		//		bootReceiver = prefs.getBoolean("boot_receiver", false);
 		serviceRunning = prefs.getBoolean("service_running", false);
 		firstTime = prefs.getBoolean("first_time", true);
+		screenOffPref = prefs.getBoolean("screen_off", false);
 
 	}
 
@@ -173,6 +198,8 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		} else if (s.equals("sms_mode_list")) {
 			setMsgFlashType(Integer.valueOf(sharedPreferences.getString("sms_mode_list", "")));
 
+		} else if (s.equals("screen_off")) {
+			setScreenOffPref(sharedPreferences.getBoolean("screen_off", false));
 		}
 		//		else if (s.equals("app_list_check")) {
 		//			setAppListCheck(sharedPreferences.getBoolean("app_list_check", false));
@@ -270,6 +297,16 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 				enabled = false;
 			}
 		}
+
+		PowerManager powermanager;
+		powermanager = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
+		if (powermanager.isScreenOn()) {
+			if (LOG) Log.d(TAG, "screen is ON");
+			if (screenOffPref) enabled = false;
+		} else {
+			if (LOG) Log.d(TAG, "screen is OFF");
+		}
+
 		if (LOG) Log.d(TAG, "enabled: " + enabled);
 		return enabled;
 	}
@@ -468,6 +505,33 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	public void setFirstTime(boolean firstTime) {
 		this.firstTime = firstTime;
 		editor.putBoolean("first_time", firstTime);
+		editor.commit();
+	}
+
+	public void configureAdColony(Activity act) {
+		try {
+			if (CallerFlashlight.LOG) Log.d(TAG, "version Code: " + getPackageManager().getPackageInfo(getPackageName(), 0).versionCode);
+			AdColony.configure(act, "version=" + getPackageManager().getPackageInfo(getPackageName(), 0).versionCode + ",store:google", "appc0bebfc9f4a3489fb82153", "vz9bf8a5eb30ef477798b82b"/*, "vz81c21390fa4e4b25aaa8ed", "vzf738e644f1394a9abcf4cf", "vz6494ace59eb4446db403f4"*/);
+		} catch (PackageManager.NameNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public boolean isVolumeButtonPressed() {
+		return volumeButtonPressed;
+	}
+
+	public void setVolumeButtonPressed(boolean volumeButtonPressed) {
+		this.volumeButtonPressed = volumeButtonPressed;
+	}
+
+	public boolean isScreenOffPref() {
+		return screenOffPref;
+	}
+
+	public void setScreenOffPref(boolean screen_off_pref) {
+		this.screenOffPref = screen_off_pref;
+		editor.putBoolean("screen_off", screen_off_pref);
 		editor.commit();
 	}
 

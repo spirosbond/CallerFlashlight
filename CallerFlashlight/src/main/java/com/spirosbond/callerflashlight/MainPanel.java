@@ -22,8 +22,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.jirbo.adcolony.AdColony;
-
 
 public class MainPanel extends Activity implements View.OnClickListener, TextWatcher, View.OnFocusChangeListener {
 
@@ -73,7 +71,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		this.callerFlashlight = (CallerFlashlight) this.getApplication();
 		setContentView(R.layout.activity_main);
 
-		AdColony.configure(this, "version=1,store:google", "appc0bebfc9f4a3489fb82153", "vz9bf8a5eb30ef477798b82b", "vz81c21390fa4e4b25aaa8ed", "vzf738e644f1394a9abcf4cf", "vz6494ace59eb4446db403f4");
+		callerFlashlight.configureAdColony(this);
 
 		this.mainPanel = this;
 		//		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);

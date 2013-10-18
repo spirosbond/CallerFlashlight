@@ -2,7 +2,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <EditTextPreference
-        android:title="Coming soon..."
+        android:title="@string/coming_soon"
         android:clickable="false"
         android:enabled="false"
 

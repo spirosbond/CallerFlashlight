@@ -44,7 +44,7 @@
     <string name="sleep_check">Χρονοδιάγραμμα ύπνου</string>
     <string name="sleep_check_sum">Ενεργοποίηση λειτουργίας ύπνου.</string>
     <string name="enable_toast">Ενεργοποιήστε πρώτα κάποιον τρόπο λειτουργίας από τις ρυθμίσεις…</string>
-    <string name="notification_service">Υπηρεσία παρασκηνίου ειδοποίησης CallFlash</string>
+    <string name="notification_service">CallFlash Υπηρεσία παρασκηνίου ειδοποίησης</string>
     <string name="Callseperator">Flash κλήσεων</string>
     <string name="Msgseperator">Flash ειδοποιήσεων</string>
     <string name="titleCallPrefs">Προτιμήσεις κλήσεων</string>
@@ -70,7 +70,7 @@
     <string name="clear_all_button">Απαλοιφή όλων</string>
     <string name="select_all_button">Επιλογή όλων</string>
     <string name="app_list_check">Flash σε άλλες ειδοποιήσεις</string>
-    <string name="app_list_check_sum">Κάντε κλικ εδώ για να απενεργοποιήσετε την \“Υπηρεσία παρασκηνίου\”.</string>
+    <string name="app_list_check_sum">Κάντε κλικ εδώ για να απενεργοποιήσετε την \“CallFlash Υπηρεσία παρασκηνίου\”.</string>
     <string name="sms_more_categ">Επιπλέον Ρυθμίσεις</string>
     <string name="more_flash_warning_sum">Κάντε κλικ εδώ για να ενεργοποιήσετε την \“Υπηρεσία παρασκηνίου\”.</string>
     <string name="accessibility_service_description">Η ενεργοποίηση αυτής της υπηρεσίας θα επιτρέψει στην εφαρμογή να ανιχνεύσει τις ειδοποιήσεις σας προκειμένου να μπορέσει ενεργοποιήσει το Flash σύμφωνα με τις προτιμήσεις σας.</string>
@@ -90,7 +90,7 @@
     <string name="donateDialog">"1. Επιλέξτε να δείτε τις εφαρμογές της ημέρας\n2. Κάντε download οποιαδήποτε εφαρμογή σας άρεσε\n3. Κάνατε μία δωρεά!\n…χωρίς να ξοδέψετε τίποτα!"</string>
     <string name="first_time">Ρυθμίσεις πρώτης εκτέλεσης</string>
     <string name="firstcontinue">Συνέχεια</string>
-    <string name="first_time_desc">Καλώς ήλθατε στην εφαρμογή Callflash, την εφαρμογή που ελέγχει το Flash σας σε κάθε κλήση ή ειδοποίηση.\n\nΠαρακαλώ επιλέξτε την μέθοδο οδήγησης του Flash με την οποία είναι συμβατή η συσκευή σας. Μπορείτε να τον αλλάξετε αργότερα από τις \“Ρυθμίσεις\”. \n (προτιμήστε την \“Κανονική\” έναντι της \“Εναλλακτικής\” και την \“Εναλλακτικό\” έναντι της \“Εναλλακτικής 2\”)</string>
+    <string name="first_time_desc">Καλώς ήλθατε στην εφαρμογή Callflash, την εφαρμογή που ελέγχει το Flash σας σε κάθε κλήση ή ειδοποίηση.\n\nΠαρακαλώ επιλέξτε την μέθοδο οδήγησης του Flash με την οποία είναι συμβατή η συσκευή σας. Μπορείτε να τον αλλάξετε αργότερα από τις \“Ρυθμίσεις\”. \n (προτιμήστε την \“Κανονική\” έναντι της \“Εναλλακτικής\” και την \“Εναλλακτική\” έναντι της \“Εναλλακτικής 2\”)</string>
     <string name="adColony">Δείτε ένα βίντεο HD!</string>
     <string name="adColonysum">App της ημέρας από την adColony…</string>
     <string name="bubble1">Ενεργοποίηση του Flash κατά την κλήση\nκαι την ειδοποίηση με αυτά τα πλήκτρα…\n</string>
@@ -99,4 +99,13 @@
     <string name="bubble4">Επεξεργαστείτε τις προτιμήσεις της κάθε\nκατηγορίας και είστε έτοιμοι!\n</string>
     <string name="adMob">Δωρεάν εφαρμογές!</string>
     <string name="adMobsum">Δωρεάν εφαρμογές της ημέρας από την AdMob…</string>
+    <string name="coming_soon">Σύντομα...</string>
+    <string name="set">OK</string>
+    <string name="cancel">Άκυρο</string>
+    <string name="sound_profiles">Προφίλ ήχου</string>
+    <string name="screen_off">Η οθόνη είναι σβηστή</string>
+    <string name="screen_off_sum">Flash αν η οθόνη είναι είτε ενεργοποιημένη είτε απενεργοποιημένη.</string>
+    <string name="screen_off_ticked_sum">Flash μόνο αν η οθόνη είναι απενεργοποιημένη.</string>
+    <string name="screen_state">Κατάσταση οθόνης</string>
+    <string name="no_internet_connection">Δεν υπάρχει σύνδεση στο Internet!</string>
 </resources>
