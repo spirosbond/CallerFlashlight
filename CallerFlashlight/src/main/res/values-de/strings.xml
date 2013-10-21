@@ -70,7 +70,7 @@
     <string name="clear_all_button">Alle löschen</string>
     <string name="select_all_button">Alle auswählen</string>
     <string name="app_list_check">Blitz auch für andere Benachrichtigungen</string>
-    <string name="app_list_check_sum">Tippen Sie hier, um den \"Benachrichtigungsdienst\" zu deaktivieren</string>
+    <string name="app_list_check_sum">Tippen Sie hier, um den \"CallFlash-Benachrichtigungsdienst\" zu aktivieren oder zu deaktivieren</string>
     <string name="sms_more_categ">Erweiterte Einstellungen</string>
     <string name="more_flash_warning_sum">Tippen Sie hier, um den \"Benachrichtigungsdienst\" zu aktivieren</string>
     <string name="accessibility_service_description">Mit Aktivierung dieses Dienstes werden Ihre Benachrichtigungen erkannt und aufgrund Ihrer festgelegten Einstellungen ein Blitz ausgelöst</string>
@@ -99,4 +99,13 @@
     <string name="bubble4">Bearbeiten Sie die Einstellungen jedes\nBereichs und Sie sind dann fertig!\n</string>
     <string name="adMob">Kostenlose Apps!</string>
     <string name="adMobsum">Kostenlose Apps des Tages von AdMob...</string>
+    <string name="coming_soon">Demnächst...</string>
+    <string name="set">Festlegen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="sound_profiles">Tonprofil</string>
+    <string name="screen_off">Bildschirm ist AUS</string>
+    <string name="screen_off_sum">Blitzen mit Bildschirm entweder AN oder AUS</string>
+    <string name="screen_off_ticked_sum">Blitzen nur mit Bildschirm AUS</string>
+    <string name="screen_state">Bildschirmstatus</string>
+    <string name="no_internet_connection">Keine Internetverbindung!</string>
 </resources>

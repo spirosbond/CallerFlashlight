@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.spirosbond.callerflashlight"
           android:versionCode="2"
-          android:versionName="2.0.2_BETA">
+          android:versionName="2.0.2">
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -158,8 +158,9 @@
             android:name=".NotificationService"
             android:label="@string/notification_service"
             android:enabled="true"
-            android:exported="false"
+
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <!--android:exported="false"-->
 
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService"/>
