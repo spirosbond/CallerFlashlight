@@ -84,8 +84,8 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
 		if (CallerFlashlight.LOG) Log.d(TAG, "onSharedPreferenceChanged: " + s);
-		if (s.equals("sms_mode_type")) {
-//			lp = (ListPreference) findPreference("type_list");
+		if (s.equals("sms_mode_list")) {
+			//			lp = (ListPreference) findPreference("type_list");
 			setModeSum();
 
 		}

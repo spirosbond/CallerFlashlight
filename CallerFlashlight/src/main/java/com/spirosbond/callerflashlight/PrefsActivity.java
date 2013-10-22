@@ -47,7 +47,7 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
 		if (CallerFlashlight.LOG) Log.d(TAG, "onSharedPreferenceChanged: " + s);
-		if (s.equals("type")) {
+		if (s.equals("type_list")) {
 			//			lp = (ListPreference) findPreference("type_list");
 			setTypeSum();
 

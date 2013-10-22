@@ -61,6 +61,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		super.onPause();
 		callerFlashlight.setCallFlashTest(false);
 		callerFlashlight.setMsgFlashTest(false);
+		CallerFlashlight.commit.run();
 	}
 
 	@Override

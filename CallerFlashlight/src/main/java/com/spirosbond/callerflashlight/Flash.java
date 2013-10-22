@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.bugsense.trace.BugSenseHandler;
+
 /**
  * Created by spiros on 8/7/13.
  */
@@ -116,16 +118,22 @@ public class Flash {
 			wm.addView(orientationChanger, orientationLayout);
 
 		}
-		if (cf.getType() == CallerFlashlight.TYPE_NORMAL || cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE) {
-			pon = cam.getParameters();
-			poff = cam.getParameters();
-			pon.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-			poff.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-		} else if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE_2) {
-			pon = cam.getParameters();
-			poff = cam.getParameters();
-			pon.setFlashMode(Camera.Parameters.FLASH_MODE_ON);
-			poff.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+		try {
+			if (cf.getType() == CallerFlashlight.TYPE_NORMAL || cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE) {
+				pon = cam.getParameters();
+				poff = cam.getParameters();
+				pon.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+				poff.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+			} else if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE_2) {
+				pon = cam.getParameters();
+				poff = cam.getParameters();
+				pon.setFlashMode(Camera.Parameters.FLASH_MODE_ON);
+				poff.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+			}
+		} catch (Exception e) {
+			if (CallerFlashlight.LOG) Log.d(TAG, "unable to get parameters");
+			e.printStackTrace();
+			BugSenseHandler.sendException(e);
 		}
 	}
 
@@ -166,6 +174,7 @@ public class Flash {
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (CallerFlashlight.LOG) Log.d(TAG, "failed to set parameters");
+			BugSenseHandler.sendException(e);
 		}
 
 		try {
@@ -181,6 +190,7 @@ public class Flash {
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (CallerFlashlight.LOG) Log.d(TAG, "failed to set parameters");
+			BugSenseHandler.sendException(e);
 		}
 
 		try {

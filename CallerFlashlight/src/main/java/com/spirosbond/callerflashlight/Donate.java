@@ -79,11 +79,11 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 		}
 
 		AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-		builder1.setTitle("Thank you for donating!");
+		builder1.setTitle(getResources().getString(R.string.donate_dialog_title));
 		builder1.setMessage(getResources().getString(R.string.donateDialog));
 		builder1.setCancelable(true);
 		builder1.setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_info));
-		builder1.setPositiveButton("Got it!",
+		builder1.setPositiveButton(getResources().getString(R.string.donate_dialog_ok),
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						dialog.cancel();
