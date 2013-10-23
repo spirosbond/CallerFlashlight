@@ -58,13 +58,13 @@ public class NotificationService extends AccessibilityService {
 		callerFlashlight = (CallerFlashlight) getApplication();
 		callerFlashlight.setServiceRunning(true);
 
-//		AccessibilityServiceInfo info = new AccessibilityServiceInfo();
-//		info.eventTypes = AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED;
-//		info.notificationTimeout = 100;
+		//		AccessibilityServiceInfo info = new AccessibilityServiceInfo();
+		//		info.eventTypes = AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED;
+		//		info.notificationTimeout = 100;
 
-//		info.feedbackType = AccessibilityEvent.TYPES_ALL_MASK;
-//		info.feedbackType = AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED;
-//		setServiceInfo(info);
+		//		info.feedbackType = AccessibilityEvent.TYPES_ALL_MASK;
+		//		info.feedbackType = AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED;
+		//		setServiceInfo(info);
 
 	}
 

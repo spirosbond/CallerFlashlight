@@ -108,4 +108,6 @@
     <string name="screen_off_ticked_sum">Flash μόνο αν η οθόνη είναι απενεργοποιημένη.</string>
     <string name="screen_state">Κατάσταση οθόνης</string>
     <string name="no_internet_connection">Δεν υπάρχει σύνδεση στο Internet!</string>
+    <string name="donate_dialog_title">Σας ευχαριστούμε για την δωρεά!</string>
+    <string name="donate_dialog_ok">Το έπιασα!</string>
 </resources>

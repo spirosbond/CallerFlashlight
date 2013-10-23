@@ -37,7 +37,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 		moreFlashCheck = findPreference("app_list_check");
 		moreFlashCheck.setOnPreferenceClickListener(this);
 
-		setModeSum();
+		setModeSum(callerFlashlight.getMsgFlashType());
 
 		try {
 			accessibilityEnabled = Settings.Secure.getInt(this.getContentResolver(), android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
@@ -86,17 +86,17 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 		if (CallerFlashlight.LOG) Log.d(TAG, "onSharedPreferenceChanged: " + s);
 		if (s.equals("sms_mode_list")) {
 			//			lp = (ListPreference) findPreference("type_list");
-			setModeSum();
+			setModeSum(Integer.valueOf(sharedPreferences.getString("sms_mode_list", "")));
 
 		}
 	}
 
-	private void setModeSum() {
+	private void setModeSum(int type) {
 
 		lp = (ListPreference) findPreference("sms_mode_list");
 		sbp = (SeekBarPreference) findPreference("msgFlashDuration");
 		if (CallerFlashlight.LOG) Log.d(TAG, "setSMSModeSum");
-		int type = callerFlashlight.getMsgFlashType();
+		//		int type = callerFlashlight.getMsgFlashType();
 		if (type == 1) {
 			if (CallerFlashlight.LOG) Log.d(TAG, "sum type 1");
 			lp.setSummary(getResources().getString(R.string.sms_mode_list_1));
@@ -106,7 +106,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 			if (CallerFlashlight.LOG) Log.d(TAG, "sum type 2");
 			lp.setSummary(getResources().getString(R.string.sms_mode_list_2));
 			sbp.setmUnitsRight(" times");
-//			sbp.updateView(getListView());
+			//			sbp.updateView(getListView());
 		}
 
 	}
@@ -118,7 +118,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 		if (preference.getKey().equals("app_list")) {
 			startActivity(new Intent(this, AppList.class));
 		} else if (preference.getKey().equals("app_list_check")) {
-//			Toast.makeText(this, "Please enable Notification Service at Accessibility Settings", Toast.LENGTH_LONG).show();
+			//			Toast.makeText(this, "Please enable Notification Service at Accessibility Settings", Toast.LENGTH_LONG).show();
 			startActivityForResult(new Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS), 0);
 		}
 

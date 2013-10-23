@@ -25,7 +25,7 @@ public class CallPrefs extends PreferenceActivity implements SharedPreferences.O
 
 		PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
 
-//		lp = (ListPreference) findPreference("type_list");
+		//		lp = (ListPreference) findPreference("type_list");
 
 
 	}

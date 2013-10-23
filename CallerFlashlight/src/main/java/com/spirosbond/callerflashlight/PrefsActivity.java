@@ -29,15 +29,15 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 
 		lp = (ListPreference) findPreference("type_list");
 		lp.setValue(String.valueOf(callerFlashlight.getType()));
-		setTypeSum();
+		setTypeSum(callerFlashlight.getType());
 
 		screenOfPreference = (CheckBoxPreference) findPreference("screen_off");
-		setScreenOffSum();
+		setScreenOffSum(callerFlashlight.isScreenOffPref());
 
 	}
 
-	private void setScreenOffSum() {
-		if (screenOfPreference.isChecked()) {
+	private void setScreenOffSum(boolean isChecked) {
+		if (isChecked) {
 			screenOfPreference.setSummary(getResources().getString(R.string.screen_off_ticked_sum));
 		} else {
 			screenOfPreference.setSummary(getResources().getString(R.string.screen_off_sum));
@@ -49,18 +49,18 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 		if (CallerFlashlight.LOG) Log.d(TAG, "onSharedPreferenceChanged: " + s);
 		if (s.equals("type_list")) {
 			//			lp = (ListPreference) findPreference("type_list");
-			setTypeSum();
+			setTypeSum(Integer.valueOf(sharedPreferences.getString("type_list", "")));
 
 		} else if (s.equals("screen_off")) {
-			setScreenOffSum();
+			setScreenOffSum(sharedPreferences.getBoolean("screen_off", false));
 		}
 	}
 
-	public void setTypeSum() {
+	public void setTypeSum(int type) {
 
-		lp = (ListPreference) findPreference("type_list");
+		//		lp = (ListPreference) findPreference("type_list");
 		if (CallerFlashlight.LOG) Log.d(TAG, "setTypeSum");
-		int type = callerFlashlight.getType();
+		//		int type = callerFlashlight.getType();
 		if (type == 1) {
 			if (CallerFlashlight.LOG) Log.d(TAG, "sum type 1");
 			lp.setSummary(getResources().getString(R.string.type_list_1));

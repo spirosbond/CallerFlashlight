@@ -57,7 +57,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		commit = new Runnable() {
 			public void run() {
 				if (LOG) Log.d(TAG, "Committing preferences");
-				editor.commit();
+				savePreferences();
 			}
 		};
 		loadPreferences();
@@ -116,6 +116,37 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	}
 
+	private void savePreferences() {
+
+		if (LOG) Log.d(TAG, "savePreferences");
+
+		editor.putBoolean("callFlash", callFlash);
+		editor.putBoolean("msgFlash", msgFlash);
+		editor.putInt("callFlashOnDuration", callFlashOnDuration);
+		editor.putInt("callFlashOffDuration", callFlashOffDuration);
+		editor.putInt("msgFlashOnDuration", msgFlashOnDuration);
+		editor.putInt("msgFlashOffDuration", msgFlashOffDuration);
+		editor.putInt("msgFlashDuration", msgFlashDuration);
+		editor.putBoolean("silent_mode", silentMode);
+		editor.putBoolean("vibrate_mode", vibrateMode);
+		editor.putBoolean("normal_mode", normalMode);
+		editor.putBoolean("sleep_check", sleepMode);
+		editor.putString("sleep_start", sleepStart);
+		editor.putString("sleep_stop", sleepStop);
+		editor.putInt("sleep_start_hour", sleepStartHour);
+		editor.putInt("sleep_stop_hour", sleepStopHour);
+		editor.putInt("sleep_start_minute", sleepStartMinute);
+		editor.putInt("sleep_stop_minute", sleepStopMinute);
+		editor.putInt("type", type);
+		editor.putInt("sms_mode_type", msgFlashType);
+		editor.putBoolean("app_list_check", appListCheck);
+		editor.putBoolean("service_running", serviceRunning);
+		editor.putBoolean("first_time", firstTime);
+		editor.putBoolean("screen_off", screenOffPref);
+		editor.commit();
+
+	}
+
 	public boolean isCallFlash() {
 		//		callFlash = prefs.getBoolean("callFlash", false);
 		return callFlash;
@@ -123,7 +154,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setCallFlash(boolean callFlash) {
 		this.callFlash = callFlash;
-		editor.putBoolean("callFlash", callFlash);
+		//		editor.putBoolean("callFlash", callFlash);
 		//		editor.commit();
 		//commit.run();
 		if (LOG) Log.d(TAG, "setCallFlash: " + callFlash);
@@ -136,7 +167,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setMsgFlash(boolean msgFlash) {
 		this.msgFlash = msgFlash;
-		editor.putBoolean("msgFlash", msgFlash);
+		//		editor.putBoolean("msgFlash", msgFlash);
 		//		editor.commit();
 		//commit.run();
 		if (LOG) Log.d(TAG, "setMsgFlash: " + msgFlash);
@@ -149,7 +180,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setCallFlashOnDuration(int callFlashOnDuration) {
 		this.callFlashOnDuration = callFlashOnDuration;
-		editor.putInt("callFlashOnDuration", callFlashOnDuration);
+		//		editor.putInt("callFlashOnDuration", callFlashOnDuration);
 		//		editor.commit();
 		//commit.run();
 		if (LOG) Log.d(TAG, "setCallFlashOnDuration: " + callFlashOnDuration);
@@ -162,7 +193,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setCallFlashOffDuration(int callFlashOffDuration) {
 		this.callFlashOffDuration = callFlashOffDuration;
-		editor.putInt("callFlashOffDuration", callFlashOffDuration);
+		//		editor.putInt("callFlashOffDuration", callFlashOffDuration);
 		//		editor.commit();
 		//commit.run();
 		if (LOG) Log.d(TAG, "setCallFlashOffDuration: " + callFlashOffDuration);
@@ -176,7 +207,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setMsgFlashOnDuration(int msgFlashOnDuration) {
 		this.msgFlashOnDuration = msgFlashOnDuration;
-		editor.putInt("msgFlashOnDuration", msgFlashOnDuration);
+		//		editor.putInt("msgFlashOnDuration", msgFlashOnDuration);
 		//		editor.commit();
 		//commit.run();
 		if (LOG) Log.d(TAG, "setMsgFlashOnDuration: " + msgFlashOnDuration);
@@ -190,7 +221,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setMsgFlashOffDuration(int msgFlashOffDuration) {
 		this.msgFlashOffDuration = msgFlashOffDuration;
-		editor.putInt("msgFlashOffDuration", msgFlashOffDuration);
+		//		editor.putInt("msgFlashOffDuration", msgFlashOffDuration);
 		//		editor.commit();
 		//commit.run();
 		if (LOG) Log.d(TAG, "setMsgFlashOffDuration: " + msgFlashOffDuration);
@@ -234,7 +265,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setMsgFlashDuration(int msgFlashDuration) {
 		this.msgFlashDuration = msgFlashDuration;
-		editor.putInt("msgFlashDuration", msgFlashDuration);
+		//		editor.putInt("msgFlashDuration", msgFlashDuration);
 		//commit.run();
 		if (LOG) Log.d(TAG, "setMsgFlashDuration: " + msgFlashDuration);
 
@@ -331,7 +362,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setNormalMode(boolean normalMode) {
 		this.normalMode = normalMode;
-		editor.putBoolean("normal_mode", normalMode);
+		//		editor.putBoolean("normal_mode", normalMode);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -343,7 +374,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setVibrateMode(boolean vibrateMode) {
 		this.vibrateMode = vibrateMode;
-		editor.putBoolean("vibrate_mode", vibrateMode);
+		//		editor.putBoolean("vibrate_mode", vibrateMode);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -355,7 +386,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setSilentMode(boolean silentMode) {
 		this.silentMode = silentMode;
-		editor.putBoolean("silent_mode", silentMode);
+		//		editor.putBoolean("silent_mode", silentMode);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -367,7 +398,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setSleepStart(String sleepStart) {
 		this.sleepStart = sleepStart;
-		editor.putString("sleep_start", sleepStart);
+		//		editor.putString("sleep_start", sleepStart);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -379,7 +410,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setSleepStop(String sleepStop) {
 		this.sleepStop = sleepStop;
-		editor.putString("sleep_stop", sleepStop);
+		//		editor.putString("sleep_stop", sleepStop);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -391,7 +422,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setSleepStartHour(int sleepStartHour) {
 		this.sleepStartHour = sleepStartHour;
-		editor.putInt("sleep_start_hour", sleepStartHour);
+		//		editor.putInt("sleep_start_hour", sleepStartHour);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -403,7 +434,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setSleepStartMinute(int sleepStartMinute) {
 		this.sleepStartMinute = sleepStartMinute;
-		editor.putInt("sleep_start_minute", sleepStartMinute);
+		//		editor.putInt("sleep_start_minute", sleepStartMinute);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -415,7 +446,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setSleepStopHour(int sleepStopHour) {
 		this.sleepStopHour = sleepStopHour;
-		editor.putInt("sleep_stop_hour", sleepStopHour);
+		//		editor.putInt("sleep_stop_hour", sleepStopHour);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -427,7 +458,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setSleepStopMinute(int sleepStopMinute) {
 		this.sleepStopMinute = sleepStopMinute;
-		editor.putInt("sleep_stop_minute", sleepStopMinute);
+		//		editor.putInt("sleep_stop_minute", sleepStopMinute);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -439,7 +470,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setSleepMode(boolean sleepMode) {
 		this.sleepMode = sleepMode;
-		editor.putBoolean("sleep_check", sleepMode);
+		//		editor.putBoolean("sleep_check", sleepMode);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -452,7 +483,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setType(int type) {
 		this.type = type;
-		editor.putInt("type", type);
+		//		editor.putInt("type", type);
 		//		editor.commit();
 		//commit.run();
 		if (LOG) Log.d(TAG, "type set to: " + type);
@@ -466,7 +497,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setMsgFlashType(int msgFlashType) {
 		this.msgFlashType = msgFlashType;
-		editor.putInt("sms_mode_type", msgFlashType);
+		//		editor.putInt("sms_mode_type", msgFlashType);
 		//		editor.commit();
 		//commit.run();
 		if (LOG) Log.d(TAG, "sms_mode_type set to: " + msgFlashType);
@@ -478,8 +509,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void saveApp(String packageName, boolean b) {
 		editor.putBoolean(packageName, b);
-		//		editor.commit();
-		commit.run();
+		editor.commit();
 	}
 
 	public boolean isAppListCheck() {
@@ -489,7 +519,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setAppListCheck(boolean appListCheck) {
 		this.appListCheck = appListCheck;
-		editor.putBoolean("app_list_check", appListCheck);
+		//		editor.putBoolean("app_list_check", appListCheck);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -501,7 +531,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setBootReceiver(boolean bootReceiver) {
 		this.bootReceiver = bootReceiver;
-		editor.putBoolean("boot_receiver", bootReceiver);
+		//		editor.putBoolean("boot_receiver", bootReceiver);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -513,7 +543,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setServiceRunning(boolean serviceRunning) {
 		this.serviceRunning = serviceRunning;
-		editor.putBoolean("service_running", serviceRunning);
+		//		editor.putBoolean("service_running", serviceRunning);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -533,7 +563,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setFirstTime(boolean firstTime) {
 		this.firstTime = firstTime;
-		editor.putBoolean("first_time", firstTime);
+		//		editor.putBoolean("first_time", firstTime);
 		//		editor.commit();
 		//commit.run();
 	}
@@ -561,7 +591,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setScreenOffPref(boolean screen_off_pref) {
 		this.screenOffPref = screen_off_pref;
-		editor.putBoolean("screen_off", screen_off_pref);
+		//		editor.putBoolean("screen_off", screen_off_pref);
 		//		editor.commit();
 		//commit.run();
 	}
