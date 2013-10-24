@@ -126,5 +126,6 @@
     <string name="donate_dialog_ok">Got it!</string>
     <string name="paypal_donate">Paypal</string>
     <string name="paypal_donate_sum">Click here to donate through Paypal…</string>
+    <string name="donateTitleCard">Donate via credit card</string>
 
 </resources>

@@ -22,8 +22,9 @@
             android:title="@string/adMob"
             android:summary="@string/adMobsum"
             android:key="adMob"/>
-
-        <Preference
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/donateTitleCard">
+    <Preference
             android:title="@string/paypal_donate"
             android:summary="@string/paypal_donate_sum"
             android:key="paypal"/>
