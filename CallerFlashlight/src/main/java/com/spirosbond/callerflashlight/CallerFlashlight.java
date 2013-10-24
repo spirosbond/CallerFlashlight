@@ -242,9 +242,9 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		} else if (s.equals("sms_mode_list")) {
 			setMsgFlashType(Integer.valueOf(sharedPreferences.getString("sms_mode_list", "")));
 
-		} else if (s.equals("screen_off")) {
+		} /*else if (s.equals("screen_off")) {
 			setScreenOffPref(sharedPreferences.getBoolean("screen_off", false));
-		}
+		}*/
 		//		else if (s.equals("app_list_check")) {
 		//			setAppListCheck(sharedPreferences.getBoolean("app_list_check", false));
 		//			setBootReceiver(sharedPreferences.getBoolean("app_list_check", false));
@@ -590,6 +590,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public void setScreenOffPref(boolean screen_off_pref) {
+		if (CallerFlashlight.LOG) Log.d(TAG, "screenOffPreff set to: " + screen_off_pref);
 		this.screenOffPref = screen_off_pref;
 		//		editor.putBoolean("screen_off", screen_off_pref);
 		//		editor.commit();

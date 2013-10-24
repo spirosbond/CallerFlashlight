@@ -28,7 +28,7 @@
 
         Help with the translation of the app:\nhttp://crowdin.net/project/callflash/invite\n
     </string>
-    <string name="aboutFooter">CallFlash. All Rights Reserved.</string>
+    <string name="aboutFooter">CallFlash \u00a9. All Rights Reserved.</string>
     <string name="titleAbout">About</string>
     <string name="titleHowTo">How it works</string>
     <string name="howTo1">1. Enable your preferred operation mode and test is using the test buttons.</string>
@@ -84,8 +84,7 @@
     <string name="sms_more_categ">Advanced Preferences</string>
     <string name="more_flash_warning_sum">Click here to enable “Notification Service”.</string>
     <string name="accessibility_service_description">Enabling this service will let CallFlash to detect your notifications in order to enable the flash
-        according to your preferences.
-    </string>
+        according to your preferences.</string>
 
     <string name="donate">Donate!</string>
     <string name="donate1">AppFlood</string>
@@ -101,7 +100,7 @@
     <string name="appofthedaysum">Click to see the apps of the day by Appflood…</string>
     <string name="startapp">Free Apps!</string>
     <string name="startappsum">Show the apps of the day by Startapp…</string>
-    <string name="donateDialog">"1. Choose to see the apps of the day\n2. Download any app you like\n3. You donated!\n…without spending a dime!"</string>
+    <string name="donateDialog">"1. Choose to see the apps of the day\n2. Download any app you like\n3. You donated!\n…without spending a dime!\nAlternatively you can donate through Paypal"</string>
     <string name="first_time">First Time Settings</string>
     <string name="firstcontinue">Continue</string>
     <string name="first_time_desc">Welcome to Callflash, the application which controls your flash on every call or notification.\n\nPlease select the flash driver which works with your device. You can change it afterwards from “Preferences”.\n(Prefer “Standard” over “Alternative” and “Alternative” over “Alternative 2”)</string>
@@ -127,5 +126,8 @@
     <string name="paypal_donate">Paypal</string>
     <string name="paypal_donate_sum">Click here to donate through Paypal…</string>
     <string name="donateTitleCard">Donate via credit card</string>
+    <string name="warning">Warning!</string>
+    <string name="warning_screenoff">Enabling this option may cause flashing not to work properly. Applications that enable the screen when receiving a notification (such as viber…) will not trigger the flash.</string>
+    <string name="enable_anyway">Enable anyway</string>
 
 </resources>

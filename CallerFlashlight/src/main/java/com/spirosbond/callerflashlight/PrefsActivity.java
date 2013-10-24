@@ -1,10 +1,13 @@
 package com.spirosbond.callerflashlight;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -12,7 +15,7 @@ import android.util.Log;
 /**
  * Created by spiros on 8/5/13.
  */
-public class PrefsActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class PrefsActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
 	private static final String TAG = PrefsActivity.class.getSimpleName();
 	ListPreference lp;
@@ -32,6 +35,7 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 		setTypeSum(callerFlashlight.getType());
 
 		screenOfPreference = (CheckBoxPreference) findPreference("screen_off");
+		screenOfPreference.setOnPreferenceClickListener(this);
 		setScreenOffSum(callerFlashlight.isScreenOffPref());
 
 	}
@@ -51,8 +55,6 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 			//			lp = (ListPreference) findPreference("type_list");
 			setTypeSum(Integer.valueOf(sharedPreferences.getString("type_list", "")));
 
-		} else if (s.equals("screen_off")) {
-			setScreenOffSum(sharedPreferences.getBoolean("screen_off", false));
 		}
 	}
 
@@ -72,6 +74,45 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 			lp.setSummary(getResources().getString(R.string.type_list_3));
 		}
 
+	}
+
+	@Override
+	public boolean onPreferenceClick(Preference preference) {
+		if ("screen_off".equals(preference.getKey())) {
+			if (!callerFlashlight.isScreenOffPref()) {
+				if (CallerFlashlight.LOG) Log.d(TAG, "preference.isEnabled()=true");
+				new AlertDialog.Builder(this)
+						.setTitle(getResources().getString(R.string.warning))
+						.setMessage(getResources().getString(R.string.warning_screenoff))
+						.setIcon(android.R.drawable.ic_dialog_alert)
+						.setPositiveButton(R.string.enable_anyway, new DialogInterface.OnClickListener() {
+
+							public void onClick(DialogInterface dialog, int whichButton) {
+								if (CallerFlashlight.LOG) Log.d(TAG, "whichButton: " + whichButton);
+								callerFlashlight.setScreenOffPref(true);
+								setScreenOffSum(true);
+								screenOfPreference.setChecked(true);
+							}
+						})
+						.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+
+							public void onClick(DialogInterface dialog, int whichButton) {
+								//if (CallerFlashlight.LOG) Log.d(TAG,"whichButton: "+whichButton);
+								callerFlashlight.setScreenOffPref(false);
+								setScreenOffSum(false);
+								screenOfPreference.setChecked(false);
+							}
+						}).show();
+				return true;
+			} else {
+				screenOfPreference.setChecked(false);
+				callerFlashlight.setScreenOffPref(false);
+				setScreenOffSum(false);
+				return false;
+
+			}
+		}
+		return false;
 
 	}
 }
