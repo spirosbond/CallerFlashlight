@@ -22,6 +22,11 @@
             android:title="@string/adMob"
             android:summary="@string/adMobsum"
             android:key="adMob"/>
+
+        <Preference
+            android:title="@string/paypal_donate"
+            android:summary="@string/paypal_donate_sum"
+            android:key="paypal"/>
     </PreferenceCategory>
 
 

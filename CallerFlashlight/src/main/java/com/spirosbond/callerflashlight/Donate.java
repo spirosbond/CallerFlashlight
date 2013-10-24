@@ -3,7 +3,9 @@ package com.spirosbond.callerflashlight;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -34,6 +36,7 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 	//	private Preference startapp;
 	private Preference adcolony;
 	private Preference adMob;
+	private Preference paypal;
 	private InterstitialAd interstitialAdMob;
 	private Donate donate = this;
 
@@ -69,10 +72,12 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 		//		startapp = findPreference("startapp");
 		adcolony = findPreference("adcolony");
 		adMob = findPreference("adMob");
+		paypal = findPreference("paypal");
 		//		startapp.setOnPreferenceClickListener(this);
 		//		appoftheday.setOnPreferenceClickListener(this);
 		adcolony.setOnPreferenceClickListener(this);
 		adMob.setOnPreferenceClickListener(this);
+		paypal.setOnPreferenceClickListener(this);
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -130,6 +135,9 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 				//				});
 
 
+			} else if ("paypal".equals(preference.getKey())) {
+				Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z5V7A5QNQDFPS"));
+				startActivity(browse);
 			}
 		} else {
 			Toast.makeText(getApplicationContext(), getResources().getString(R.string.no_internet_connection), Toast.LENGTH_LONG).show();
