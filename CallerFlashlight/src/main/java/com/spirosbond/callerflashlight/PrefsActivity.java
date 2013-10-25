@@ -107,7 +107,7 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 								setScreenOffSum(false);
 								screenOfPreference.setChecked(false);
 							}
-						}).setOnDismissListener(new DialogInterface.OnDismissListener() {
+						}).setCancelable(false)/*.setOnDismissListener(new DialogInterface.OnDismissListener() {
 					@Override
 					public void onDismiss(DialogInterface dialogInterface) {
 						if (dismissed) {
@@ -117,7 +117,7 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 							setScreenOffSum(false);
 						}
 					}
-				}).show();
+				})*/.show();
 				return true;
 			} else {
 				if (CallerFlashlight.LOG) Log.d(TAG, "callerFlashlight.isScreenOffPref()=true");
