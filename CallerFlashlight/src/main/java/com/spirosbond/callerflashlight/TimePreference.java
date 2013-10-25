@@ -124,13 +124,13 @@ public class TimePreference extends DialogPreference {
 		} else {
 			time = defaultValue.toString();
 		}
-
+		//		if (CallerFlashlight.LOG) Log.d(TAG, "restoreValue: "+restoreValue+" time: " + time+" defaultValue: "+defaultValue);
 		lastHour = getHour(time);
 		lastMinute = getMinute(time);
 	}
 
 	public void setSummary() {
-		if (this.getKey().equals("sleep_start")) setSummary(prefs.getString("sleep_start", ""));
-		else if (this.getKey().equals("sleep_stop")) setSummary(prefs.getString("sleep_stop", ""));
+		if (this.getKey().equals("sleep_start")) this.setSummary(prefs.getString("sleep_start", ""));
+		else if (this.getKey().equals("sleep_stop")) this.setSummary(prefs.getString("sleep_stop", ""));
 	}
 }

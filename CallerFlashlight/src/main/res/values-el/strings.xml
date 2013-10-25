@@ -18,7 +18,7 @@
     <string name="donateStr">Δωρεά</string>
     <string name="titlePrefs">Ρυθμίσεις</string>
     <string name="aboutText">\n\nΗ εφαρμογή CallFlash ελέγχει το φλας του κινητού σας ενώ δέχεστε κλήσεις και άλλες ειδοποιήσεις. Είναι ένα project ανοικτού κώδικα από τον Σπύρο Μποντομητσίδη, με στόχο να κρατήσει τα πράγματα απλά και λειτουργικά.\n\nΓια περισσότερες πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε την εφαρμογή, δείτε τις \“Οδηγίες λειτουργίας\”.\n\nΣχόλια και ενημερώσεις στο:\nforum.xda-developers.com/showthread.php?t=2403340\n\nΒοηθήστε με τη μετάφραση της εφαρμογής:\nhttp://crowdin.net/project/callflash/invite\n</string>
-    <string name="aboutFooter">CallFlash. All Rights Reserved.</string>
+    <string name="aboutFooter">CallFlash \u00a9. All Rights Reserved.</string>
     <string name="titleAbout">Σχετικά με</string>
     <string name="titleHowTo">Οδηγίες λειτουργίας</string>
     <string name="howTo1">1. Ενεργοποιήστε την προτιμώμενη λειτουργία και κάντε test με τα αντίστοιχα πλήκτρα.</string>
@@ -70,10 +70,10 @@
     <string name="clear_all_button">Απαλοιφή όλων</string>
     <string name="select_all_button">Επιλογή όλων</string>
     <string name="app_list_check">Flash σε άλλες ειδοποιήσεις</string>
-    <string name="app_list_check_sum">Κάντε κλικ εδώ για να απενεργοποιήσετε την \“CallFlash Υπηρεσία παρασκηνίου\”.</string>
+    <string name="app_list_check_sum">Κάντε κλικ εδώ για να απενεργοποιήσετε την \“Υπηρεσία παρασκηνίου ειδοποίησης\”.</string>
     <string name="sms_more_categ">Επιπλέον Ρυθμίσεις</string>
     <string name="more_flash_warning_sum">Κάντε κλικ εδώ για να ενεργοποιήσετε την \“Υπηρεσία παρασκηνίου\”.</string>
-    <string name="accessibility_service_description">Η ενεργοποίηση αυτής της υπηρεσίας θα επιτρέψει στην εφαρμογή να ανιχνεύσει τις ειδοποιήσεις σας προκειμένου να μπορέσει ενεργοποιήσει το Flash σύμφωνα με τις προτιμήσεις σας.</string>
+    <string name="accessibility_service_description">Η ενεργοποίηση αυτής της υπηρεσίας θα επιτρέψει στην εφαρμογή να ανιχνεύσει τις ειδοποιήσεις σας, προκειμένου να μπορέσει ενεργοποιήσει το Flash σύμφωνα με τις προτιμήσεις σας.</string>
     <string name="donate">Δωρεά!</string>
     <string name="donate1">AppFlood</string>
     <string name="summaryDonate1">Ενεργοποίηση διαφημίσεων από την AppFlood</string>
@@ -87,7 +87,7 @@
     <string name="appofthedaysum">Κάντε κλικ για να δείτε τις εφαρμογές της ημέρας από την Appflood…</string>
     <string name="startapp">Δωρεάν εφαρμογές!</string>
     <string name="startappsum">Δείτε τις εφαρμογές της ημέρας από την Startapp…</string>
-    <string name="donateDialog">"1. Επιλέξτε να δείτε τις εφαρμογές της ημέρας\n2. Κάντε download οποιαδήποτε εφαρμογή σας άρεσε\n3. Κάνατε μία δωρεά!\n…χωρίς να ξοδέψετε τίποτα!"</string>
+    <string name="donateDialog">"1. Επιλέξτε για να δείτε τις εφαρνογές της ημέρας\n2. Κατεβάσετε οποιοδήποτε εφαρμογή σας αρέσει\n3. Μόλις κάνατε μια δωρεά!\n…χωρίς να ξοδέψετε δεκάρα! \nΕναλλακτικά μπορείτε κάνετε δωρεά μέσω Paypal."</string>
     <string name="first_time">Ρυθμίσεις πρώτης εκτέλεσης</string>
     <string name="firstcontinue">Συνέχεια</string>
     <string name="first_time_desc">Καλώς ήλθατε στην εφαρμογή Callflash, την εφαρμογή που ελέγχει το Flash σας σε κάθε κλήση ή ειδοποίηση.\n\nΠαρακαλώ επιλέξτε την μέθοδο οδήγησης του Flash με την οποία είναι συμβατή η συσκευή σας. Μπορείτε να τον αλλάξετε αργότερα από τις \“Ρυθμίσεις\”. \n (προτιμήστε την \“Κανονική\” έναντι της \“Εναλλακτικής\” και την \“Εναλλακτική\” έναντι της \“Εναλλακτικής 2\”)</string>
@@ -99,7 +99,7 @@
     <string name="bubble4">Επεξεργαστείτε τις προτιμήσεις της κάθε\nκατηγορίας και είστε έτοιμοι!\n</string>
     <string name="adMob">Δωρεάν εφαρμογές!</string>
     <string name="adMobsum">Δωρεάν εφαρμογές της ημέρας από την AdMob…</string>
-    <string name="coming_soon">Σύντομα...</string>
+    <string name="coming_soon">Σύντομα…</string>
     <string name="set">OK</string>
     <string name="cancel">Άκυρο</string>
     <string name="sound_profiles">Προφίλ ήχου</string>
@@ -110,4 +110,10 @@
     <string name="no_internet_connection">Δεν υπάρχει σύνδεση στο Internet!</string>
     <string name="donate_dialog_title">Σας ευχαριστούμε για την δωρεά!</string>
     <string name="donate_dialog_ok">Το έπιασα!</string>
+    <string name="paypal_donate">Paypal</string>
+    <string name="paypal_donate_sum">Κάντε κλικ εδώ για να δωρίσετε μέσω Paypal…</string>
+    <string name="donateTitleCard">Δωρεά μέσω πιστωτικής</string>
+    <string name="warning">Προειδοποίηση!</string>
+    <string name="warning_screenoff">Η ενεργοποίηση αυτής της επιλογής μπορεί να μην επιτρέψει την εφαρμογή να λειτουργήσει σωστά. Εφαρμογές που ενεργοποιούν την οθόνη όταν λαμβάνουν μια ειδοποίηση (όπως το viber…) δεν θα ενεργοποιήσουν το flash.</string>
+    <string name="enable_anyway">Ενεργοποίηση παρ\'όλα αυτά</string>
 </resources>

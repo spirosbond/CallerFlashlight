@@ -131,12 +131,12 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		editor.putBoolean("vibrate_mode", vibrateMode);
 		editor.putBoolean("normal_mode", normalMode);
 		editor.putBoolean("sleep_check", sleepMode);
-		editor.putString("sleep_start", sleepStart);
-		editor.putString("sleep_stop", sleepStop);
-		editor.putInt("sleep_start_hour", sleepStartHour);
-		editor.putInt("sleep_stop_hour", sleepStopHour);
-		editor.putInt("sleep_start_minute", sleepStartMinute);
-		editor.putInt("sleep_stop_minute", sleepStopMinute);
+		//		editor.putString("sleep_start", sleepStart);
+		//		editor.putString("sleep_stop", sleepStop);
+		//		editor.putInt("sleep_start_hour", sleepStartHour);
+		//		editor.putInt("sleep_stop_hour", sleepStopHour);
+		//		editor.putInt("sleep_start_minute", sleepStartMinute);
+		//		editor.putInt("sleep_stop_minute", sleepStopMinute);
 		editor.putInt("type", type);
 		editor.putInt("sms_mode_type", msgFlashType);
 		editor.putBoolean("app_list_check", appListCheck);

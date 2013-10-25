@@ -62,6 +62,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		callerFlashlight.setCallFlashTest(false);
 		callerFlashlight.setMsgFlashTest(false);
 		CallerFlashlight.commit.run();
+		//		callerFlashlight.savePreferences();
 	}
 
 	@Override

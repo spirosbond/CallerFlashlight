@@ -21,6 +21,8 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 	ListPreference lp;
 	CallerFlashlight callerFlashlight;
 	CheckBoxPreference screenOfPreference;
+	private boolean dismissed;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +80,10 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 
 	@Override
 	public boolean onPreferenceClick(Preference preference) {
+		dismissed = true;
 		if ("screen_off".equals(preference.getKey())) {
 			if (!callerFlashlight.isScreenOffPref()) {
-				if (CallerFlashlight.LOG) Log.d(TAG, "preference.isEnabled()=true");
+				if (CallerFlashlight.LOG) Log.d(TAG, "callerFlashlight.isScreenOffPref()=false");
 				new AlertDialog.Builder(this)
 						.setTitle(getResources().getString(R.string.warning))
 						.setMessage(getResources().getString(R.string.warning_screenoff))
@@ -89,6 +92,7 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 
 							public void onClick(DialogInterface dialog, int whichButton) {
 								if (CallerFlashlight.LOG) Log.d(TAG, "whichButton: " + whichButton);
+								dismissed = false;
 								callerFlashlight.setScreenOffPref(true);
 								setScreenOffSum(true);
 								screenOfPreference.setChecked(true);
@@ -97,14 +101,26 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 						.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
 
 							public void onClick(DialogInterface dialog, int whichButton) {
-								//if (CallerFlashlight.LOG) Log.d(TAG,"whichButton: "+whichButton);
+								if (CallerFlashlight.LOG) Log.d(TAG, "whichButton: " + whichButton);
+								dismissed = false;
 								callerFlashlight.setScreenOffPref(false);
 								setScreenOffSum(false);
 								screenOfPreference.setChecked(false);
 							}
-						}).show();
+						}).setOnDismissListener(new DialogInterface.OnDismissListener() {
+					@Override
+					public void onDismiss(DialogInterface dialogInterface) {
+						if (dismissed) {
+							if (CallerFlashlight.LOG) Log.d(TAG, "onDismiss");
+							screenOfPreference.setChecked(false);
+							callerFlashlight.setScreenOffPref(false);
+							setScreenOffSum(false);
+						}
+					}
+				}).show();
 				return true;
 			} else {
+				if (CallerFlashlight.LOG) Log.d(TAG, "callerFlashlight.isScreenOffPref()=true");
 				screenOfPreference.setChecked(false);
 				callerFlashlight.setScreenOffPref(false);
 				setScreenOffSum(false);

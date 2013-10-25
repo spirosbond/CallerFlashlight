@@ -4,7 +4,7 @@
           android:versionCode="3"
           android:versionName="2.0.3">
 
-<uses-sdk
+    <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="18"/>
 
@@ -171,15 +171,6 @@
                 android:resource="@xml/accessibility_service"/>
 
         </service>
-
-        <!--<receiver-->
-        <!--android:name=".BootReceiver"-->
-        <!--android:enabled="true">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="android.intent.action.BOOT_COMPLETED"/>-->
-        <!--</intent-filter>-->
-        <!--</receiver>-->
-
 
         <!--<activity-->
         <!--android:name="com.startapp.android.publish.list3d.List3DActivity"-->
