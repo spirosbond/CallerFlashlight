@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import java.io.IOException;
+import com.bugsense.trace.BugSenseHandler;
 
 /**
  * Created by spiros on 8/7/13.
@@ -36,18 +36,19 @@ public class CameraSurface extends SurfaceView implements SurfaceHolder.Callback
 	public void surfaceCreated(SurfaceHolder holder) {
 		// The Surface has been created, now tell the camera where to draw the preview.
 		try {
-			Log.d(TAG, "surfaceCreated");
+			if (CallerFlashlight.LOG) Log.d(TAG, "surfaceCreated");
 			mCamera.setPreviewDisplay(holder);
 
 			mCamera.startPreview();
-		} catch (IOException e) {
-			Log.d(TAG, "Error setting camera preview: " + e.getMessage());
+		} catch (Exception e) {
+			if (CallerFlashlight.LOG) Log.d(TAG, "Error setting camera preview: " + e.getMessage());
+			BugSenseHandler.sendException(e);
 		}
 	}
 
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
-		Log.d(TAG, "surfaceDestroyed");
+		if (CallerFlashlight.LOG) Log.d(TAG, "surfaceDestroyed");
 		// empty. Take care of releasing the Camera preview in your activity.
 
 	}
@@ -56,7 +57,7 @@ public class CameraSurface extends SurfaceView implements SurfaceHolder.Callback
 	public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
 		// If your preview can change or rotate, take care of those events here.
 		// Make sure to stop the preview before resizing or reformatting it.
-		Log.d(TAG, "surfaceChanged");
+		if (CallerFlashlight.LOG) Log.d(TAG, "surfaceChanged");
 
 		if (mHolder.getSurface() == null) {
 			// preview surface does not exist

@@ -22,7 +22,7 @@ import com.jirbo.adcolony.AdColony;
  */
 public class CallerFlashlight extends Application implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-	public static final boolean LOG = true;
+	public static final boolean LOG = false;
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
@@ -54,6 +54,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
 		editor = prefs.edit();
+
 		commit = new Runnable() {
 			public void run() {
 				if (LOG) Log.d(TAG, "Committing preferences");
@@ -62,6 +63,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		};
 		loadPreferences();
 
+		BugSenseHandler.addCrashExtraData("driver", String.valueOf(getType()));
 	}
 
 	public void registerVolumeButtonReceiver() {
