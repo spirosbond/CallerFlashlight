@@ -9,7 +9,9 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
+import android.view.MenuItem;
 
 /**
  * Created by spiros on 8/24/13.
@@ -17,12 +19,12 @@ import android.util.Log;
 public class MsgPrefs extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
 	private static final String TAG = MsgPrefs.class.getSimpleName();
-	ListPreference lp;
-	CallerFlashlight callerFlashlight;
-	SeekBarPreference sbp;
-	Preference appList;
-	int accessibilityEnabled = 0;
-	Preference moreFlashCheck;
+	private ListPreference lp;
+	private CallerFlashlight callerFlashlight;
+	private SeekBarPreference sbp;
+	private Preference appList;
+	private int accessibilityEnabled = 0;
+	private Preference moreFlashCheck;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +126,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 
 		return false;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {

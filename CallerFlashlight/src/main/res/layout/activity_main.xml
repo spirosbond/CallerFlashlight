@@ -1,195 +1,188 @@
 <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/scrollViewMain"
-        tools:context=".MainPanel">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".MainPanel">
 
     <LinearLayout
-            android:layout_height="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="@string/Callseperator"
+            android:layout_marginTop="5dip"
+            style="@style/my_separator"/>
+
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:orientation="vertical">
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
 
-        <TextView
-                android:id="@+id/callSeparator1"
-                android:text="@string/Callseperator"
-                android:layout_marginTop="5dip"
-                style="@style/my_separator"/>
-
-        <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal"
-                android:weightSum="2"
-
-                android:gravity="center_vertical">
+            android:gravity="center_vertical">
 
             <ToggleButton
-                    style="@style/my_button"
-                    android:text="@string/callToggle"
-                    android:id="@+id/callFlashToggle"
-                    android:textOn="@string/callFlashON"
-                    android:textOff="@string/callFlashOFF"/>
+                style="@style/my_button"
+                android:text="@string/callToggle"
+                android:id="@+id/callFlashToggle"
+                android:textOn="@string/callFlashON"
+                android:textOff="@string/callFlashOFF"/>
 
             <ToggleButton
-                    style="@style/my_button"
-                    android:text="@string/callToggle"
-                    android:id="@+id/callFlashTestToggle"
-                    android:textOn="@string/FlashTestON"
-                    android:textOff="@string/FlashTestOFF"/>
+                style="@style/my_button"
+                android:text="@string/callToggle"
+                android:id="@+id/callFlashTestToggle"
+                android:textOn="@string/FlashTestON"
+                android:textOff="@string/FlashTestOFF"/>
 
             <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:drawable/ic_menu_preferences"
-                    android:id="@+id/CallPref"
-                    android:enabled="true"
-                    android:clickable="true"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-            <TextView
-
-                    style="@style/my_textView"
-                    android:text="@string/flashOnDuration"
-                    android:id="@+id/flashOnDuration"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"/>
-
-            <EditText
-                    style="@style/my_editText"
-                    android:id="@+id/flashOnDurationValue"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"/>
-
-
-            <SeekBar
-
-                    style="@style/my_seekBar"
-                    android:id="@+id/flashOnDurationBar"
-                    android:max="1000"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    />
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal"
-                android:weightSum="3"
-                >
-
-            <TextView
-                    style="@style/my_textView"
-                    android:text="@string/flashOffDuration"
-                    android:id="@+id/flashOffDuration"/>
-
-
-            <EditText
-                    style="@style/my_editText"
-                    android:id="@+id/flashOffDurationValue"/>
-
-            <SeekBar
-
-                    style="@style/my_seekBar"
-                    android:id="@+id/flashOffDurationBar"
-                    android:max="1000"
-                    />
-        </LinearLayout>
-
-        <TextView
-                android:id="@+id/callSeparator2"
-                android:text="@string/Msgseperator"
-                style="@style/my_separator"/>
-
-        <LinearLayout
-                android:layout_width="fill_parent"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                android:gravity="center_vertical">
+                android:background="@android:drawable/ic_menu_preferences"
+                android:id="@+id/CallPref"
+                android:enabled="true"
+                android:clickable="true"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+
+                style="@style/my_textView"
+                android:text="@string/flashOnDuration"
+                android:layout_marginTop="@dimen/activity_vertical_margin"/>
+
+            <EditText
+                style="@style/my_editText"
+                android:id="@+id/flashOnDurationValue"
+                android:layout_marginTop="@dimen/activity_vertical_margin"/>
+
+
+            <SeekBar
+
+                style="@style/my_seekBar"
+                android:id="@+id/flashOnDurationBar"
+                android:max="1000"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            >
+
+            <TextView
+                style="@style/my_textView"
+                android:text="@string/flashOffDuration"/>
+
+
+            <EditText
+                style="@style/my_editText"
+                android:id="@+id/flashOffDurationValue"/>
+
+            <SeekBar
+
+                style="@style/my_seekBar"
+                android:id="@+id/flashOffDurationBar"
+                android:max="1000"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:text="@string/Msgseperator"
+            style="@style/my_separator"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:gravity="center_vertical">
 
             <ToggleButton
-                    style="@style/my_button"
-                    android:text="@string/msgToggle"
-                    android:id="@+id/msgFlashToggle"
-                    android:textOn="@string/msgFlashON"
-                    android:textOff="@string/msgFlashOFF"/>
+                style="@style/my_button"
+                android:text="@string/msgToggle"
+                android:id="@+id/msgFlashToggle"
+                android:textOn="@string/msgFlashON"
+                android:textOff="@string/msgFlashOFF"/>
 
             <ToggleButton
-                    style="@style/my_button"
-                    android:text="@string/msgToggle"
-                    android:id="@+id/msgFlashTestToggle"
-                    android:textOn="@string/FlashTestON"
-                    android:textOff="@string/FlashTestOFF"/>
+                style="@style/my_button"
+                android:text="@string/msgToggle"
+                android:id="@+id/msgFlashTestToggle"
+                android:textOn="@string/FlashTestON"
+                android:textOff="@string/FlashTestOFF"/>
 
             <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:drawable/ic_menu_preferences"
-                    android:id="@+id/MsgPref"
-                    android:clickable="true"
-                    />
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_menu_preferences"
+                android:id="@+id/MsgPref"
+                android:clickable="true"
+                />
 
 
         </LinearLayout>
 
         <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal"
-                android:weightSum="3">
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="3">
 
             <TextView
-                    style="@style/my_textView"
-                    android:text="@string/flashOnDuration"
-                    android:id="@+id/flashOnDurationMsg"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"/>
+                style="@style/my_textView"
+                android:text="@string/flashOnDuration"
+                android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
             <EditText
-                    style="@style/my_editText"
-                    android:id="@+id/flashOnDurationValueMsg"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"/>
+                style="@style/my_editText"
+                android:id="@+id/flashOnDurationValueMsg"
+                android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
 
             <SeekBar
 
-                    style="@style/my_seekBar"
-                    android:id="@+id/flashOnDurationBarMsg"
-                    android:max="1000"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    />
+                style="@style/my_seekBar"
+                android:id="@+id/flashOnDurationBarMsg"
+                android:max="1000"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                />
 
         </LinearLayout>
 
         <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal"
-                android:weightSum="3">
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="3">
 
             <TextView
-                    style="@style/my_textView"
-                    android:text="@string/flashOffDuration"
-                    android:id="@+id/flashOffDurationMsg"/>
+                style="@style/my_textView"
+                android:text="@string/flashOffDuration"/>
 
             <EditText
-                    style="@style/my_editText"
-                    android:id="@+id/flashOffDurationValueMsg"/>
+                style="@style/my_editText"
+                android:id="@+id/flashOffDurationValueMsg"/>
 
             <SeekBar
-                    style="@style/my_seekBar"
-                    android:id="@+id/flashOffDurationBarMsg"
-                    android:max="1000"
-                    />
+                style="@style/my_seekBar"
+                android:id="@+id/flashOffDurationBarMsg"
+                android:max="1000"
+                />
 
         </LinearLayout>
 

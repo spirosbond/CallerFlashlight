@@ -9,58 +9,57 @@
 
 
     <ListView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/appList"
-            android:layout_weight="1"
-            android:focusable="false"
-            android:layout_gravity="center_horizontal|top"
-            android:paddingBottom="2dp"
-            />
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appList"
+        android:layout_weight="1"
+        android:focusable="false"
+        android:layout_gravity="center_horizontal|top"
+        android:paddingBottom="2dp"
+        />
 
     <LinearLayout
-            android:id="@+id/channelsProgress"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:visibility="gone">
+        android:id="@+id/channelsProgress"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <ProgressBar
-                android:id="@+id/pbChannelsProgress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         </ProgressBar>
 
         <TextView
-                android:id="@+id/loadingApps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/loadingApps"
-                />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loadingApps"
+            />
     </LinearLayout>
 
     <LinearLayout
-            android:id="@+id/list_buttons"
-            android:layout_width="fill_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:id="@+id/clear_button"
+            android:text="@string/clear_all_button"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
 
         <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/clear_button"
-                android:text="@string/clear_all_button"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"/>
-
-        <Button
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/selectall_button"
-                android:text="@string/select_all_button"/>
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/selectall_button"
+            android:text="@string/select_all_button"/>
 
 
     </LinearLayout>

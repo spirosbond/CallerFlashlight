@@ -3,8 +3,6 @@
 
     <string name="app_name">CallFlash</string>
     <string name="howToStr">How it works</string>
-    <string name="permlab_flashlight">Flashlight Permission.</string>
-    <string name="permdesc_flashlight">Lets the app to control the flashlight.</string>
     <string name="callToggle">Call Notification</string>
     <string name="callFlashON">Disable</string>
     <string name="callFlashOFF">Enable</string>
@@ -13,8 +11,6 @@
     <string name="msgToggle">Message Notification</string>
     <string name="msgFlashON">Disable</string>
     <string name="msgFlashOFF">Enable</string>
-
-    <string name="msgFlashDuration">Flash Duration (sec):</string>
 
     <string name="aboutStr">About</string>
     <string name="donateStr">Donate</string>
@@ -50,7 +46,6 @@
     <string name="silent_mod_check">Phone in silent mode.</string>
     <string name="sleep_start">Sleep time start</string>
     <string name="sleep_stop">Sleep time stop</string>
-    <string name="sleep_categ">Sleep Time</string>
     <string name="sleep_check">Sleeping period</string>
     <string name="sleep_check_sum">Enable sleeping feature.</string>
     <string name="enable_toast">Enable an operation mode in preferences first…</string>
@@ -86,20 +81,8 @@
     <string name="accessibility_service_description">Enabling this service will let CallFlash to detect your notifications in order to enable the flash
         according to your preferences.</string>
 
-    <string name="donate">Donate!</string>
-    <string name="donate1">AppFlood</string>
-    <string name="summaryDonate1">Enable AppFlood Ads</string>
 
     <string name="donateTitle">Donate using Ads</string>
-    <string name="donateSummary">Install any app and donate without spending a dime!</string>
-    <string name="summaryDontDonate1">Disable AppFlood Ads</string>
-    <string name="donate2">AppFlood</string>
-    <string name="summaryDonate2">Enable start-up Ads</string>
-    <string name="summaryDontDonate2">Disable start-up Ad</string>
-    <string name="appoftheday">App Of The Day!</string>
-    <string name="appofthedaysum">Click to see the apps of the day by Appflood…</string>
-    <string name="startapp">Free Apps!</string>
-    <string name="startappsum">Show the apps of the day by Startapp…</string>
     <string name="donateDialog">"1. Choose to see the apps of the day\n2. Download any app you like\n3. You donated!\n…without spending a dime!\nAlternatively you can donate through Paypal."</string>
     <string name="first_time">First Time Settings</string>
     <string name="firstcontinue">Continue</string>

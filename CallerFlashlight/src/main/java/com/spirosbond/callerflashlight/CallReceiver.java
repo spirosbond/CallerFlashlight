@@ -31,7 +31,7 @@ public class CallReceiver extends BroadcastReceiver {
 
 
 		private static String callState = "";
-		private CallerFlashlight callerFlashlight;
+		private final CallerFlashlight callerFlashlight;
 
 		public MyPhoneStateListener(CallerFlashlight cf) {
 			callerFlashlight = cf;
@@ -70,7 +70,7 @@ public class CallReceiver extends BroadcastReceiver {
 		public class ManageFlash extends AsyncTask<Integer, Integer, String> {
 
 
-			private Flash flash = new Flash(callerFlashlight);
+			private final Flash flash = new Flash(callerFlashlight);
 
 			public ManageFlash() {
 				Flash.incRunning();

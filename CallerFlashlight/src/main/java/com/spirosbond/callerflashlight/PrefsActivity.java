@@ -10,7 +10,9 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
+import android.view.MenuItem;
 
 /**
  * Created by spiros on 8/5/13.
@@ -18,9 +20,9 @@ import android.util.Log;
 public class PrefsActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
 	private static final String TAG = PrefsActivity.class.getSimpleName();
-	ListPreference lp;
-	CallerFlashlight callerFlashlight;
-	CheckBoxPreference screenOfPreference;
+	private ListPreference lp;
+	private CallerFlashlight callerFlashlight;
+	private CheckBoxPreference screenOfPreference;
 	private boolean dismissed;
 
 
@@ -67,6 +69,7 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 		if (s.equals("type_list")) {
 			//			lp = (ListPreference) findPreference("type_list");
 			setTypeSum(Integer.valueOf(sharedPreferences.getString("type_list", "")));
+			callerFlashlight.setWindowDimensions(getWindowManager());
 
 		}
 	}

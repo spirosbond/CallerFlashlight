@@ -12,10 +12,10 @@ import android.view.accessibility.AccessibilityEvent;
 public class NotificationService extends AccessibilityService {
 
 
-	public static final String TAG = NotificationService.class.getSimpleName();
-	CallerFlashlight callerFlashlight;
-	Notification notification;
-	int flags = -10;
+	private static final String TAG = NotificationService.class.getSimpleName();
+	private CallerFlashlight callerFlashlight;
+	private Notification notification;
+	private int flags = -10;
 
 	@Override
 	public void onAccessibilityEvent(AccessibilityEvent event) {
@@ -41,8 +41,7 @@ public class NotificationService extends AccessibilityService {
 	 * @return
 	 */
 	private boolean isValidFlag(int flags) {
-		if (flags != -10 && flags != 0 && flags != 10 && flags != 98) return true;
-		return false;
+		return flags != -10 && flags != 0 && flags != 10 && flags != 98;
 	}
 
 	@Override

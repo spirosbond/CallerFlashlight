@@ -19,13 +19,12 @@ public class TimePreference extends DialogPreference {
 	private int lastHour = 0;
 	private int lastMinute = 0;
 	private TimePicker picker = null;
-	private SharedPreferences prefs;
-	private SharedPreferences.Editor editor;
-	private CallerFlashlight callerFlashlight;
+	private final SharedPreferences prefs;
+	private final SharedPreferences.Editor editor;
 
 	public TimePreference(Context ctxt, AttributeSet attrs) {
 		super(ctxt, attrs);
-		callerFlashlight = (CallerFlashlight) ctxt.getApplicationContext();
+		CallerFlashlight callerFlashlight = (CallerFlashlight) ctxt.getApplicationContext();
 
 		setPositiveButtonText(callerFlashlight.getResources().getString(R.string.set));
 		setNegativeButtonText(callerFlashlight.getResources().getString(R.string.cancel));
@@ -113,7 +112,7 @@ public class TimePreference extends DialogPreference {
 
 	@Override
 	protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-		String time = null;
+		String time;
 
 		if (restoreValue) {
 			if (defaultValue == null) {

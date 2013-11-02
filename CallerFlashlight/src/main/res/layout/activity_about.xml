@@ -23,7 +23,6 @@
         android:layout_height="fill_parent"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/aboutText"
-        android:id="@+id/aboutTextView"
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_weight="0.6"
@@ -39,6 +38,6 @@
         android:layout_gravity="bottom"
         android:gravity="center"
         android:layout_weight="1.4"
-        android:id="@+id/aboutFooterTextView"/>
+        />
 
 </LinearLayout>

@@ -66,7 +66,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 		mMaxValue = attrs.getAttributeIntValue(ANDROIDNS, "max", 100);
 		mMinValue = attrs.getAttributeIntValue(APPLICATIONNS, "min", 1);
 
-		mUnitsLeft = getAttributeStringValue(attrs, APPLICATIONNS, "unitsLeft", "");
+		mUnitsLeft = getAttributeStringValue(attrs, "unitsLeft", "");
 		//		String units = getAttributeStringValue(attrs, APPLICATIONNS, "units", "");
 		//		mUnitsRight = getAttributeStringValue(attrs, APPLICATIONNS, "unitsRight", units);
 
@@ -80,8 +80,8 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 
 	}
 
-	private String getAttributeStringValue(AttributeSet attrs, String namespace, String name, String defaultValue) {
-		String value = attrs.getAttributeValue(namespace, name);
+	private String getAttributeStringValue(AttributeSet attrs, String name, String defaultValue) {
+		String value = attrs.getAttributeValue(SeekBarPreference.APPLICATIONNS, name);
 		if (value == null)
 			value = defaultValue;
 

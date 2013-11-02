@@ -12,7 +12,7 @@ import android.util.Log;
 public class SmsReceiver extends BroadcastReceiver {
 
 	private static final String TAG = SmsReceiver.class.getSimpleName();
-	CallerFlashlight callerFlashlight;
+	private CallerFlashlight callerFlashlight;
 
 	@Override
 	public void onReceive(Context context, Intent intent) {

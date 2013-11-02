@@ -20,7 +20,7 @@ public class InteractiveArrayAdapter extends ArrayAdapter<Model> {
 
 	private final List<Model> list;
 	private final Activity context;
-	CallerFlashlight myapp;
+	private final CallerFlashlight myapp;
 
 	public InteractiveArrayAdapter(Activity context, List<Model> list) {
 		super(context, R.layout.app_row, list);

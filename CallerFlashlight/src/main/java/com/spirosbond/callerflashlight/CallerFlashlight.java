@@ -12,7 +12,9 @@ import android.media.AudioManager;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.text.format.Time;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.WindowManager;
 
 import com.bugsense.trace.BugSenseHandler;
 import com.jirbo.adcolony.AdColony;
@@ -22,12 +24,13 @@ import com.jirbo.adcolony.AdColony;
  */
 public class CallerFlashlight extends Application implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-	public static final boolean LOG = false;
+	public static final boolean LOG = true;
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
 	private static final String packages = "com.viber.voip,com.skype.raider,com.google.android.talk,com.google.android.gm,com.facebook.katana,com.whatsapp,com.google.android.apps.plus,mikado.bizcalpro,netgenius.bizcal,com.ryosoftware.contactdatesnotifier,com.twitter.android,com.fsck.k9,com.onegravity.k10.pro2,com.google.android.apps.plus,de.gmx.mobile.android.mail,com.quoord.tapatalkHD,com.quoord.tapatalkpro.activity,com.android.deskclock,com.facebook.orca,com.joelapenna.foursquared,com.snapchat.android,com.instagram.android";
 	private static final String TAG = CallerFlashlight.class.getSimpleName();
+	public static Runnable commit;
 	private boolean callFlash = false, msgFlash = false, callFlashTest = false, msgFlashTest = false;
 	private int callFlashOnDuration = 250, callFlashOffDuration = 250, msgFlashOnDuration = 250, msgFlashOffDuration = 250, msgFlashDuration = 3;
 	private SharedPreferences prefs;
@@ -37,12 +40,12 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	private String sleepStop;
 	private int sleepStartHour, sleepStartMinute, sleepStopHour, sleepStopMinute;
 	private int type;
+	private int screenWidth, screenHeight;
 	private int msgFlashType;
 	private boolean bootReceiver, serviceRunning, firstTime;
 	private boolean volumeButtonPressed;
 	private BroadcastReceiver mediaButtonReceiver;
 	private boolean screenOffPref;
-	public static Runnable commit;
 
 	@Override
 	public void onCreate() {
@@ -597,6 +600,39 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		//		editor.putBoolean("screen_off", screen_off_pref);
 		//		editor.commit();
 		//commit.run();
+	}
+
+	public void setWindowDimensions(WindowManager windowManager) {
+		DisplayMetrics metrics = new DisplayMetrics();
+		windowManager.getDefaultDisplay().getMetrics(metrics);
+		setScreenWidth(metrics.widthPixels);
+		setScreenHeight(metrics.heightPixels);
+	}
+
+	public int getScreenHeight() {
+		screenHeight = prefs.getInt("screen_height", 0);
+		if (CallerFlashlight.LOG) Log.d(TAG, "getScreenHeight: " + screenHeight);
+		return screenHeight;
+	}
+
+	public void setScreenHeight(int screenHeight) {
+		this.screenHeight = screenHeight;
+		if (CallerFlashlight.LOG) Log.d(TAG, "setScreenHeight: " + screenHeight);
+		editor.putInt("screen_height", screenHeight);
+		editor.commit();
+	}
+
+	public int getScreenWidth() {
+		screenWidth = prefs.getInt("screen_width", 0);
+		if (CallerFlashlight.LOG) Log.d(TAG, "getScreenWidth: " + screenWidth);
+		return screenWidth;
+	}
+
+	public void setScreenWidth(int screenWidth) {
+		this.screenWidth = screenWidth;
+		if (CallerFlashlight.LOG) Log.d(TAG, "setScreenWidth: " + screenWidth);
+		editor.putInt("screen_width", screenWidth);
+		editor.commit();
 	}
 
 	//	public void registerShared(Donate donateActivity) {

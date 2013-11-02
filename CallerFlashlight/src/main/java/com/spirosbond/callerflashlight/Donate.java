@@ -10,7 +10,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.ads.Ad;
@@ -30,13 +32,8 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 	private static final String TAG = Donate.class.getSimpleName();
 	//	private static StartAppAd startAppAd;
 	private static AdColonyVideoAd adColonyVideoAd;
-	private CallerFlashlight callerFlashlight;
 	//	private Preference appoftheday;
 	private ConnectivityManager connectivityManager;
-	//	private Preference startapp;
-	private Preference adcolony;
-	private Preference adMob;
-	private Preference paypal;
 	private InterstitialAd interstitialAdMob;
 	private Donate donate = this;
 
@@ -56,7 +53,7 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 		super.onCreate(savedInstanceState);
 		if (CallerFlashlight.LOG) Log.d(TAG, "onCreate");
 		addPreferencesFromResource(R.xml.donateprefs);
-		callerFlashlight = (CallerFlashlight) getApplication();
+		CallerFlashlight callerFlashlight = (CallerFlashlight) getApplication();
 		//		StartAppAd.init(this, "108632531", "208372780");
 		//		AppFlood.initialize(this, "Thib0u8GfGgfXsLX", "6GX8sMOv1791L521de8ea", AppFlood.AD_ALL);
 		//		AdColony.configure(this, "version=1,store:google", "appc0bebfc9f4a3489fb82153", "vz9bf8a5eb30ef477798b82b", "vz81c21390fa4e4b25aaa8ed", "vzf738e644f1394a9abcf4cf");
@@ -70,9 +67,9 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 
 		//		appoftheday = findPreference("appoftheday");
 		//		startapp = findPreference("startapp");
-		adcolony = findPreference("adcolony");
-		adMob = findPreference("adMob");
-		paypal = findPreference("paypal");
+		Preference adcolony = findPreference("adcolony");
+		Preference adMob = findPreference("adMob");
+		Preference paypal = findPreference("paypal");
 		//		startapp.setOnPreferenceClickListener(this);
 		//		appoftheday.setOnPreferenceClickListener(this);
 		adcolony.setOnPreferenceClickListener(this);
@@ -185,7 +182,7 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 	public void onAdColonyAdStarted(AdColonyAd adColonyAd) {
 		if (CallerFlashlight.LOG) Log.d(TAG, "onAdColonyAdStarted");
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {

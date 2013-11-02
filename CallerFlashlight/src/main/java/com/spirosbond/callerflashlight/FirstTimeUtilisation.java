@@ -18,11 +18,11 @@ import android.widget.Spinner;
 public class FirstTimeUtilisation extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
 	private static final String TAG = FirstTimeUtilisation.class.getSimpleName();
-	CallerFlashlight callerFlashlight;
-	Button testButton;
-	Button contButton;
-	Spinner moduleList;
-	ImageView logo;
+	private CallerFlashlight callerFlashlight;
+	private Button testButton;
+	private Button contButton;
+	private Spinner moduleList;
+	private ImageView logo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,7 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 	public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 		if (CallerFlashlight.LOG) Log.d(TAG, "onItemClick " + i + 1);
 		callerFlashlight.setType(i + 1);
-
+		callerFlashlight.setWindowDimensions(getWindowManager());
 	}
 
 	@Override

@@ -3,6 +3,8 @@ package com.spirosbond.callerflashlight;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
@@ -19,7 +21,7 @@ public class About extends Activity {
 		ImageView logo = (ImageView) findViewById(R.id.aboutImageView);
 		logo.setAnimation(AnimationUtils.loadAnimation(this, R.anim.round));
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {

@@ -242,7 +242,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	@Override
 	public void onClick(View view) {
 
-		ToggleButton tb = null;
+
 		//		try {
 		//			tb = (ToggleButton) view;
 		//		} catch (ClassCastException e) {

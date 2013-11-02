@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
 
 /**
  * Created by spiros on 8/24/13.
@@ -13,8 +15,8 @@ import android.preference.PreferenceManager;
 public class CallPrefs extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
 	private static final String TAG = CallPrefs.class.getSimpleName();
-	ListPreference lp;
-	CallerFlashlight callerFlashlight;
+	private ListPreference lp;
+	private CallerFlashlight callerFlashlight;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class CallPrefs extends PreferenceActivity implements SharedPreferences.O
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
 
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {

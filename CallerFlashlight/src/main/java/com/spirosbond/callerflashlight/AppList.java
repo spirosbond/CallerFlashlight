@@ -9,7 +9,9 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -27,7 +29,7 @@ import java.util.List;
 public class AppList extends Activity implements AdapterView.OnItemClickListener, View.OnClickListener {
 
 	private static final String TAG = AppList.class.getSimpleName();
-	protected InteractiveArrayAdapter adapter;
+	private InteractiveArrayAdapter adapter;
 	private LinearLayout progBar;
 	private PackageManager packageManager;
 	private ArrayList<Model> activities;
@@ -156,7 +158,7 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 		}
 
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -168,7 +170,7 @@ public class AppList extends Activity implements AdapterView.OnItemClickListener
 		return super.onOptionsItemSelected(item);
 	}
 
-	public class UpdateData extends AsyncTask<Void, Void, Void> {
+	private class UpdateData extends AsyncTask<Void, Void, Void> {
 
 
 		@Override

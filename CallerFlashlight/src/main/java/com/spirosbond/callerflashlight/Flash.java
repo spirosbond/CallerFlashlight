@@ -90,10 +90,15 @@ public class Flash {
 	}
 
 	private void loadParameters() {
-		if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE) {
+		if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE || cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE_2) {
 
 			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(1, 1);
-			layoutParams.setMargins(1000, 1000, 1000, 1000);
+
+			if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE) {
+				layoutParams.setMargins(1000, 1000, 1000, 1000);
+			} else if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE_2) {
+				layoutParams.setMargins(cf.getScreenWidth() - 1, cf.getScreenHeight() - 50, 0, 0);
+			}
 
 			//		preview.setLayoutParams(layoutParams);
 			//			FrameLayout frame = new FrameLayout(cf.getApplicationContext());
@@ -119,17 +124,17 @@ public class Flash {
 
 		}
 		try {
-			if (cf.getType() == CallerFlashlight.TYPE_NORMAL || cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE) {
-				pon = cam.getParameters();
+			//			if (cf.getType() == CallerFlashlight.TYPE_NORMAL || cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE) {
+			pon = cam.getParameters();
 				poff = cam.getParameters();
 				pon.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
 				poff.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-			} else if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE_2) {
-				pon = cam.getParameters();
-				poff = cam.getParameters();
-				pon.setFlashMode(Camera.Parameters.FLASH_MODE_ON);
-				poff.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-			}
+			//			} else if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE_2) {
+			//				pon = cam.getParameters();
+			//				poff = cam.getParameters();
+			//				pon.setFlashMode(Camera.Parameters.FLASH_MODE_ON);
+			//				poff.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+			//			}
 		} catch (Exception e) {
 			if (CallerFlashlight.LOG) Log.d(TAG, "unable to get parameters");
 			e.printStackTrace();
