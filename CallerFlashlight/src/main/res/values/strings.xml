@@ -112,5 +112,11 @@
     <string name="warning">Warning!</string>
     <string name="warning_screenoff">Enabling this option may cause flashing not to work properly. Applications that enable the screen when receiving a notification (such as viber…) will not trigger the flash.</string>
     <string name="enable_anyway">Enable anyway</string>
+    <string name="update_now_label">An update is available!</string>
+    <string name="remind_me_later">Later</string>
+    <string name="ignore">Ignore</string>
+    <string name="please_rate">Please rate this app</string>
+    <string name="rate_message">Help us improve this app by rating it and leaving a comment!</string>
+    <string name="rate_button">Rate</string>
 
 </resources>

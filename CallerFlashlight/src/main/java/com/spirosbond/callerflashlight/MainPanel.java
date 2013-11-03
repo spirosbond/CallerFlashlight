@@ -75,6 +75,8 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 		callerFlashlight.configureAdColony(this);
 
+		callerFlashlight.checkForUpdates(this);
+
 		this.mainPanel = this;
 		//		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		callPrefs = (Button) findViewById(R.id.CallPref);

@@ -18,13 +18,14 @@ import android.view.WindowManager;
 
 import com.bugsense.trace.BugSenseHandler;
 import com.jirbo.adcolony.AdColony;
+import com.winsontan520.wversionmanager.library.WVersionManager;
 
 /**
  * Created by spiros on 8/4/13.
  */
 public class CallerFlashlight extends Application implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-	public static final boolean LOG = true;
+	public static final boolean LOG = false;
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
@@ -633,6 +634,26 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		if (CallerFlashlight.LOG) Log.d(TAG, "setScreenWidth: " + screenWidth);
 		editor.putInt("screen_width", screenWidth);
 		editor.commit();
+	}
+
+	public void checkForUpdates(Activity context) {
+		WVersionManager versionManager = new WVersionManager(context);
+		versionManager.setVersionContentUrl("https://dl.dropboxusercontent.com/u/4596106/callflash_version"); // your update content url, see the response format below
+		versionManager.setUpdateNowLabel(getResources().getString(R.string.update_now_label));
+		versionManager.setRemindMeLaterLabel(getResources().getString(R.string.remind_me_later));
+		versionManager.setIgnoreThisVersionLabel(getResources().getString(R.string.ignore));
+		versionManager.setReminderTimer(10); // this mean checkVersion() will not take effect within 10 minutes
+		versionManager.checkVersion();
+	}
+
+	public void promptToRate(Activity context) {
+		WVersionManager versionManager = new WVersionManager(context);
+		versionManager.setTitle(getResources().getString(R.string.please_rate));
+		versionManager.setMessage(getResources().getString(R.string.rate_message));
+		versionManager.setAskForRatePositiveLabel(getResources().getString(R.string.rate_button));
+		versionManager.setAskForRateNegativeLabel(getResources().getString(R.string.remind_me_later));
+		versionManager.askForRate();
+
 	}
 
 	//	public void registerShared(Donate donateActivity) {
