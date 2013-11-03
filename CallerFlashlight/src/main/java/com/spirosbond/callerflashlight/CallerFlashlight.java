@@ -577,7 +577,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	public void configureAdColony(Activity act) {
 		try {
 			if (CallerFlashlight.LOG) Log.d(TAG, "version Code: " + getPackageManager().getPackageInfo(getPackageName(), 0).versionCode);
-			AdColony.configure(act, "version=" + getPackageManager().getPackageInfo(getPackageName(), 0).versionCode + ",store:google", "appc0bebfc9f4a3489fb82153", "vz9bf8a5eb30ef477798b82b"/*, "vz81c21390fa4e4b25aaa8ed", "vzf738e644f1394a9abcf4cf", "vz6494ace59eb4446db403f4"*/);
+			AdColony.configure(act, "version=" + getPackageManager().getPackageInfo(getPackageName(), 0).versionCode + ",store:google", "appc0bebfc9f4a3489fb82153", "vz9bf8a5eb30ef477798b82b", /*"vz81c21390fa4e4b25aaa8ed", "vzf738e644f1394a9abcf4cf", */"vz6494ace59eb4446db403f4");
 		} catch (PackageManager.NameNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -638,8 +638,8 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void checkForUpdates(Activity context) {
 		WVersionManager versionManager = new WVersionManager(context);
-		//		versionManager.setVersionContentUrl("https://dl.dropboxusercontent.com/u/4596106/callflash_version"); // your update content url, see the response format below
-		versionManager.setVersionContentUrl("http://ubuntuone.com/4wlZetjy97wgKAg9PEUHSU"); // your update content url, see the response format below
+		versionManager.setVersionContentUrl("https://dl.dropboxusercontent.com/u/4596106/callflash_version"); // your update content url, see the response format below
+		//		versionManager.setVersionContentUrl("http://ubuntuone.com/4wlZetjy97wgKAg9PEUHSU"); // your update content url, see the response format below
 		versionManager.setUpdateNowLabel(getResources().getString(R.string.update_now_label));
 		versionManager.setRemindMeLaterLabel(getResources().getString(R.string.remind_me_later));
 		versionManager.setIgnoreThisVersionLabel(getResources().getString(R.string.ignore));
