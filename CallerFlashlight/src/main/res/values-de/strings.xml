@@ -3,8 +3,6 @@
 <resources>
     <string name="app_name">CallFlash</string>
     <string name="howToStr">Wie es funktioniert</string>
-    <string name="permlab_flashlight">Blitzlichtberechtigung</string>
-    <string name="permdesc_flashlight">Blitzlicht wird durch die App gesteuert</string>
     <string name="callToggle">Anrufbenachrichtigung</string>
     <string name="callFlashON">Deaktivieren</string>
     <string name="callFlashOFF">Aktivieren</string>
@@ -13,12 +11,11 @@
     <string name="msgToggle">Nachrichtenbenachrichtigung</string>
     <string name="msgFlashON">Deaktivieren</string>
     <string name="msgFlashOFF">Aktivieren</string>
-    <string name="msgFlashDuration">Blitzdauer (sek):</string>
     <string name="aboutStr">Über</string>
     <string name="donateStr">Spenden</string>
     <string name="titlePrefs">Einstellungen</string>
-    <string name="aboutText">\n\nCallFlash steuert den Blitz für Anrufe oder andere Benachrichtigungen. Es ist ein Opensource-Projekt von Spiros Bondomitsidis, mit dem Ziel, Dinge einfach und funktional zu haben.\n\nFür weitere Informationen und wie die App arbeitet, finden Sie unter \"Wie es funktioniert\".\n\nKommentare und Aktualisierungen unter:\nforum.xda-developers.com/showthread.php?t=2403340</string>
-    <string name="aboutFooter">CallFlash. Alle Rechte vorbehalten.</string>
+    <string name="aboutText">\n\nCallFlash steuert den Blitz für Anrufe oder andere Benachrichtigungen. Es ist ein Opensource-Projekt von Spiros Bondomitsidis, mit dem Ziel, Dinge einfach und funktional zu haben.\n\nFür weitere Informationen und wie die App arbeitet, finden Sie unter \"Wie es funktioniert\".\n\nKommentare und Aktualisierungen unter:\nforum.xda-developers.com/showthread.php?t=2403340\n\nDie App in eine andere Sprache übersetzen:\nhttp://crowdin.net/project/callflash/invite \n     </string>
+    <string name="aboutFooter">CallFlash \u00a9. Alle Rechte vorbehalten.</string>
     <string name="titleAbout">Über</string>
     <string name="titleHowTo">Wie es funktioniert</string>
     <string name="howTo1">1. Aktivieren Sie Ihre bevorzugte Betriebsart und prüfen Sie die Funktionsweise über die Test-Tasten</string>
@@ -40,7 +37,6 @@
     <string name="silent_mod_check">Gerät im Lautlosmodus</string>
     <string name="sleep_start">Beginn Ruhemodus</string>
     <string name="sleep_stop">Ende Ruhemodus</string>
-    <string name="sleep_categ">Ruhemodus</string>
     <string name="sleep_check">Ruhezeitraum</string>
     <string name="sleep_check_sum">Ruhemodus aktivieren</string>
     <string name="enable_toast">Aktivieren Sie zuerst einen Betriebsmodus in \"Einstellungen\"...</string>
@@ -70,24 +66,12 @@
     <string name="clear_all_button">Alle löschen</string>
     <string name="select_all_button">Alle auswählen</string>
     <string name="app_list_check">Blitz auch für andere Benachrichtigungen</string>
-    <string name="app_list_check_sum">Tippen Sie hier, um den \"Benachrichtigungsdienst\" zu deaktivieren</string>
+    <string name="app_list_check_sum">Tippen Sie hier, um \"CallFlash-Benachrichtigungsdienst\" zu deaktivieren</string>
     <string name="sms_more_categ">Erweiterte Einstellungen</string>
     <string name="more_flash_warning_sum">Tippen Sie hier, um den \"Benachrichtigungsdienst\" zu aktivieren</string>
-    <string name="accessibility_service_description">Mit Aktivierung dieses Dienstes werden Ihre Benachrichtigungen erkannt und aufgrund Ihrer festgelegten Einstellungen ein Blitz ausgelöst</string>
-    <string name="donate">Spenden!</string>
-    <string name="donate1">AppFlood</string>
-    <string name="summaryDonate1">AppFlood-Werbung zulassen</string>
+    <string name="accessibility_service_description">Mit Aktivierung dieses Dienstes werden Ihre Benachrichtigungen erkannt und aufgrund Ihrer festgelegten Einstellungen ein Blitz ausgelöst.</string>
     <string name="donateTitle">Über Werbung spenden</string>
-    <string name="donateSummary">Unterstützung ohne dafür einen Cent zu spenden durch Installation einer beliebige App!</string>
-    <string name="summaryDontDonate1">AppFlood-Werbung nicht zulassen</string>
-    <string name="donate2">AppFlood</string>
-    <string name="summaryDonate2">Start-up Werbung aktivieren</string>
-    <string name="summaryDontDonate2">Start-up Werbung deaktivieren</string>
-    <string name="appoftheday">App des Tages!</string>
-    <string name="appofthedaysum">Tippen Sie auf \"App des Tages\" von Appflood...</string>
-    <string name="startapp">Kostenlose Apps!</string>
-    <string name="startappsum">Zeige mir die \"App des Tages\" von Startapp...</string>
-    <string name="donateDialog">"1. Wählen Sie \"App des Tages\" aus\n2. Laden Sie eine beliebige App die Ihnen gefällt herunter\n3. Dadurch haben Sie bereits gespendet...ohne einen Cent ausgegeben zu haben!"</string>
+    <string name="donateDialog">"1. Wählen, um die App des Tages zu sehen\n2. Laden Sie Ihre gewünschte App herunter\n3. Sie haben gespendet!\n...ohne auch nur einen Cent ausgegeben zu haben! \nAlternativ können Sie auch über PayPal spenden."</string>
     <string name="first_time">Ersteinstellungen</string>
     <string name="firstcontinue">Weiter</string>
     <string name="first_time_desc">Willkommen bei CallFlash, die Anwendung die Ihren Blitz für Anrufe oder Benachrichtigungen steuert.\n\nBitte wählen Sie einen funktionierenden Modultreiber für Ihr Gerät aus. Sie können diesen nachher noch in den \"Einstellungen\" ändern.\n(Versuchen Sie zuerst \"Standard\" dann \"Alternativ\" bzw. \"Alternativ 2\")</string>
@@ -95,8 +79,31 @@
     <string name="adColonysum">\"App des Tages\" von AdColony...</string>
     <string name="bubble1">Aktivieren Sie den Blitz für Anrufe und\nBenachrichtigungen mit diesen Tasten...\n</string>
     <string name="bubble2">Wählen Sie die Dauer (in Millisekunden)\nfür Blitz \"AN\" und \"AUS\"\nmittels Schieberegler oder Textfeld...\n</string>
-    <string name="bubble3">Testen Sie Ihre Einstellungen mit den Test-Tasten...\n</string>
+    <string name="bubble3">Testen Sie Ihre Einstellungen mit \nden Test-Tasten...\n</string>
     <string name="bubble4">Bearbeiten Sie die Einstellungen jedes\nBereichs und Sie sind dann fertig!\n</string>
     <string name="adMob">Kostenlose Apps!</string>
     <string name="adMobsum">Kostenlose Apps des Tages von AdMob...</string>
+    <string name="coming_soon">Kommt demnächst ...</string>
+    <string name="set">Festlegen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="sound_profiles">Tonprofil</string>
+    <string name="screen_off">Bildschirm ist AUS</string>
+    <string name="screen_off_sum">Blitzen mit Bildschirm entweder AN oder AUS</string>
+    <string name="screen_off_ticked_sum">Blitzen nur mit Bildschirm AUS</string>
+    <string name="screen_state">Bildschirmstatus</string>
+    <string name="no_internet_connection">Keine Internetverbindung!</string>
+    <string name="donate_dialog_title">Vielen Dank für Ihre Spende!</string>
+    <string name="donate_dialog_ok">Ich hab\'s!</string>
+    <string name="paypal_donate">PayPal</string>
+    <string name="paypal_donate_sum">Tippen Sie hier, um über PayPal zu spenden...</string>
+    <string name="donateTitleCard">Spenden über Kreditkarte</string>
+    <string name="warning">Warnung!</string>
+    <string name="warning_screenoff">Durch Aktivieren dieser Option wird der Blitz möglicherweise nicht ausgelöst. Anwendungen die den Bildschirm aktivieren, wenn eine Benachrichtigung eingeht (Bsp. Viber...), werden den Blitz nicht einschalten!</string>
+    <string name="enable_anyway">Trotzdem aktivieren</string>
+    <string name="update_now_label">Aktualisieren</string>
+    <string name="remind_me_later">Später</string>
+    <string name="ignore">Ignorieren</string>
+    <string name="please_rate">Bitte bewerten Sie diese App</string>
+    <string name="rate_message">Helfen Sie uns, indem Sie eine Bewertung und einen Kommentar abgeben!</string>
+    <string name="rate_button">Bewerten</string>
 </resources>

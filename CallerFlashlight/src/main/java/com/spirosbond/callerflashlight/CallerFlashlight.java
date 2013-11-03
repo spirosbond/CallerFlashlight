@@ -29,7 +29,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
-	private static final String packages = "com.viber.voip,com.skype.raider,com.google.android.talk,com.google.android.gm,com.facebook.katana,com.whatsapp,com.google.android.apps.plus,mikado.bizcalpro,netgenius.bizcal,com.ryosoftware.contactdatesnotifier,com.twitter.android,com.fsck.k9,com.onegravity.k10.pro2,com.google.android.apps.plus,de.gmx.mobile.android.mail,com.quoord.tapatalkHD,com.quoord.tapatalkpro.activity,com.android.deskclock,com.facebook.orca,com.joelapenna.foursquared,com.snapchat.android,com.instagram.android";
+	private static final String packages = "com.viber.voip,com.skype.raider,com.google.android.talk,com.google.android.gm,com.facebook.katana,com.whatsapp,com.google.android.apps.plus,mikado.bizcalpro,netgenius.bizcal,com.ryosoftware.contactdatesnotifier,com.twitter.android,com.fsck.k9,com.onegravity.k10.pro2,com.google.android.apps.plus,de.gmx.mobile.android.mail,com.quoord.tapatalkHD,com.quoord.tapatalkpro.activity,com.android.deskclock,com.facebook.orca,com.joelapenna.foursquared,com.snapchat.android,com.instagram.android,com.handcent.nextsms";
 	private static final String TAG = CallerFlashlight.class.getSimpleName();
 	public static Runnable commit;
 	private boolean callFlash = false, msgFlash = false, callFlashTest = false, msgFlashTest = false;
@@ -638,7 +638,8 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void checkForUpdates(Activity context) {
 		WVersionManager versionManager = new WVersionManager(context);
-		versionManager.setVersionContentUrl("https://dl.dropboxusercontent.com/u/4596106/callflash_version"); // your update content url, see the response format below
+		//		versionManager.setVersionContentUrl("https://dl.dropboxusercontent.com/u/4596106/callflash_version"); // your update content url, see the response format below
+		versionManager.setVersionContentUrl("http://ubuntuone.com/4wlZetjy97wgKAg9PEUHSU"); // your update content url, see the response format below
 		versionManager.setUpdateNowLabel(getResources().getString(R.string.update_now_label));
 		versionManager.setRemindMeLaterLabel(getResources().getString(R.string.remind_me_later));
 		versionManager.setIgnoreThisVersionLabel(getResources().getString(R.string.ignore));
