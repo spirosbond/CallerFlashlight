@@ -90,7 +90,7 @@
     <string name="screen_off">Η οθόνη είναι σβηστή</string>
     <string name="screen_off_sum">Flash αν η οθόνη είναι είτε ενεργοποιημένη είτε απενεργοποιημένη.</string>
     <string name="screen_off_ticked_sum">Flash μόνο αν η οθόνη είναι απενεργοποιημένη.</string>
-    <string name="screen_state">Κατάσταση οθόνης</string>
+    <string name="screen_state">Κατάσταση τηλεφώνου</string>
     <string name="no_internet_connection">Δεν υπάρχει σύνδεση στο Internet!</string>
     <string name="donate_dialog_title">Σας ευχαριστούμε για την δωρεά!</string>
     <string name="donate_dialog_ok">Το έπιασα!</string>
@@ -106,4 +106,7 @@
     <string name="please_rate">Παρακαλώ βαθμολογήστε την εφαρμογή</string>
     <string name="rate_message">Βοηθήστε μας να βελτιώσουμε αυτήν την εφαρμογή βαθμολογώντας την και αφήνοντας ένα σχόλιο!</string>
     <string name="rate_button">Aξιολόγηση</string>
+    <string name="screen_locked_ticked_sum">Flash μόνο αν το τηλέφωνο είναι κλειδωμένο.</string>
+    <string name="screen_locked_sum">Flash είτε το τηλέφωνο είναι κλειδωμένο είτε είναι ξεκλείδωτο.</string>
+    <string name="screen_locked">Κατάσταση κλειδώματος</string>
 </resources>

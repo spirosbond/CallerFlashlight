@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.bugsense.trace.BugSenseHandler;
 import com.google.ads.Ad;
 import com.google.ads.AdListener;
 import com.google.ads.AdRequest;
@@ -110,8 +111,14 @@ public class Donate extends PreferenceActivity implements Preference.OnPreferenc
 			} else if ("adcolony".equals(preference.getKey())) {
 				//				adColonyVideoAd = new AdColonyVideoAd();
 
-				adColonyVideoAd.show();
-				adColonyVideoAd = new AdColonyVideoAd();
+				try {
+					if (adColonyVideoAd != null)
+						adColonyVideoAd.show();
+					adColonyVideoAd = new AdColonyVideoAd();
+				} catch (Exception e) {
+					e.printStackTrace();
+					BugSenseHandler.sendException(e);
+				}
 
 
 				//        adColonyVideoAd.withListener(this);

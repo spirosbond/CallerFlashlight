@@ -2,6 +2,7 @@ package com.spirosbond.callerflashlight;
 
 import android.app.Activity;
 import android.app.Application;
+import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
@@ -25,11 +26,11 @@ import com.winsontan520.wversionmanager.library.WVersionManager;
  */
 public class CallerFlashlight extends Application implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-	public static final boolean LOG = false;
+	public static final boolean LOG = true;
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
-	private static final String packages = "com.viber.voip,com.skype.raider,com.google.android.talk,com.google.android.gm,com.facebook.katana,com.whatsapp,com.google.android.apps.plus,mikado.bizcalpro,netgenius.bizcal,com.ryosoftware.contactdatesnotifier,com.twitter.android,com.fsck.k9,com.onegravity.k10.pro2,com.google.android.apps.plus,de.gmx.mobile.android.mail,com.quoord.tapatalkHD,com.quoord.tapatalkpro.activity,com.android.deskclock,com.facebook.orca,com.joelapenna.foursquared,com.snapchat.android,com.instagram.android,com.handcent.nextsms";
+	private static final String packages = "com.viber.voip,com.skype.raider,com.google.android.talk,com.google.android.gm,com.facebook.katana,com.whatsapp,com.google.android.apps.plus,mikado.bizcalpro,netgenius.bizcal,com.ryosoftware.contactdatesnotifier,com.twitter.android,com.fsck.k9,com.onegravity.k10.pro2,com.google.android.apps.plus,de.gmx.mobile.android.mail,com.quoord.tapatalkHD,com.quoord.tapatalkpro.activity,com.android.deskclock,com.facebook.orca,com.joelapenna.foursquared,com.snapchat.android,com.instagram.android,com.handcent.nextsms,kik.android";
 	private static final String TAG = CallerFlashlight.class.getSimpleName();
 	public static Runnable commit;
 	private boolean callFlash = false, msgFlash = false, callFlashTest = false, msgFlashTest = false;
@@ -46,7 +47,8 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	private boolean bootReceiver, serviceRunning, firstTime;
 	private boolean volumeButtonPressed;
 	private BroadcastReceiver mediaButtonReceiver;
-	private boolean screenOffPref;
+	//	private boolean screenOffPref;
+	private boolean screenLockedPref;
 
 	@Override
 	public void onCreate() {
@@ -118,7 +120,8 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		//		bootReceiver = prefs.getBoolean("boot_receiver", false);
 		serviceRunning = prefs.getBoolean("service_running", false);
 		firstTime = prefs.getBoolean("first_time", true);
-		screenOffPref = prefs.getBoolean("screen_off", false);
+		//		screenOffPref = prefs.getBoolean("screen_off", false);
+		screenLockedPref = prefs.getBoolean("screen_locked", false);
 
 	}
 
@@ -148,7 +151,8 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		editor.putBoolean("app_list_check", appListCheck);
 		editor.putBoolean("service_running", serviceRunning);
 		editor.putBoolean("first_time", firstTime);
-		editor.putBoolean("screen_off", screenOffPref);
+		//		editor.putBoolean("screen_off", screenOffPref);
+		editor.putBoolean("screen_locked", screenLockedPref);
 		editor.commit();
 
 	}
@@ -348,17 +352,41 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 			}
 		}
 
+		//		if (screenOffPref)
+		//			enabled = checkIfscreenOff(enabled);
+
+
+		if (screenLockedPref)
+			enabled = checkIfLocked(enabled);
+
+
+		if (LOG) Log.d(TAG, "enabled: " + enabled);
+		return enabled;
+	}
+
+	private boolean checkIfLocked(boolean enabled) {
+		KeyguardManager myKM = (KeyguardManager) this.getSystemService(Context.KEYGUARD_SERVICE);
+		if (myKM.inKeyguardRestrictedInputMode()) {
+			if (LOG) Log.d(TAG, "screen is locked");
+		} else {
+			if (LOG) Log.d(TAG, "screen is NOT locked");
+			enabled = false;
+		}
+
+		return enabled;
+	}
+
+	private boolean checkIfscreenOff(boolean enabled) {
 		PowerManager powermanager;
 		powermanager = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
 		if (powermanager.isScreenOn()) {
 			if (LOG) Log.d(TAG, "screen is ON");
-			if (screenOffPref) enabled = false;
+			enabled = false;
 		} else {
 			if (LOG) Log.d(TAG, "screen is OFF");
 		}
-
-		if (LOG) Log.d(TAG, "enabled: " + enabled);
 		return enabled;
+
 	}
 
 	public boolean isNormalMode() {
@@ -591,17 +619,17 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.volumeButtonPressed = volumeButtonPressed;
 	}
 
-	public boolean isScreenOffPref() {
+	/*public boolean isScreenOffPref() {
 		return screenOffPref;
-	}
+	}*/
 
-	public void setScreenOffPref(boolean screen_off_pref) {
+	/*public void setScreenOffPref(boolean screen_off_pref) {
 		if (CallerFlashlight.LOG) Log.d(TAG, "screenOffPreff set to: " + screen_off_pref);
 		this.screenOffPref = screen_off_pref;
 		//		editor.putBoolean("screen_off", screen_off_pref);
 		//		editor.commit();
 		//commit.run();
-	}
+	}*/
 
 	public void setWindowDimensions(WindowManager windowManager) {
 		DisplayMetrics metrics = new DisplayMetrics();
@@ -654,7 +682,26 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		versionManager.setAskForRatePositiveLabel(getResources().getString(R.string.rate_button));
 		versionManager.setAskForRateNegativeLabel(getResources().getString(R.string.remind_me_later));
 		versionManager.askForRate();
+	}
 
+	public void promptAppLanding(Activity context) {
+		WVersionManager versionManager = new WVersionManager(context);
+		//		versionManager.setVersionContentUrl("https://dl.dropboxusercontent.com/u/4596106/callflash_version"); // your update content url, see the response format below
+		//		versionManager.setVersionContentUrl("http://ubuntuone.com/4wlZetjy97wgKAg9PEUHSU"); // your update content url, see the response format below
+		versionManager.setUpdateNowLabel(getResources().getString(R.string.update_now_label));
+		versionManager.setRemindMeLaterLabel(getResources().getString(R.string.remind_me_later));
+		versionManager.setIgnoreThisVersionLabel(getResources().getString(R.string.ignore));
+		versionManager.setUpdateUrl("market://"); // this is the link will execute when update now clicked. default will go to google play based on your package name.
+		versionManager.setReminderTimer(10); // this mean checkVersion() will not take effect within 10 minutes
+		versionManager.checkVersion();
+	}
+
+	public boolean isScreenLockedPref() {
+		return screenLockedPref;
+	}
+
+	public void setScreenLockedPref(boolean screenLockedPref) {
+		this.screenLockedPref = screenLockedPref;
 	}
 
 	//	public void registerShared(Donate donateActivity) {

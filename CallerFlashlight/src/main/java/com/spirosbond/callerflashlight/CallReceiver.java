@@ -70,11 +70,17 @@ public class CallReceiver extends BroadcastReceiver {
 		public class ManageFlash extends AsyncTask<Integer, Integer, String> {
 
 
-			private final Flash flash = new Flash(callerFlashlight);
+			private Flash flash;
 
 			public ManageFlash() {
 				Flash.incRunning();
 
+			}
+
+			@Override
+			protected void onPreExecute() {
+				super.onPreExecute();
+				flash = new Flash(callerFlashlight);
 			}
 
 			@Override

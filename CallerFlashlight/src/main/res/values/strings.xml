@@ -102,7 +102,7 @@
     <string name="screen_off">Screen is OFF</string>
     <string name="screen_off_sum">Flash if screen is either ON or OFF.</string>
     <string name="screen_off_ticked_sum">Flash only if screen OFF.</string>
-    <string name="screen_state">Screen state</string>
+    <string name="screen_state">Phone state</string>
     <string name="no_internet_connection">No internet connection!</string>
     <string name="donate_dialog_title">Thank you for donating!</string>
     <string name="donate_dialog_ok">Got it!</string>
@@ -118,5 +118,8 @@
     <string name="please_rate">Please rate this app</string>
     <string name="rate_message">Help us improve this app by rating it and leaving a comment!</string>
     <string name="rate_button">Rate</string>
+    <string name="screen_locked_ticked_sum">Flash only if phone is locked.</string>
+    <string name="screen_locked_sum">Flash if phone is either locked or unlocked.</string>
+    <string name="screen_locked">Phone lock status</string>
 
 </resources>

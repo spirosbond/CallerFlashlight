@@ -1,13 +1,10 @@
 package com.spirosbond.callerflashlight;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
-import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
@@ -17,12 +14,13 @@ import android.view.MenuItem;
 /**
  * Created by spiros on 8/5/13.
  */
-public class PrefsActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
+public class PrefsActivity extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
 	private static final String TAG = PrefsActivity.class.getSimpleName();
 	private ListPreference lp;
 	private CallerFlashlight callerFlashlight;
-	private CheckBoxPreference screenOfPreference;
+	//	private CheckBoxPreference screenOfPreference;
+	private CheckBoxPreference screenLockedPreference;
 	private boolean dismissed;
 
 
@@ -38,12 +36,16 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 		lp.setValue(String.valueOf(callerFlashlight.getType()));
 		setTypeSum(callerFlashlight.getType());
 
-		screenOfPreference = (CheckBoxPreference) findPreference("screen_off");
-		screenOfPreference.setOnPreferenceClickListener(this);
-		setScreenOffSum(callerFlashlight.isScreenOffPref());
+		//		screenOfPreference = (CheckBoxPreference) findPreference("screen_off");
+		//		screenOfPreference.setOnPreferenceClickListener(this);
+		//		setScreenOffSum(callerFlashlight.isScreenOffPref());
+
+		screenLockedPreference = (CheckBoxPreference) findPreference("screen_locked");
+		setScreenLockedSum(callerFlashlight.isScreenLockedPref());
+
 
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -55,11 +57,19 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void setScreenOffSum(boolean isChecked) {
+/*	private void setScreenOffSum(boolean isChecked) {
 		if (isChecked) {
 			screenOfPreference.setSummary(getResources().getString(R.string.screen_off_ticked_sum));
 		} else {
 			screenOfPreference.setSummary(getResources().getString(R.string.screen_off_sum));
+		}
+	}*/
+
+	private void setScreenLockedSum(boolean isChecked) {
+		if (isChecked) {
+			screenLockedPreference.setSummary(getResources().getString(R.string.screen_locked_ticked_sum));
+		} else {
+			screenLockedPreference.setSummary(getResources().getString(R.string.screen_locked_sum));
 		}
 	}
 
@@ -71,6 +81,9 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 			setTypeSum(Integer.valueOf(sharedPreferences.getString("type_list", "")));
 			callerFlashlight.setWindowDimensions(getWindowManager());
 
+		} else if (s.equals("screen_locked")) {
+			callerFlashlight.setScreenLockedPref(sharedPreferences.getBoolean("screen_locked", false));
+			setScreenLockedSum(callerFlashlight.isScreenLockedPref());
 		}
 	}
 
@@ -92,7 +105,7 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 
 	}
 
-	@Override
+/*	@Override
 	public boolean onPreferenceClick(Preference preference) {
 		dismissed = true;
 		if ("screen_off".equals(preference.getKey())) {
@@ -121,7 +134,7 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 								setScreenOffSum(false);
 								screenOfPreference.setChecked(false);
 							}
-						}).setCancelable(false)/*.setOnDismissListener(new DialogInterface.OnDismissListener() {
+						}).setCancelable(false)*//*.setOnDismissListener(new DialogInterface.OnDismissListener() {
 					@Override
 					public void onDismiss(DialogInterface dialogInterface) {
 						if (dismissed) {
@@ -131,7 +144,7 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 							setScreenOffSum(false);
 						}
 					}
-				})*/.show();
+				})*//*.show();
 				return true;
 			} else {
 				if (CallerFlashlight.LOG) Log.d(TAG, "callerFlashlight.isScreenOffPref()=true");
@@ -144,5 +157,5 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 		}
 		return false;
 
-	}
+	}*/
 }

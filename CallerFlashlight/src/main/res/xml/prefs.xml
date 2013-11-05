@@ -38,10 +38,16 @@
                     android:defaultValue="true"/>
             </PreferenceCategory>
             <PreferenceCategory android:title="@string/screen_state">
+                <!--<CheckBoxPreference-->
+                <!--android:key="screen_off"-->
+                <!--android:title="@string/screen_off"-->
+                <!--android:summary="@string/screen_off_sum"-->
+                <!--android:defaultValue="false"-->
+                <!--android:visibility="gone"/>-->
                 <CheckBoxPreference
-                    android:key="screen_off"
-                    android:title="@string/screen_off"
-                    android:summary="@string/screen_off_sum"
+                    android:key="screen_locked"
+                    android:title="@string/screen_locked"
+                    android:summary="@string/screen_locked_sum"
                     android:defaultValue="false"/>
             </PreferenceCategory>
 

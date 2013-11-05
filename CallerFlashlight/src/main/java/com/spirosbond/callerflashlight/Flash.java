@@ -126,9 +126,9 @@ public class Flash {
 		try {
 			//			if (cf.getType() == CallerFlashlight.TYPE_NORMAL || cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE) {
 			pon = cam.getParameters();
-				poff = cam.getParameters();
-				pon.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-				poff.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+			poff = cam.getParameters();
+			pon.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+			poff.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
 			//			} else if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE_2) {
 			//				pon = cam.getParameters();
 			//				poff = cam.getParameters();

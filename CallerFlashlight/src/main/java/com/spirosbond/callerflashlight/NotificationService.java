@@ -27,7 +27,8 @@ public class NotificationService extends AccessibilityService {
 			e.printStackTrace();
 		}
 		if (CallerFlashlight.LOG)
-			Log.d(TAG, "Got event from: " + String.valueOf(event.getPackageName()) + " of type: " + AccessibilityEvent.eventTypeToString(event.getEventType()) + " with notification flag: " + flags);
+			if (callerFlashlight.LOG)
+				Log.d(TAG, "Got event from: " + String.valueOf(event.getPackageName()) + " of type: " + AccessibilityEvent.eventTypeToString(event.getEventType()) + " with notification flag: " + flags);
 		//		Toast.makeText(getApplicationContext(), "Got event from: " + event.getPackageName(), Toast.LENGTH_LONG).show();
 
 		if (callerFlashlight.isMsgFlash() && callerFlashlight.isEnabled() && callerFlashlight.loadApp(String.valueOf(event.getPackageName())) && isValidFlag(flags)) {
@@ -77,10 +78,16 @@ public class NotificationService extends AccessibilityService {
 	public class ManageFlash extends AsyncTask<Integer, Integer, String> {
 
 
-		private Flash flash = new Flash(callerFlashlight);
+		private Flash flash;
 
 		public ManageFlash() {
 			Flash.incRunning();
+		}
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			flash = new Flash(callerFlashlight);
 		}
 
 		@Override
