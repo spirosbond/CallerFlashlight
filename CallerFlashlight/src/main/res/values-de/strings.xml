@@ -71,7 +71,7 @@
     <string name="more_flash_warning_sum">Tippen Sie hier, um den \"Benachrichtigungsdienst\" zu aktivieren</string>
     <string name="accessibility_service_description">Mit Aktivierung dieses Dienstes werden Ihre Benachrichtigungen erkannt und aufgrund Ihrer festgelegten Einstellungen ein Blitz ausgelöst.</string>
     <string name="donateTitle">Über Werbung spenden</string>
-    <string name="donateDialog">"1. Wählen, um die App des Tages zu sehen\n2. Laden Sie Ihre gewünschte App herunter\n3. Sie haben gespendet!\n...ohne auch nur einen Cent ausgegeben zu haben! \nAlternativ können Sie auch über PayPal spenden."</string>
+    <string name="donateDialog">"1. Wählen, um die App des Tages zu sehen\n2. Laden Sie Ihre gewünschte App herunter\n3. Sie haben gespendet!\n...ohne auch nur einen Cent ausgegeben zu haben! \n\nAlternativ können Sie auch über PayPal spenden"</string>
     <string name="first_time">Ersteinstellungen</string>
     <string name="firstcontinue">Weiter</string>
     <string name="first_time_desc">Willkommen bei CallFlash, die Anwendung die Ihren Blitz für Anrufe oder Benachrichtigungen steuert.\n\nBitte wählen Sie einen funktionierenden Modultreiber für Ihr Gerät aus. Sie können diesen nachher noch in den \"Einstellungen\" ändern.\n(Versuchen Sie zuerst \"Standard\" dann \"Alternativ\" bzw. \"Alternativ 2\")</string>
@@ -90,7 +90,7 @@
     <string name="screen_off">Bildschirm ist AUS</string>
     <string name="screen_off_sum">Blitzen mit Bildschirm entweder AN oder AUS</string>
     <string name="screen_off_ticked_sum">Blitzen nur mit Bildschirm AUS</string>
-    <string name="screen_state">Bildschirmstatus</string>
+    <string name="screen_state">Telefonstatus</string>
     <string name="no_internet_connection">Keine Internetverbindung!</string>
     <string name="donate_dialog_title">Vielen Dank für Ihre Spende!</string>
     <string name="donate_dialog_ok">Ich hab\'s!</string>
@@ -106,4 +106,7 @@
     <string name="please_rate">Bitte bewerten Sie diese App</string>
     <string name="rate_message">Helfen Sie uns, indem Sie eine Bewertung und einen Kommentar abgeben!</string>
     <string name="rate_button">Bewerten</string>
+    <string name="screen_locked_ticked_sum">Blitz nur, wenn Telefon gesperrt ist</string>
+    <string name="screen_locked_sum">Blitz, wenn Telefon gesperrt oder entsperrt ist</string>
+    <string name="screen_locked">Telefonsperrstatus</string>
 </resources>
