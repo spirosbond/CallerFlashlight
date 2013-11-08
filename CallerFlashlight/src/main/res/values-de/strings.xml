@@ -90,7 +90,7 @@
     <string name="screen_off">Bildschirm ist AUS</string>
     <string name="screen_off_sum">Blitzen mit Bildschirm entweder AN oder AUS</string>
     <string name="screen_off_ticked_sum">Blitzen nur mit Bildschirm AUS</string>
-    <string name="screen_state">Telefonstatus</string>
+    <string name="phone_state">Telefonstatus</string>
     <string name="no_internet_connection">Keine Internetverbindung!</string>
     <string name="donate_dialog_title">Vielen Dank für Ihre Spende!</string>
     <string name="donate_dialog_ok">Ich hab\'s!</string>

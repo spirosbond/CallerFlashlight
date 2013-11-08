@@ -37,7 +37,7 @@
                     android:summary="@string/silent_mod_check"
                     android:defaultValue="true"/>
             </PreferenceCategory>
-            <PreferenceCategory android:title="@string/screen_state">
+            <PreferenceCategory android:title="@string/phone_state">
                 <!--<CheckBoxPreference-->
                 <!--android:key="screen_off"-->
                 <!--android:title="@string/screen_off"-->
@@ -48,6 +48,12 @@
                     android:key="screen_locked"
                     android:title="@string/screen_locked"
                     android:summary="@string/screen_locked_sum"
+                    android:defaultValue="false"/>
+
+                <CheckBoxPreference
+                    android:key="low_battery"
+                    android:title="@string/low_bat_title"
+                    android:summary="@string/low_bat_sum"
                     android:defaultValue="false"/>
             </PreferenceCategory>
 

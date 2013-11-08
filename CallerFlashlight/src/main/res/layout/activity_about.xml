@@ -31,6 +31,7 @@
 
 
     <TextView
+        android:id="@+id/about_footer"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:textAppearance="?android:attr/textAppearanceSmall"
