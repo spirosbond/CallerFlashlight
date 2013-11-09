@@ -26,7 +26,7 @@ import com.winsontan520.wversionmanager.library.WVersionManager;
  */
 public class CallerFlashlight extends Application implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-	public static final boolean LOG = false;
+	public static final boolean LOG = true;
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
@@ -48,7 +48,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	private boolean volumeButtonPressed;
 	private BroadcastReceiver mediaButtonReceiver;
 	//	private boolean screenOffPref;
-	private boolean screenLockedPref, lowBat;
+	private boolean screenLockedPref, lowBat, lowBatPref;
 
 	@Override
 	public void onCreate() {
@@ -122,6 +122,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		firstTime = prefs.getBoolean("first_time", true);
 		//		screenOffPref = prefs.getBoolean("screen_off", false);
 		screenLockedPref = prefs.getBoolean("screen_locked", false);
+		lowBatPref = prefs.getBoolean("low_bat_pref", false);
 
 	}
 
@@ -152,7 +153,8 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		editor.putBoolean("service_running", serviceRunning);
 		editor.putBoolean("first_time", firstTime);
 		//		editor.putBoolean("screen_off", screenOffPref);
-		editor.putBoolean("screen_locked", screenLockedPref);
+		//		editor.putBoolean("screen_locked", screenLockedPref);
+		//		editor.putBoolean("low_bat_pref",lowBatPref);
 		editor.commit();
 
 	}
@@ -358,6 +360,9 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 		if (screenLockedPref)
 			enabled = checkIfLocked(enabled);
+
+		if (lowBatPref)
+			enabled = !isLowBat();
 
 
 		if (LOG) Log.d(TAG, "enabled: " + enabled);
@@ -713,6 +718,14 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		this.lowBat = lowBat;
 		editor.putBoolean("low_bat", lowBat);
 		editor.commit();
+	}
+
+	public boolean isLowBatPref() {
+		return lowBatPref;
+	}
+
+	public void setLowBatPref(boolean lowBatPref) {
+		this.lowBatPref = lowBatPref;
 	}
 
 	//	public void registerShared(Donate donateActivity) {

@@ -69,9 +69,9 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		setContentView(R.layout.activity_main);
 		if (CallerFlashlight.LOG) Log.d(TAG, "onCreated");
 		this.callerFlashlight = (CallerFlashlight) this.getApplication();
-		setContentView(R.layout.activity_main);
 
 		callerFlashlight.configureAdColony(this);
 

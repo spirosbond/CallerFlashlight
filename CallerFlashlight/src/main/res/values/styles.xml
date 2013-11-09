@@ -17,7 +17,8 @@
     <!-- Application theme. -->
     <!--<style name="AppTheme" parent="@android:style/Theme.Holo">-->
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-    <item name="android:windowBackground">@drawable/mobilebackground</item>
+        <item name="android:windowBackground">@drawable/ic_mobilebackground</item>
+
 
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>

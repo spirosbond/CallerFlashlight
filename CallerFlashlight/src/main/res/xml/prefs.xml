@@ -51,7 +51,7 @@
                     android:defaultValue="false"/>
 
                 <CheckBoxPreference
-                    android:key="low_battery"
+                    android:key="low_battery_pref"
                     android:title="@string/low_bat_title"
                     android:summary="@string/low_bat_sum"
                     android:defaultValue="false"/>

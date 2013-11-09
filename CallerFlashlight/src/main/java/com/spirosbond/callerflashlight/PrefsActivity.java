@@ -84,6 +84,8 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 		} else if (s.equals("screen_locked")) {
 			callerFlashlight.setScreenLockedPref(sharedPreferences.getBoolean("screen_locked", false));
 			setScreenLockedSum(callerFlashlight.isScreenLockedPref());
+		} else if (s.equals("low_battery_pref")) {
+			callerFlashlight.setLowBatPref(sharedPreferences.getBoolean("low_battery_pref", false));
 		}
 	}
 
