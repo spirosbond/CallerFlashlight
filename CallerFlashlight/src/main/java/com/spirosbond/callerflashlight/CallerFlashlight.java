@@ -122,7 +122,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		firstTime = prefs.getBoolean("first_time", true);
 		//		screenOffPref = prefs.getBoolean("screen_off", false);
 		screenLockedPref = prefs.getBoolean("screen_locked", false);
-		lowBatPref = prefs.getBoolean("low_bat_pref", false);
+		lowBatPref = prefs.getBoolean("low_battery_pref", false);
 
 	}
 
@@ -154,7 +154,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		editor.putBoolean("first_time", firstTime);
 		//		editor.putBoolean("screen_off", screenOffPref);
 		//		editor.putBoolean("screen_locked", screenLockedPref);
-		//		editor.putBoolean("low_bat_pref",lowBatPref);
+		//		editor.putBoolean("low_battery_pref",lowBatPref);
 		editor.commit();
 
 	}
@@ -710,7 +710,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	}
 
 	public boolean isLowBat() {
-		prefs.getBoolean("low_bat", false);
+		lowBat = prefs.getBoolean("low_bat", false);
 		return lowBat;
 	}
 
