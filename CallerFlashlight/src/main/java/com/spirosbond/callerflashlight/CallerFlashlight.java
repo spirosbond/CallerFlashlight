@@ -362,10 +362,19 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 			enabled = checkIfLocked(enabled);
 
 		if (lowBatPref)
-			enabled = !isLowBat();
+			enabled = checkLowBat(enabled);
 
 
 		if (LOG) Log.d(TAG, "enabled: " + enabled);
+		return enabled;
+	}
+
+	private boolean checkLowBat(boolean enabled) {
+		if (LOG) Log.d(TAG, "checkLowBat");
+		if (isLowBat()) {
+			if (LOG) Log.d(TAG, "Low Battery");
+			enabled = false;
+		}
 		return enabled;
 	}
 
