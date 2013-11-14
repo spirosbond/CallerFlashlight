@@ -78,7 +78,7 @@ public class Flash {
 		}
 		if (gotCam) {
 			try {
-				cam.stopPreview();
+				//				cam.stopPreview();
 				cam.release();
 				gotCam = false;
 				if (CallerFlashlight.LOG) Log.d(TAG, "Cam released");
@@ -176,7 +176,7 @@ public class Flash {
 
 		try {
 			cam.setParameters(pon);
-			cam.startPreview();
+			//			cam.startPreview();
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (CallerFlashlight.LOG) Log.d(TAG, "failed to set parameters");
@@ -193,7 +193,7 @@ public class Flash {
 
 		try {
 			cam.setParameters(poff);
-			cam.stopPreview();
+			//			cam.stopPreview();
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (CallerFlashlight.LOG) Log.d(TAG, "failed to set parameters");

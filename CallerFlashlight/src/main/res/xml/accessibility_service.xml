@@ -5,5 +5,5 @@
         android:accessibilityEventTypes="typeNotificationStateChanged"
         android:description="@string/accessibility_service_description"
         android:notificationTimeout="500"
-        android:accessibilityFeedbackType="feedbackAllMask"
+        android:accessibilityFeedbackType="feedbackGeneric"
         android:accessibilityFlags="flagDefault"/>
