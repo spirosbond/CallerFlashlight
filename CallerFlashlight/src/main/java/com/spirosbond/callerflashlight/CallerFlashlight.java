@@ -26,7 +26,7 @@ import com.winsontan520.wversionmanager.library.WVersionManager;
  */
 public class CallerFlashlight extends Application implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-	public static final boolean LOG = true;
+	public static final boolean LOG = false;
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;

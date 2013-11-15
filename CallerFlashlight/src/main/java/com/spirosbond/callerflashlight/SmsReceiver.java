@@ -17,7 +17,7 @@ public class SmsReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		callerFlashlight = (CallerFlashlight) context.getApplicationContext();
-		if (callerFlashlight.isMsgFlash() && callerFlashlight.isEnabled()) {
+		if (Flash.getRunning() < 1 && callerFlashlight.isMsgFlash() && callerFlashlight.isEnabled()) {
 			new ManageFlash().execute(callerFlashlight.getMsgFlashOnDuration(), callerFlashlight.getMsgFlashOffDuration(),
 					callerFlashlight.getMsgFlashDuration());
 		}

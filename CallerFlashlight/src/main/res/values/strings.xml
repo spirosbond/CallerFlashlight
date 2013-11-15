@@ -124,5 +124,6 @@
     <string name="screen_locked">Phone lock status</string>
     <string name="low_bat_title">Off on low battery</string>
     <string name="low_bat_sum">Do not turn on flash if battery is low.</string>
+    <string name="version">Version:</string>
 
 </resources>

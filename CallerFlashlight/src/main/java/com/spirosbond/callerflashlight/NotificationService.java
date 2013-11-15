@@ -31,7 +31,7 @@ public class NotificationService extends AccessibilityService {
 				Log.d(TAG, "Got event from: " + String.valueOf(event.getPackageName()) + " of type: " + AccessibilityEvent.eventTypeToString(event.getEventType()) + " with notification flag: " + flags);
 		//		Toast.makeText(getApplicationContext(), "Got event from: " + event.getPackageName(), Toast.LENGTH_LONG).show();
 
-		if (callerFlashlight.isMsgFlash() && callerFlashlight.isEnabled() && callerFlashlight.loadApp(String.valueOf(event.getPackageName())) && isValidFlag(flags)) {
+		if (Flash.getRunning() < 1 && callerFlashlight.isMsgFlash() && callerFlashlight.isEnabled() && callerFlashlight.loadApp(String.valueOf(event.getPackageName())) && isValidFlag(flags)) {
 			new ManageFlash().execute(callerFlashlight.getMsgFlashOnDuration(), callerFlashlight.getMsgFlashOffDuration(),
 					callerFlashlight.getMsgFlashDuration());
 		}
@@ -58,13 +58,13 @@ public class NotificationService extends AccessibilityService {
 		callerFlashlight = (CallerFlashlight) getApplication();
 		callerFlashlight.setServiceRunning(true);
 
-		//		AccessibilityServiceInfo info = new AccessibilityServiceInfo();
+		//				AccessibilityServiceInfo info = new AccessibilityServiceInfo();
 		//		info.eventTypes = AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED;
-		//		info.notificationTimeout = 100;
+		//				info.notificationTimeout = 10000;
 
 		//		info.feedbackType = AccessibilityEvent.TYPES_ALL_MASK;
 		//		info.feedbackType = AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED;
-		//		setServiceInfo(info);
+		//				setServiceInfo(info);
 
 	}
 

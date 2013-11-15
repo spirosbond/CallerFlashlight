@@ -25,7 +25,7 @@ public class About extends Activity {
 		callerFlashlight = (CallerFlashlight) getApplicationContext();
 		footer = (TextView) findViewById(R.id.about_footer);
 		try {
-			footer.setText(footer.getText() + " version: " + getPackageManager().getPackageInfo(getPackageName(), 0).versionName + ".\n" + getResources().getString(R.string.allRightsReserved));
+			footer.setText(footer.getText() + " " + getResources().getString(R.string.version) + " " + getPackageManager().getPackageInfo(getPackageName(), 0).versionName + ".\n" + getResources().getString(R.string.allRightsReserved));
 		} catch (PackageManager.NameNotFoundException e) {
 			e.printStackTrace();
 		}
