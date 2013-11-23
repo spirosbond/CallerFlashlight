@@ -27,7 +27,7 @@ public class MediaButtonReceiver extends BroadcastReceiver {
 			//			userVolume = am.getStreamVolume(AudioManager.STREAM_RING);
 
 			newVolume = intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_VALUE", 0);
-			Log.d(TAG, "onReceived: " + intent.getAction() + " newVolume: " + newVolume + " userVolume: " + userVolume);
+			if (CallerFlashlight.LOG) Log.d(TAG, "onReceived: " + intent.getAction() + " newVolume: " + newVolume + " userVolume: " + userVolume);
 			if (userVolume != newVolume) {
 				lowVolume = true;
 				return;
