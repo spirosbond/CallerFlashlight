@@ -63,6 +63,9 @@ public class CallReceiver extends BroadcastReceiver {
 							new ManageFlash().execute(callerFlashlight.getCallFlashOnDuration(), callerFlashlight.getCallFlashOffDuration());
 						}
 						break;
+					default:
+						callState = "DEFAULT";
+						break;
 				}
 			}
 		}
@@ -70,18 +73,18 @@ public class CallReceiver extends BroadcastReceiver {
 		public class ManageFlash extends AsyncTask<Integer, Integer, String> {
 
 
-			private Flash flash;
+			private final Flash flash = new Flash(callerFlashlight);
 
 			public ManageFlash() {
 				Flash.incRunning();
 
 			}
 
-			@Override
-			protected void onPreExecute() {
-				super.onPreExecute();
-				flash = new Flash(callerFlashlight);
-			}
+			//			@Override
+			//			protected void onPreExecute() {
+			//				super.onPreExecute();
+			//				flash = new Flash(callerFlashlight);
+			//			}
 
 			@Override
 			protected String doInBackground(Integer... integers) {

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.spirosbond.callerflashlight"
-          android:versionCode="16"
-          android:versionName="2.4.3">
+          android:versionCode="17"
+          android:versionName="2.6">
 
-<uses-sdk
+    <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="19"/>
 
@@ -171,7 +171,7 @@
 
         <!--<receiver android:name=".MediaButtonReceiver">-->
         <!--<intent-filter>-->
-        <!--&lt;!&ndash;<action android:name="android.intent.action.MEDIA_BUTTON"/>&ndash;&gt;-->
+        <!--<action android:name="android.intent.action.MEDIA_BUTTON"/>-->
         <!--<action android:name="android.media.VOLUME_CHANGED_ACTION" />-->
         <!--</intent-filter>-->
         <!--</receiver>-->

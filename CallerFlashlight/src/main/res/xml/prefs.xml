@@ -6,10 +6,7 @@
             android:key="type_list"
             android:title="@string/typeList"
             android:entries="@array/type_list"
-            android:entryValues="@array/type_list_values"
-
-
-            />
+            android:entryValues="@array/type_list_values"/>
 
     </PreferenceCategory>
 

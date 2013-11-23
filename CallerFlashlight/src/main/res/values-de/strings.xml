@@ -15,7 +15,8 @@
     <string name="donateStr">Spenden</string>
     <string name="titlePrefs">Einstellungen</string>
     <string name="aboutText">\n\nCallFlash steuert den Blitz für Anrufe oder andere Benachrichtigungen. Es ist ein Opensource-Projekt von Spiros Bondomitsidis, mit dem Ziel, Dinge einfach und funktional zu haben.\n\nFür weitere Informationen und wie die App arbeitet, finden Sie unter \"Wie es funktioniert\".\n\nKommentare und Aktualisierungen unter:\nforum.xda-developers.com/showthread.php?t=2403340\n\nDie App in eine andere Sprache übersetzen:\nhttp://crowdin.net/project/callflash/invite \n     </string>
-    <string name="aboutFooter">CallFlash \u00a9. Alle Rechte vorbehalten.</string>
+    <string name="aboutFooter">CallFlash \u00a9</string>
+    <string name="allRightsReserved">Alle Rechte vorbehalten.</string>
     <string name="titleAbout">Über</string>
     <string name="titleHowTo">Wie es funktioniert</string>
     <string name="howTo1">1. Aktivieren Sie Ihre bevorzugte Betriebsart und prüfen Sie die Funktionsweise über die Test-Tasten</string>
@@ -109,4 +110,7 @@
     <string name="screen_locked_ticked_sum">Blitz nur, wenn Telefon gesperrt ist</string>
     <string name="screen_locked_sum">Blitz, wenn Telefon gesperrt oder entsperrt ist</string>
     <string name="screen_locked">Telefonsperrstatus</string>
+    <string name="low_bat_title">Aus bei schwacher Batterie</string>
+    <string name="low_bat_sum">Kein Blitz, wenn Batterielevel niedrig ist</string>
+    <string name="version">Version:</string>
 </resources>

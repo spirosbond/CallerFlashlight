@@ -68,7 +68,7 @@ public class Flash {
 
 	public static void releaseCam() {
 		if (CallerFlashlight.LOG) Log.d(TAG, "releaseCam");
-		if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE) {
+		if (cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE || cf.getType() == CallerFlashlight.TYPE_ALTERNATIVE_2) {
 			try {
 				orientationChanger.setVisibility(View.GONE);
 			} catch (Exception e) {

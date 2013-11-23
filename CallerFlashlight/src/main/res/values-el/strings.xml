@@ -15,7 +15,8 @@
     <string name="donateStr">Δωρεά</string>
     <string name="titlePrefs">Ρυθμίσεις</string>
     <string name="aboutText">\n\nΗ εφαρμογή CallFlash ελέγχει το φλας του κινητού σας ενώ δέχεστε κλήσεις και άλλες ειδοποιήσεις. Είναι ένα project ανοικτού κώδικα από τον Σπύρο Μποντομητσίδη, με στόχο να κρατήσει τα πράγματα απλά και λειτουργικά.\n\nΓια περισσότερες πληροφορίες σχετικά με το πώς να χρησιμοποιήσετε την εφαρμογή, δείτε τις \“Οδηγίες λειτουργίας\”.\n\nΣχόλια και ενημερώσεις στο:\nforum.xda-developers.com/showthread.php?t=2403340\n\nΒοηθήστε με τη μετάφραση της εφαρμογής:\nhttp://crowdin.net/project/callflash/invite\n</string>
-    <string name="aboutFooter">CallFlash \u00a9. All Rights Reserved.</string>
+    <string name="aboutFooter">CallFlash \u00a9</string>
+    <string name="allRightsReserved">All Rights Reserved.</string>
     <string name="titleAbout">Σχετικά με</string>
     <string name="titleHowTo">Οδηγίες λειτουργίας</string>
     <string name="howTo1">1. Ενεργοποιήστε την προτιμώμενη λειτουργία και κάντε test με τα αντίστοιχα πλήκτρα.</string>
@@ -109,4 +110,7 @@
     <string name="screen_locked_ticked_sum">Flash μόνο αν το τηλέφωνο είναι κλειδωμένο.</string>
     <string name="screen_locked_sum">Flash είτε το τηλέφωνο είναι κλειδωμένο είτε είναι ξεκλείδωτο.</string>
     <string name="screen_locked">Κατάσταση κλειδώματος</string>
+    <string name="low_bat_title">Απενεργοποίηση όταν η μπαταρία είναι χαμηλή</string>
+    <string name="low_bat_sum">Το flash δεν ενεργοποιείται εάν η μπαταρία είναι χαμηλή.</string>
+    <string name="version">Έκδοση:</string>
 </resources>

@@ -19,10 +19,6 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 
 	private static final String TAG = FirstTimeUtilisation.class.getSimpleName();
 	private CallerFlashlight callerFlashlight;
-	private Button testButton;
-	private Button contButton;
-	private Spinner moduleList;
-	private ImageView logo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +26,13 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 		if (CallerFlashlight.LOG) Log.d(TAG, "onCreated");
 		setContentView(R.layout.first_time);
 		callerFlashlight = (CallerFlashlight) getApplication();
-		testButton = (Button) findViewById(R.id.firstFlashTest);
+		Button testButton = (Button) findViewById(R.id.firstFlashTest);
 		testButton.setOnClickListener(this);
-		contButton = (Button) findViewById(R.id.firstcontinue);
+		Button contButton = (Button) findViewById(R.id.firstcontinue);
 		contButton.setOnClickListener(this);
-		moduleList = (Spinner) findViewById(R.id.module_list);
+		Spinner moduleList = (Spinner) findViewById(R.id.module_list);
 		moduleList.setOnItemSelectedListener(this);
-		logo = (ImageView) findViewById(R.id.logo);
+		ImageView logo = (ImageView) findViewById(R.id.logo);
 		logo.startAnimation(AnimationUtils.loadAnimation(this, R.anim.round));
 
 	}
