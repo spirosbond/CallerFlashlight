@@ -558,11 +558,10 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 
 		private ToggleButton button;
-		private Flash flash;
+		private Flash flash = new Flash(callerFlashlight);
 
 		public ManageFlash(ToggleButton button) {
 			this.button = button;
-			flash = new Flash(callerFlashlight);
 			Flash.incRunning();
 		}
 

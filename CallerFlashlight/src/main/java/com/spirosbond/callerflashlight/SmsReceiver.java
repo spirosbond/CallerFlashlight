@@ -26,7 +26,7 @@ public class SmsReceiver extends BroadcastReceiver {
 	public class ManageFlash extends AsyncTask<Integer, Integer, String> {
 
 
-		private final Flash flash = new Flash(callerFlashlight);
+		private Flash flash = new Flash(callerFlashlight);
 
 		public ManageFlash() {
 			Flash.incRunning();

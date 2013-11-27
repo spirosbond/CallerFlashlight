@@ -22,6 +22,7 @@ public class CameraSurface extends SurfaceView implements SurfaceHolder.Callback
 
 	public CameraSurface(Context context, Camera camera) {
 		super(context);
+		if (CallerFlashlight.LOG) Log.d(TAG, "CameraSurface");
 		mCamera = camera;
 
 		// Install a SurfaceHolder.Callback so we get notified when the
@@ -50,6 +51,11 @@ public class CameraSurface extends SurfaceView implements SurfaceHolder.Callback
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		if (CallerFlashlight.LOG) Log.d(TAG, "surfaceDestroyed");
 		// empty. Take care of releasing the Camera preview in your activity.
+		try {
+			mCamera.stopPreview();
+		} catch (Exception e) {
+			if (CallerFlashlight.LOG) Log.d(TAG, "Error stopping camera preview: " + e.getMessage());
+		}
 
 	}
 
@@ -65,11 +71,11 @@ public class CameraSurface extends SurfaceView implements SurfaceHolder.Callback
 		}
 
 		//		// stop preview before making changes
-		//		try {
-		//			mCamera.stopPreview();
-		//		} catch (Exception e){
-		//			// ignore: tried to stop a non-existent preview
-		//		}
+		//				try {
+		//					mCamera.stopPreview();
+		//				} catch (Exception e){
+		//					if(CallerFlashlight.LOG)Log.d(TAG, "Error stopping camera preview: " + e.getMessage());
+		//				}
 		//
 		//		// set preview size and make any resize, rotate or
 		//		// reformatting changes here

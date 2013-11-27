@@ -7,16 +7,18 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:weightSum="2"
+    android:weightSum="3"
     tools:context=".About">
 
     <ImageView
-        android:layout_width="150dip"
-        android:layout_height="150dip"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_gravity="top|center"
         android:id="@+id/aboutImageView"
-        android:layout_gravity="center"
-        android:background="@drawable/ic_launcher"
-        android:contentDescription="@string/logo"/>
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:src="@drawable/ic_launcher"
+        android:contentDescription="@string/logo"
+        />
 
     <TextView
         android:layout_width="fill_parent"
@@ -24,8 +26,8 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/aboutText"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_weight="0.6"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_weight="1"
         android:autoLink="web"
         />
 
@@ -36,9 +38,9 @@
         android:layout_height="fill_parent"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/aboutFooter"
-        android:layout_gravity="bottom"
+        android:layout_gravity="center|bottom"
         android:gravity="center"
-        android:layout_weight="1.4"
+        android:layout_weight="2"
         />
 
 </LinearLayout>
