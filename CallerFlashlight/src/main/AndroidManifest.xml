@@ -116,7 +116,8 @@
         <activity
             android:name=".FirstTimeUtilisation"
             android:label="@string/first_time"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden"
+            android:noHistory="true"/>
 
 
         <activity

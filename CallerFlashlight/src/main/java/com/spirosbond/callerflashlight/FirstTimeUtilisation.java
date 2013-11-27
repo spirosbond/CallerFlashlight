@@ -19,6 +19,7 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 
 	private static final String TAG = FirstTimeUtilisation.class.getSimpleName();
 	private CallerFlashlight callerFlashlight;
+	private Button contButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 		callerFlashlight = (CallerFlashlight) getApplication();
 		Button testButton = (Button) findViewById(R.id.firstFlashTest);
 		testButton.setOnClickListener(this);
-		Button contButton = (Button) findViewById(R.id.firstcontinue);
+		contButton = (Button) findViewById(R.id.firstcontinue);
 		contButton.setOnClickListener(this);
 		Spinner moduleList = (Spinner) findViewById(R.id.module_list);
 		moduleList.setOnItemSelectedListener(this);
@@ -44,13 +45,20 @@ public class FirstTimeUtilisation extends Activity implements View.OnClickListen
 	}
 
 	@Override
+	public void onBackPressed() {
+		//		super.onBackPressed();
+		return;
+
+	}
+
+	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
 			case R.id.firstFlashTest:
 				//					callerFlashlight.setMsgFlashTest(false);
 				new ManageFlash().execute();
 				//					startActivity(new Intent(this, CameraSurface.class));
-
+				contButton.setEnabled(true);
 				break;
 			case R.id.firstcontinue:
 				setResult(RESULT_OK, new Intent());

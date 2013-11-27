@@ -71,6 +71,7 @@
             style="@style/my_button"
             android:id="@+id/firstcontinue"
             android:text="@string/firstcontinue"
+            android:enabled="false"
             />
 
     </LinearLayout>
