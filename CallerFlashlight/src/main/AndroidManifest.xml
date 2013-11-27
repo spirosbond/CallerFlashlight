@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.spirosbond.callerflashlight"
-          android:versionCode="17"
-          android:versionName="2.6">
+          android:versionCode="18"
+          android:versionName="3.0">
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -48,7 +48,7 @@
         android:theme="@style/AppTheme"
         android:name=".CallerFlashlight"
         android:supportsRtl="true"
-        android:debuggable="true">
+        android:debuggable="false">
 
     <activity
             android:name="com.spirosbond.callerflashlight.MainPanel"

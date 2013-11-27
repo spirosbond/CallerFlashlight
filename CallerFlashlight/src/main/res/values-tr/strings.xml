@@ -25,7 +25,7 @@
     <string name="howTo4">4. Sırasıyla çağrı veya mesaj bildirimleri için tercihlerinizi ayarlayın.</string>
     <string name="logo">Uygulamanın Logosu</string>
     <string name="FlashTestON">Testi Durdur</string>
-    <string name="FlashTestOFF">Testi Başlat</string>
+    <string name="FlashTestOFF">Toggle Flash</string>
     <string name="preferences">Tercihler</string>
     <string name="operation_mode">Çalışma modu</string>
     <string name="generalCateg">Genel Tercihler</string>
@@ -76,7 +76,7 @@
     <string name="donateDialog">"1. Choose to see the apps of the day\n2. Download any app you like\n3. You donated!\n…without spending a dime!\nAlternatively you can donate through Paypal."</string>
     <string name="first_time">First Time Settings</string>
     <string name="firstcontinue">Continue</string>
-    <string name="first_time_desc">Welcome to Callflash, the application which controls your flash on every call or notification.\n\nPlease select the flash driver which works with your device. You can change it afterwards from “Preferences”.\n(Prefer “Standard” over “Alternative” and “Alternative” over “Alternative 2”)</string>
+    <string name="first_time_desc">Welcome to Callflash, the application which controls your flash on every call or notification.\n\n<i><b>Please select the flash driver that works with your device.</b></i>\nAfter hitting “Toggle Flash” you must see your flash blinking three times. If it doesn’t change the driver with the dropdown list below.\n\nYou can change it afterwards from “Preferences”.\n(Prefer “Standard” over “Alternative” and “Alternative” over “Alternative 2”)</string>
     <string name="adColony">See an HD video!</string>
     <string name="adColonysum">App of the day by adColony…</string>
     <string name="bubble1">Enable Flash on Call and on Notification\nwith these buttons…\n</string>
