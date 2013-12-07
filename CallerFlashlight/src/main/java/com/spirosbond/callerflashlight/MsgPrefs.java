@@ -89,6 +89,7 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 		if (s.equals("sms_mode_list")) {
 			//			lp = (ListPreference) findPreference("type_list");
 			setModeSum(Integer.valueOf(sharedPreferences.getString("sms_mode_list", "")));
+			callerFlashlight.setMsgFlashType(Integer.valueOf(sharedPreferences.getString("sms_mode_list", "")));
 
 		}
 	}

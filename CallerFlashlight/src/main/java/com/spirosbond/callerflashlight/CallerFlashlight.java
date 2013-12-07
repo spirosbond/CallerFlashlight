@@ -26,7 +26,7 @@ import com.winsontan520.wversionmanager.library.WVersionManager;
  */
 public class CallerFlashlight extends Application implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-	public static final boolean LOG = false;
+	public static final boolean LOG = true;
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
@@ -45,7 +45,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 	private int screenWidth, screenHeight;
 	private int msgFlashType;
 	private boolean bootReceiver, serviceRunning, firstTime;
-	private boolean volumeButtonPressed;
+	private boolean volumeButtonPressed, volumeButtonPref;
 	private BroadcastReceiver mediaButtonReceiver;
 	//	private boolean screenOffPref;
 	private boolean screenLockedPref, lowBat, lowBatPref;
@@ -89,7 +89,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 			IntentFilter filter = new IntentFilter();
 			//		filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
 			filter.addAction("android.media.VOLUME_CHANGED_ACTION");
-
+			//			filter.addAction("android.media.RINGER_MODE_CHANGED");
 			mediaButtonReceiver = new MediaButtonReceiver();
 			registerReceiver(mediaButtonReceiver, filter);
 		} catch (Exception e) {
@@ -139,6 +139,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		//		screenOffPref = prefs.getBoolean("screen_off", false);
 		screenLockedPref = prefs.getBoolean("screen_locked", false);
 		lowBatPref = prefs.getBoolean("low_battery_pref", false);
+		volumeButtonPref = prefs.getBoolean("volume_button_disable", false);
 
 	}
 
@@ -264,13 +265,13 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		else if (s.equals("silent_mode")) setSilentMode(sharedPreferences.getBoolean("silent_mode", false));
 		else if (s.equals("sleep_check")) setSleepMode(sharedPreferences.getBoolean("sleep_check", false));
 		else if (s.equals("msgFlashDuration")) setMsgFlashDuration(sharedPreferences.getInt("msgFlashDuration", 3));
-		else if (s.equals("type_list")) {
+		/*else if (s.equals("type_list")) {
 			setType(Integer.valueOf(sharedPreferences.getString("type_list", "")));
 
-		} else if (s.equals("sms_mode_list")) {
+		} *//*else if (s.equals("sms_mode_list")) {
 			setMsgFlashType(Integer.valueOf(sharedPreferences.getString("sms_mode_list", "")));
 
-		} /*else if (s.equals("screen_off")) {
+		}*/ /*else if (s.equals("screen_off")) {
 			setScreenOffPref(sharedPreferences.getBoolean("screen_off", false));
 		}*/
 		//		else if (s.equals("app_list_check")) {
@@ -751,6 +752,14 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void setLowBatPref(boolean lowBatPref) {
 		this.lowBatPref = lowBatPref;
+	}
+
+	public boolean isVolumeButtonPref() {
+		return volumeButtonPref;
+	}
+
+	public void setVolumeButtonPref(boolean volumeButtonPref) {
+		this.volumeButtonPref = volumeButtonPref;
 	}
 
 	//	public void registerShared(Donate donateActivity) {

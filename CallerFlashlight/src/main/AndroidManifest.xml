@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.spirosbond.callerflashlight"
           android:versionCode="19"
-          android:versionName="3.1">
+          android:versionName="3.2">
 
-<uses-sdk
+    <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="19"/>
 
@@ -48,7 +48,7 @@
         android:theme="@style/AppTheme"
         android:name=".CallerFlashlight"
         android:supportsRtl="true"
-        android:debuggable="false">
+        android:debuggable="true">
 
     <activity
             android:name="com.spirosbond.callerflashlight.MainPanel"

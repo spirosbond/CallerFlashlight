@@ -125,5 +125,8 @@
     <string name="low_bat_title">Off on low battery</string>
     <string name="low_bat_sum">Do not turn on flash if battery is low.</string>
     <string name="version">Version:</string>
+    <string name="call_pref_general_categ">General Preferences</string>
+    <string name="volume_button_disable_title">Volume button disable</string>
+    <string name="volume_button_disable_sum">Clicking the volume buttons during a call will disable the flash (may require multiple clicks).</string>
 
 </resources>

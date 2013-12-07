@@ -79,6 +79,7 @@ public class PrefsActivity extends PreferenceActivity implements SharedPreferenc
 		if (s.equals("type_list")) {
 			//			lp = (ListPreference) findPreference("type_list");
 			setTypeSum(Integer.valueOf(sharedPreferences.getString("type_list", "")));
+			callerFlashlight.setType(Integer.valueOf(sharedPreferences.getString("type_list", "")));
 			callerFlashlight.setWindowDimensions(getWindowManager());
 
 		} else if (s.equals("screen_locked")) {

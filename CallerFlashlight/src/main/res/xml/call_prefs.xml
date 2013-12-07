@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <EditTextPreference
-        android:title="@string/coming_soon"
-        android:clickable="false"
-        android:enabled="false"
+    <PreferenceCategory android:title="@string/call_pref_general_categ">
 
-        />
+        <CheckBoxPreference
+            android:key="volume_button_disable"
+            android:title="@string/volume_button_disable_title"
+            android:summary="@string/volume_button_disable_sum"
+            android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+    <!--<EditTextPreference-->
+    <!--android:title="@string/coming_soon"-->
+    <!--android:clickable="false"-->
+    <!--android:enabled="false"-->
+
+    <!--/>-->
 
 </PreferenceScreen>

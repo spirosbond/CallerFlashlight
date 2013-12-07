@@ -7,6 +7,7 @@ import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.MenuItem;
 
 /**
@@ -35,6 +36,8 @@ public class CallPrefs extends PreferenceActivity implements SharedPreferences.O
 
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+		if (callerFlashlight.LOG) Log.d(TAG, s + " changed!");
+		if (s.equals("volume_button_disable")) callerFlashlight.setVolumeButtonPref(sharedPreferences.getBoolean("volume_button_disable", false));
 
 	}
 
