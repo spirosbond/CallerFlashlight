@@ -5,7 +5,6 @@ import android.app.Application;
 import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -77,20 +76,25 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 
 	public void registerVolumeButtonReceiver() {
 
-		AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
-		int volume = am.getStreamVolume(AudioManager.STREAM_RING);
-		//		mediaButtonReceiver = new MediaButtonReceiver();
-		//		am.registerMediaButtonEventReceiver(new ComponentName(getPackageName(), MediaButtonReceiver.class.getName()));
+		try {
 
+			//			AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
+			//			int volume = am.getStreamVolume(AudioManager.STREAM_RING);
+			//		mediaButtonReceiver = new MediaButtonReceiver();
+			//		am.registerMediaButtonEventReceiver(new ComponentName(getPackageName(), MediaButtonReceiver.class.getName()));
 
-		if (LOG) Log.d(TAG, "Registering Receiver");
-		volumeButtonPressed = false;
-		IntentFilter filter = new IntentFilter(Intent.ACTION_MEDIA_BUTTON);
-		//		filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
-		filter.addAction("android.media.VOLUME_CHANGED_ACTION");
+			if (LOG) Log.d(TAG, "Registering Receiver");
+			volumeButtonPressed = false;
+			//					IntentFilter filter = new IntentFilter(Intent.ACTION_MEDIA_BUTTON);
+			IntentFilter filter = new IntentFilter();
+			//		filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+			filter.addAction("android.media.VOLUME_CHANGED_ACTION");
 
-		mediaButtonReceiver = new MediaButtonReceiver(volume);
-		registerReceiver(mediaButtonReceiver, filter);
+			mediaButtonReceiver = new MediaButtonReceiver();
+			registerReceiver(mediaButtonReceiver, filter);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 

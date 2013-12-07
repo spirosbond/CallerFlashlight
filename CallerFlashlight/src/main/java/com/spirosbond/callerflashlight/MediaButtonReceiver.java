@@ -3,6 +3,8 @@ package com.spirosbond.callerflashlight;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.text.format.Time;
 import android.util.Log;
 
 /**
@@ -13,15 +15,19 @@ public class MediaButtonReceiver extends BroadcastReceiver {
 	private static final String TAG = MediaButtonReceiver.class.getSimpleName();
 	private static int userVolume, newVolume;
 	private static boolean lowVolume;
+	private static Time now;
 
-	public MediaButtonReceiver(int volume) {
-		userVolume = volume;
+	public MediaButtonReceiver() {
+		//		userVolume = volume;
+		//		now = new Time();
+		//		now.setToNow();
 
 	}
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		try {
+		CallerFlashlight callerFlashlight = (CallerFlashlight) context.getApplicationContext();
+		/*try {
 
 			//			AudioManager am = (AudioManager) context.getSystemService(context.AUDIO_SERVICE);
 			//			userVolume = am.getStreamVolume(AudioManager.STREAM_RING);
@@ -42,9 +48,17 @@ public class MediaButtonReceiver extends BroadcastReceiver {
 			//			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 
-		CallerFlashlight callerFlashlight = (CallerFlashlight) context.getApplicationContext();
-		//		callerFlashlight.setVolumeButtonPressed(true);
+		//		Time time = new Time();
+		//		time.setToNow();
+		//
+		//		if (time.second - now.second > 2 || time.minute!=now.minute) {
+		AudioManager audioManager;
+		audioManager = (AudioManager) callerFlashlight.getSystemService(Context.AUDIO_SERVICE);
+		if (CallerFlashlight.LOG) Log.d(TAG, "ringermode: " + audioManager.getRingerMode());
+		if (CallerFlashlight.LOG) Log.d(TAG, "setVolumeButtonPressed");
+		//			callerFlashlight.setVolumeButtonPressed(true);
+		//		}
 	}
 }

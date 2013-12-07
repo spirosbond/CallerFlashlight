@@ -1,18 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:weightSum="3">
+    android:layout_height="fill_parent">
 
-    <ScrollView
+    <LinearLayout
+
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/scroll_view"
-        android:layout_weight="2">
+        android:id="@+id/bottom_buttons"
+        android:orientation="horizontal"
+        android:gravity="center|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center|bottom">
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <Button
+            style="@style/my_button"
+            android:text="@string/FlashTestOFF"
+            android:id="@+id/firstFlashTest"
+            />
+
+        <Button
+            style="@style/my_button"
+            android:id="@+id/firstcontinue"
+            android:text="@string/firstcontinue"
+            android:enabled="false"
+            />
+
+    </LinearLayout>
+
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/module_list"
+        android:layout_gravity="center"
+        android:layout_above="@id/bottom_buttons"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+
+        android:entries="@array/type_list"
+        android:entryValues="@array/type_list_values"/>
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scroll_view"
+        android:layout_above="@id/module_list">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content">
 
@@ -38,41 +73,4 @@
         </RelativeLayout>
     </ScrollView>
 
-    <Spinner
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/module_list"
-        android:layout_gravity="center"
-        android:spinnerMode="dropdown"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_weight="1"
-        android:entries="@array/type_list"
-        android:entryValues="@array/type_list_values"/>
-
-
-    <LinearLayout
-
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center|bottom"
-
-        android:layout_gravity="center|bottom"
-        android:layout_weight="1"
-        >
-
-        <Button
-            style="@style/my_button"
-            android:text="@string/FlashTestOFF"
-            android:id="@+id/firstFlashTest"
-            />
-
-        <Button
-            style="@style/my_button"
-            android:id="@+id/firstcontinue"
-            android:text="@string/firstcontinue"
-            android:enabled="false"
-            />
-
-    </LinearLayout>
-</LinearLayout>
+</RelativeLayout>
