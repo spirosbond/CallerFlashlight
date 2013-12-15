@@ -33,7 +33,7 @@
     <string name="howTo4">4. Set your preferences for calls or message notifications respectively.</string>
     <string name="logo">شعار التطبيق</string>
     <string name="FlashTestON">إيقاف الاختبار</string>
-    <string name="FlashTestOFF">Toggle Flash</string>
+    <string name="FlashTestOFF">Test Flash</string>
     <string name="preferences">التفضيلات</string>
     <string name="operation_mode">وضع النظام</string>
     <string name="generalCateg">التفضيلات العامة</string>
@@ -84,7 +84,7 @@
     <string name="donateDialog">"1. Choose to see the apps of the day\n2. Download any app you like\n3. You donated!\n…without spending a dime!\nAlternatively you can donate through Paypal."</string>
     <string name="first_time">إعدادات المرة الآولى</string>
     <string name="firstcontinue">متابعة</string>
-    <string name="first_time_desc">Welcome to Callflash, the application which controls your flash on every call or notification.\n\n<i><b>Please select the flash driver that works with your device.</b></i>\nAfter hitting “Toggle Flash” you must see your flash blinking three times. If it doesn’t change the driver with the dropdown list below.\n\nYou can change it afterwards from “Preferences”.\n(Prefer “Standard” over “Alternative” and “Alternative” over “Alternative 2”)</string>
+    <string name="first_time_desc">Welcome to Callflash, the application which controls your flash on every call or notification.\n\n<i><b>Please select the flash driver that works with your device.</b></i>\nAfter hitting “Test Flash” you must see your flash blinking three times. If it doesn’t change the driver with the dropdown list below.\n\nYou can change it afterwards from “Preferences”.\n(Prefer “Standard” over “Alternative” and “Alternative” over “Alternative 2”)</string>
     <string name="adColony">شاهد فيديو بدقة عالية!</string>
     <string name="adColonysum">برنامج اليوم بواسطة adColony...</string>
     <string name="bubble1">Enable Flash on Call and on Notification\nwith these buttons…\n</string>
@@ -123,4 +123,7 @@
     <string name="low_bat_title">Off on low battery</string>
     <string name="low_bat_sum">Do not turn on flash if battery is low.</string>
     <string name="version">Version:</string>
+    <string name="call_pref_general_categ">General Preferences</string>
+    <string name="volume_button_disable_title">Volume button disable</string>
+    <string name="volume_button_disable_sum">Clicking the volume buttons during a call will disable the flash (may require multiple clicks).</string>
 </resources>

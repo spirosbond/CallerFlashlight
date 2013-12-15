@@ -33,7 +33,7 @@
     <string name="howTo4">4. Establece tus preferencias para llamadas o notificaciones, respectivamente.</string>
     <string name="logo">Logo de la aplicación</string>
     <string name="FlashTestON">Para modo prueba</string>
-    <string name="FlashTestOFF">Iniciar modo prueba</string>
+    <string name="FlashTestOFF">Prueba de flash</string>
     <string name="preferences">Preferencias</string>
     <string name="operation_mode">Modo de funcionamiento</string>
     <string name="generalCateg">Preferencias generales</string>
@@ -84,12 +84,12 @@
     <string name="donateDialog">"1. Elige ver las aplicaciones del día\n2. Descarga cualquier aplicación que quieras\n3. ¡Has donado!\n…¡sin perder nada!\nTambién puedes donar por Paypal."</string>
     <string name="first_time">Ajustes de primera vez</string>
     <string name="firstcontinue">Continuar</string>
-    <string name="first_time_desc">Bienvenido a Callflash, la aplicación que contra tu flash para alertarte de notificaciones.\n\nPor favor, elige el controlador de flash de tu móvil. Puedes cambiarlo más tarde en “Preferencias”.\n(Preferible “Estándar” sobre “Alternativo” y “Alternativo” sobre “Alternativo 2”)</string>
+    <string name="first_time_desc">Bienvenido a Callflash, la aplicación que controla tu flash para las llamadas y notificaciones.\n\n<i><b>Por favor, elige el controlador flash que funciona con tu teléfono.</b></i>\nTras tocar “Activar/desact. flash” verás que tu flash lucirá 3 veces. Si no lo hace, cambia el controlador a continuación.\n\nPuedes volver a cambiarlo en “Preferencias”.\n(Recomendamos “Estándar” antes “Alternativo” y “Alternativo” ante “Alternativo 2”)</string>
     <string name="adColony">¡Mira un vídeo en HD!</string>
     <string name="adColonysum">Aplicación del día de adColony…</string>
     <string name="bubble1">Activa el flash para llamadas y notificaciones\ncon estos botones…\n</string>
     <string name="bubble2">Elige la duración (en milisegundos)\ndel flash activo e inactivo,\ncon los deslizadores o los campos de texto…\n</string>
-    <string name="bubble3">Prueba tus ajustes con\nlos botones de pruebas…\n</string>
+    <string name="bubble3">Prueba tus ajustes con los botones de pruebas…\n</string>
     <string name="bubble4">¡Edita las preferencias de\ncada sección y ya está!\n</string>
     <string name="adMob">¡Aplicaciones gratis!</string>
     <string name="adMobsum">Aplicaciones gratis de AdMob…</string>
@@ -122,4 +122,7 @@
     <string name="low_bat_title">Desactivar con poca batería</string>
     <string name="low_bat_sum">No activar el flash si queda poca batería.</string>
     <string name="version">Versión:</string>
+    <string name="call_pref_general_categ">Preferencias generales</string>
+    <string name="volume_button_disable_title">Desactivación en el botón de volumen</string>
+    <string name="volume_button_disable_sum">Haciendo clic en los botones de volumen durante una llamada detendrás el flash (quizá requiera varios clics).</string>
 </resources>

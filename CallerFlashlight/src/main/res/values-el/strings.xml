@@ -25,7 +25,7 @@
     <string name="howTo4">4. Καθορίστε τις προτιμήσεις σας για κλήσεις ή ειδοποιήσεις αντίστοιχα.</string>
     <string name="logo">Λογότυπο της εφαρμογής</string>
     <string name="FlashTestON">Παύση Test</string>
-    <string name="FlashTestOFF">Δοκιμή Flash</string>
+    <string name="FlashTestOFF">Δοκιμή φλας</string>
     <string name="preferences">Ρυθμίσεις</string>
     <string name="operation_mode">Τρόπος λειτουργίας</string>
     <string name="generalCateg">Γενικές προτιμήσεις</string>
@@ -113,4 +113,7 @@
     <string name="low_bat_title">Απενεργοποίηση όταν η μπαταρία είναι χαμηλή</string>
     <string name="low_bat_sum">Το flash δεν ενεργοποιείται εάν η μπαταρία είναι χαμηλή.</string>
     <string name="version">Έκδοση:</string>
+    <string name="call_pref_general_categ">Γενικές προτιμήσεις</string>
+    <string name="volume_button_disable_title">Απενεργ. μέσω πλήκτρων έντασης</string>
+    <string name="volume_button_disable_sum">Κάνοντας κλικ στα κουμπιά έντασης κατά τη διάρκεια μιας κλήσης απενεργ. το φλας (μπορεί να απαιτούνται πολλαπλά κλικ).</string>
 </resources>

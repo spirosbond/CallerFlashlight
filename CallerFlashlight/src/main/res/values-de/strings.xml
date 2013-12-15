@@ -25,7 +25,7 @@
     <string name="howTo4">4. Legen Sie Ihre Einstellungen für Anrufe oder Benachrichtigungen fest</string>
     <string name="logo">Anwendungssymbol</string>
     <string name="FlashTestON">Test beenden</string>
-    <string name="FlashTestOFF">Blitzen</string>
+    <string name="FlashTestOFF">Blitz testen</string>
     <string name="preferences">Einstellungen</string>
     <string name="operation_mode">Betriebsmodus</string>
     <string name="generalCateg">Allgemeine Einstellungen</string>
@@ -75,7 +75,7 @@
     <string name="donateDialog">"1. Wählen, um die App des Tages zu sehen\n2. Laden Sie Ihre gewünschte App herunter\n3. Sie haben gespendet!\n...ohne auch nur einen Cent ausgegeben zu haben! \n\nAlternativ können Sie auch über PayPal spenden"</string>
     <string name="first_time">Ersteinstellungen</string>
     <string name="firstcontinue">Weiter</string>
-    <string name="first_time_desc">Willkommen bei Callflash, die Anwendung, die Ihren Blitz bei Anrufen oder Benachrichtigungen steuert.\n\n<i><b>Wählen Sie bitte den Modultreiber aus, der auf Ihrem Gerät funktioniert.</b></i>\nNachdem Sie auf \"Blitzen\" getippt haben, müsste es drei Mal blitzen. Wenn nicht, ändern Sie bitte den Modultreiber in der unteren Liste.\n\nSie können den Treiber auch später unter \"Einstellungen\" - \"Moduleinstellungen\" ändern.\n(Bevorzugen Sie \"Standard\" vor \"Alternativ\" und \"Alternativ\" vor \"Alternativ 2\")</string>
+    <string name="first_time_desc">Willkommen bei Callflash, die Anwendung, die Ihren Blitz bei Anrufen oder Benachrichtigungen steuert.\n\n<i><b>Wählen Sie bitte den Modultreiber aus, der auf Ihrem Gerät funktioniert.</b></i>\nNachdem Sie auf \"Blitz testen\" getippt haben, müsste es drei Mal blitzen. Wenn nicht, ändern Sie bitte den Modultreiber in der unteren Liste.\n\nSie können den Treiber auch später unter \"Einstellungen\" - \"Moduleinstellungen\" ändern.\n(Bevorzugen Sie \"Standard\" vor \"Alternativ\" und \"Alternativ\" vor \"Alternativ 2\")</string>
     <string name="adColony">HD-Video anschauen!</string>
     <string name="adColonysum">\"App des Tages\" von AdColony...</string>
     <string name="bubble1">Aktivieren Sie den Blitz für Anrufe und\nBenachrichtigungen mit diesen Tasten...\n</string>
@@ -113,4 +113,7 @@
     <string name="low_bat_title">Aus bei schwacher Batterie</string>
     <string name="low_bat_sum">Kein Blitz, wenn Batterielevel niedrig ist</string>
     <string name="version">Version:</string>
+    <string name="call_pref_general_categ">Allgemeine Einstellungen</string>
+    <string name="volume_button_disable_title">Lautstärke-Tasten deaktivieren</string>
+    <string name="volume_button_disable_sum">Blitz mittels der Lautstärke-Tasten während eines Anrufs ausschalten (mehrfaches Antippen möglicherweise erforderlich)</string>
 </resources>
