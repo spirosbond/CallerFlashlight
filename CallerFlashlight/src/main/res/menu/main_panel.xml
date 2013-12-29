@@ -3,7 +3,7 @@
             android:id="@+id/preferences"
             android:title="@string/preferences"
             android:orderInCategory="100"
-            android:showAsAction="never"/>
+            android:showAsAction="ifRoom"/>
 
     <item
             android:id="@+id/howTo"

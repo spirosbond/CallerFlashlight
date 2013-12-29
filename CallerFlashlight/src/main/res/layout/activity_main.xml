@@ -35,7 +35,7 @@
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/ic_menu_preferences"
+                android:background="@drawable/ic_prefs"
                 android:id="@+id/CallPref"
                 android:enabled="true"
                 android:clickable="true"/>
@@ -118,7 +118,7 @@
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/ic_menu_preferences"
+                android:background="@drawable/ic_prefs"
                 android:id="@+id/MsgPref"
                 android:clickable="true"
                 />
