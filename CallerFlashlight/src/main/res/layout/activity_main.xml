@@ -10,25 +10,19 @@
         android:layout_width="fill_parent"
         android:orientation="vertical">
 
-        <TextView
+        <org.jraf.android.backport.switchwidget.Switch
             android:text="@string/Callseperator"
-            android:layout_marginTop="5dip"
+            android:id="@+id/callFlashToggle"
             style="@style/my_separator"/>
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="horizontal"
-            android:weightSum="2"
+            android:weightSum="1"
 
             android:gravity="center_vertical">
 
-            <ToggleButton
-                style="@style/my_button"
-                android:text="@string/callToggle"
-                android:id="@+id/callFlashToggle"
-                android:textOn="@string/callFlashON"
-                android:textOff="@string/callFlashOFF"/>
 
             <ToggleButton
                 style="@style/my_button"
@@ -100,23 +94,18 @@
                 />
         </LinearLayout>
 
-        <TextView
+
+        <org.jraf.android.backport.switchwidget.Switch
             android:text="@string/Msgseperator"
+            android:id="@+id/msgFlashToggle"
             style="@style/my_separator"/>
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2"
+            android:weightSum="1"
             android:gravity="center_vertical">
-
-            <ToggleButton
-                style="@style/my_button"
-                android:text="@string/msgToggle"
-                android:id="@+id/msgFlashToggle"
-                android:textOn="@string/msgFlashON"
-                android:textOff="@string/msgFlashOFF"/>
 
             <ToggleButton
                 style="@style/my_button"

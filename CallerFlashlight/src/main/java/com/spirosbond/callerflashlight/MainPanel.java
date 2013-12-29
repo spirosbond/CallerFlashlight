@@ -22,6 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import org.jraf.android.backport.switchwidget.Switch;
+
 
 public class MainPanel extends Activity implements View.OnClickListener, TextWatcher, View.OnFocusChangeListener {
 
@@ -30,8 +32,8 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	private MainPanel mainPanel;
 	private SeekBar callFlashOnBar, callFlashOffBar, msgFlashOnBar, msgFlashOffBar, msgFlashDurBar;
 	private EditText callFlashOnBarValue, callFlashOffBarValue, msgFlashOnBarValue, msgFlashOffBarValue, msgFlashDurBarValue;
-	private ToggleButton callFlashButton;
-	private ToggleButton msgFlashButton;
+	private Switch callFlashButton;
+	private Switch msgFlashButton;
 	private ToggleButton callFlashTestButton;
 	private ToggleButton msgFlashTestButton;
 	private Button callPrefs, msgPrefs;
@@ -45,11 +47,11 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	protected void onResume() {
 		super.onResume();
 		if (CallerFlashlight.LOG) Log.d(TAG, "onResumed");
-		callFlashButton = (ToggleButton) findViewById(R.id.callFlashToggle);
+		callFlashButton = (Switch) findViewById(R.id.callFlashToggle);
 		callFlashButton.setChecked(callerFlashlight.isCallFlash());
 		callFlashTestButton = (ToggleButton) findViewById(R.id.callFlashTestToggle);
 		callFlashTestButton.setChecked(callerFlashlight.isCallFlashTest());
-		msgFlashButton = (ToggleButton) findViewById(R.id.msgFlashToggle);
+		msgFlashButton = (Switch) findViewById(R.id.msgFlashToggle);
 		msgFlashButton.setChecked(callerFlashlight.isMsgFlash());
 		msgFlashTestButton = (ToggleButton) findViewById(R.id.msgFlashTestToggle);
 		msgFlashTestButton.setChecked(callerFlashlight.isMsgFlashTest());
@@ -167,7 +169,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	}
 
 	private void msgFlashCreate() {
-		msgFlashButton = (ToggleButton) findViewById(R.id.msgFlashToggle);
+		msgFlashButton = (Switch) findViewById(R.id.msgFlashToggle);
 		msgFlashButton.setChecked(callerFlashlight.isMsgFlash());
 		msgFlashButton.setOnClickListener(this);
 
@@ -210,7 +212,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	}
 
 	private void callFlashCreate() {
-		callFlashButton = (ToggleButton) findViewById(R.id.callFlashToggle);
+		callFlashButton = (Switch) findViewById(R.id.callFlashToggle);
 		callFlashButton.setChecked(callerFlashlight.isCallFlash());
 		callFlashButton.setOnClickListener(this);
 

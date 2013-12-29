@@ -18,6 +18,7 @@
     <!--<style name="AppTheme" parent="@android:style/Theme.Holo">-->
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:windowBackground">@drawable/ic_mobilebackground</item>
+        <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch</item>
 
 
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
@@ -71,7 +72,7 @@
         <item name="android:background">#00263e</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginBottom">@dimen/activity_vertical_margin</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
     </style>
 

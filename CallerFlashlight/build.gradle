@@ -10,6 +10,9 @@ apply plugin: 'android'
 
 repositories {
     mavenCentral()
+    maven {
+        url "http://JRAF.org/static/maven/2"
+    }
 }
 
 android {
@@ -24,6 +27,7 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v4:18.0.+'
+    compile "org.jraf:android-switch-backport:1.2"
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 

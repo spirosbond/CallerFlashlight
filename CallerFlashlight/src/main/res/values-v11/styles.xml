@@ -17,6 +17,7 @@
     <!--<style name="AppTheme" parent="@android:style/Theme.Holo">-->
     <style name="AppTheme" parent="android:Theme.DeviceDefault">
         <item name="android:windowBackground">@drawable/ic_mobilebackground</item>
+        <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch</item>
 
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
