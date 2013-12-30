@@ -24,6 +24,7 @@
         android:layout_width="fill_parent"
         android:layout_centerHorizontal="true"
         android:minHeight="100dp"
+        android:text="@string/bubble3"
 
         />
 

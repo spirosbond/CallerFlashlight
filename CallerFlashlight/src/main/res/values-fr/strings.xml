@@ -78,9 +78,9 @@
     <string name="first_time_desc">Welcome to Callflash, the application which controls your flash on every call or notification.\n\n<i><b>Please select the flash driver that works with your device.</b></i>\nAfter hitting “Test Flash” you must see your flash blinking three times. If it doesn’t change the driver with the dropdown list below.\n\nYou can change it afterwards from “Preferences”.\n(Prefer “Standard” over “Alternative” and “Alternative” over “Alternative 2”)</string>
     <string name="adColony">Voir une vidéo HD!</string>
     <string name="adColonysum">Appli du jour par adColony...</string>
-    <string name="bubble1">Activer le flash sur les appels et les notificaitons\navec ces bouttons...\n</string>
+    <string name="bubble1">Activer le flash sur les appels et les\nnotificaitons avec ces bouttons...\n</string>
     <string name="bubble2">Sélectionnez la durée (en millisecondes)\nPour laquelle le flash est ON et OFF,\nEn utilisant le curseur ou le champ texte...\n</string>
-    <string name="bubble3">Tester vos paramètres en utilisant le bouton de test...\n</string>
+    <string name="bubble3">Tester vos paramètres en utilisant\nle bouton de test...\n</string>
     <string name="bubble4">Éditez les préférences pour chaque section\net vous êtes prêt!\n</string>
     <string name="adMob">Applis gratuites!</string>
     <string name="adMobsum">Appli gratuite du jour par AdMob...</string>
