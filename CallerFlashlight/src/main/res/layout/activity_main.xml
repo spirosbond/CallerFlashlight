@@ -105,9 +105,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="1"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical|center_horizontal">
 
-            <ToggleButton
+        <ToggleButton
                 style="@style/my_button"
                 android:text="@string/msgToggle"
                 android:id="@+id/msgFlashTestToggle"
