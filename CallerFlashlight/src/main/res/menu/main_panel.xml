@@ -1,24 +1,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:id="@+id/preferences"
-            android:title="@string/preferences"
-            android:orderInCategory="100"
-            android:showAsAction="ifRoom"/>
+        android:id="@+id/preferences"
+        android:title="@string/preferences"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"/>
 
     <item
-            android:id="@+id/howTo"
-            android:title="@string/howToStr"
-            android:orderInCategory="100"
-            android:showAsAction="never"/>
+        android:id="@+id/howTo"
+        android:title="@string/howToStr"
+        android:orderInCategory="100"
+        android:showAsAction="never"/>
     <item
-            android:id="@+id/about"
-            android:title="@string/aboutStr"
-            android:orderInCategory="100"
-            android:showAsAction="never"/>
+        android:id="@+id/about"
+        android:title="@string/aboutStr"
+        android:orderInCategory="100"
+        android:showAsAction="never"/>
     <item
-            android:id="@+id/donate"
-            android:title="@string/donateStr"
-            android:orderInCategory="100"
-            android:showAsAction="never"/>
+        android:id="@+id/donate"
+        android:title="@string/donateStr"
+        android:orderInCategory="100"
+        android:showAsAction="never"/>
+    <item
+        android:id="@+id/license"
+        android:title="@string/licenseStr"
+        android:orderInCategory="100"
+        android:showAsAction="never"/>
 
 </menu>

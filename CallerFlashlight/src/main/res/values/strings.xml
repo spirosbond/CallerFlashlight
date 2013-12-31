@@ -128,5 +128,6 @@
     <string name="call_pref_general_categ">General Preferences</string>
     <string name="volume_button_disable_title">Volume button disable</string>
     <string name="volume_button_disable_sum">Clicking the volume buttons during a call will disable the flash (may require multiple clicks).</string>
+    <string name="licenseStr">License</string>
 
 </resources>

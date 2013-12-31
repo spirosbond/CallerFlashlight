@@ -30,7 +30,9 @@
         <item name="android:textColor">#ffffff</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_margin">3dp</item>
+
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
         <!--<item name="android:textSize" >30dp</item>-->
         <item name="android:textStyle">normal</item>
         <item name="android:shadowColor">#000000</item>

@@ -130,6 +130,18 @@
         </activity>
 
         <activity
+            android:name=".License"
+            android:label="@string/licenseStr"
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName="com.spirosbond.callerflashlight.MainPanel"
+            android:theme="@android:style/Theme.Dialog">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.spirosbond.callerflashlight.MainPanel"/>
+        </activity>
+
+        <activity
             android:name=".AppList"
             android:label="@string/AppList"
             android:windowSoftInputMode="stateHidden"

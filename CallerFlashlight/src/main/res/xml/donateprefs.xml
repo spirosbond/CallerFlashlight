@@ -3,6 +3,9 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <com.spirosbond.callerflashlight.AdPreference2
+        android:layout="@layout/ad_layout"/>
+
     <PreferenceCategory android:title="@string/donateTitle">
 
         <!--<Preference-->
@@ -29,6 +32,9 @@
             android:summary="@string/paypal_donate_sum"
             android:key="paypal"/>
     </PreferenceCategory>
+
+    <com.spirosbond.callerflashlight.AdPreference
+        android:layout="@layout/ad_layout"/>
 
 
 </PreferenceScreen>
