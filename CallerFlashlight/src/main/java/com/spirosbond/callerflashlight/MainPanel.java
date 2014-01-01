@@ -333,9 +333,9 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 			case R.id.preferences:
 				startActivity(new Intent(this, PrefsActivity.class));
 				break;
-			//			case R.id.license:
-			//				startActivity(new Intent(this, License.class));
-			//				break;
+			case R.id.license:
+				startActivity(new Intent(this, License.class));
+				break;
 		}
 
 		return true;
