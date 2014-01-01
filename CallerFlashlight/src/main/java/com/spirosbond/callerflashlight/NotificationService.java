@@ -28,7 +28,7 @@ public class NotificationService extends AccessibilityService {
 		}
 		if (CallerFlashlight.LOG)
 			if (callerFlashlight.LOG)
-				Log.d(TAG, "Got event from: " + String.valueOf(event.getPackageName()) + " of type: " + AccessibilityEvent.eventTypeToString(event.getEventType()) + " with notification flag: " + flags);
+				Log.d(TAG, "Got event from: " + String.valueOf(event.getPackageName()) /*+ " of type: " + AccessibilityEvent.eventTypeToString(event.getEventType()) */ + " with notification flag: " + flags);
 		//		Toast.makeText(getApplicationContext(), "Got event from: " + event.getPackageName(), Toast.LENGTH_LONG).show();
 
 		if (Flash.getRunning() < 1 && callerFlashlight.isMsgFlash() && callerFlashlight.isEnabled() && callerFlashlight.loadApp(String.valueOf(event.getPackageName())) && isValidFlag(flags)) {
@@ -38,11 +38,11 @@ public class NotificationService extends AccessibilityService {
 	}
 
 	/**
-	 * @param flags 98:Viber during call
+	 * @param flags 99:Viber during call
 	 * @return
 	 */
 	private boolean isValidFlag(int flags) {
-		return flags != -10 && flags != 0 && flags != 10 && flags != 98;
+		return flags != -10 && flags != 0 && flags != 10 && flags != 99;
 	}
 
 	@Override

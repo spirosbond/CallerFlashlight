@@ -26,7 +26,7 @@ import com.winsontan520.wversionmanager.library.WVersionManager;
  */
 public class CallerFlashlight extends Application implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-	public static final boolean LOG = false;
+	public static final boolean LOG = true;
 	public static final int TYPE_NORMAL = 1;
 	public static final int TYPE_ALTERNATIVE = 2;
 	public static final int TYPE_ALTERNATIVE_2 = 3;
@@ -58,7 +58,6 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		//		registerVolumeButtonReceiver();
 
 		BugSenseHandler.initAndStartSession(CallerFlashlight.this, "2b2cf28e");
-
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		prefs.registerOnSharedPreferenceChangeListener(this);
 		editor = prefs.edit();

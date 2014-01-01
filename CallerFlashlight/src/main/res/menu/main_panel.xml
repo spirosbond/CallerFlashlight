@@ -20,10 +20,10 @@
         android:title="@string/donateStr"
         android:orderInCategory="100"
         android:showAsAction="never"/>
-    <item
-        android:id="@+id/license"
-        android:title="@string/licenseStr"
-        android:orderInCategory="100"
-        android:showAsAction="never"/>
+    <!--<item-->
+    <!--android:id="@+id/license"-->
+    <!--android:title="@string/licenseStr"-->
+    <!--android:orderInCategory="100"-->
+    <!--android:showAsAction="never"/>-->
 
 </menu>

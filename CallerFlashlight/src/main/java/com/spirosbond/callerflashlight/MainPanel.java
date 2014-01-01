@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -25,7 +26,7 @@ import android.widget.ToggleButton;
 import org.jraf.android.backport.switchwidget.Switch;
 
 
-public class MainPanel extends Activity implements View.OnClickListener, TextWatcher, View.OnFocusChangeListener {
+public class MainPanel extends Activity implements View.OnClickListener, TextWatcher, View.OnFocusChangeListener, CompoundButton.OnCheckedChangeListener {
 
 	private static final String TAG = MainPanel.class.getSimpleName();
 	private CallerFlashlight callerFlashlight;
@@ -171,7 +172,8 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	private void msgFlashCreate() {
 		msgFlashButton = (Switch) findViewById(R.id.msgFlashToggle);
 		msgFlashButton.setChecked(callerFlashlight.isMsgFlash());
-		msgFlashButton.setOnClickListener(this);
+		//		msgFlashButton.setOnClickListener(this);
+		msgFlashButton.setOnCheckedChangeListener(this);
 
 		msgFlashTestButton = (ToggleButton) findViewById(R.id.msgFlashTestToggle);
 		msgFlashTestButton.setChecked(callerFlashlight.isMsgFlashTest());
@@ -214,7 +216,8 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 	private void callFlashCreate() {
 		callFlashButton = (Switch) findViewById(R.id.callFlashToggle);
 		callFlashButton.setChecked(callerFlashlight.isCallFlash());
-		callFlashButton.setOnClickListener(this);
+		//		callFlashButton.setOnClickListener(this);
+		callFlashButton.setOnCheckedChangeListener(this);
 
 		callFlashTestButton = (ToggleButton) findViewById(R.id.callFlashTestToggle);
 		callFlashTestButton.setChecked(callerFlashlight.isCallFlashTest());
@@ -255,23 +258,23 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		//		if(CallerFlashlight.LOG) Log.d(TAG, "onClicked: " + tb.isChecked());
 
 		switch (view.getId()) {
-			case R.id.callFlashToggle:
-				if (!(callerFlashlight.isNormalMode() || callerFlashlight.isSilentMode() || callerFlashlight.isVibrateMode())) {
-					callFlashButton.setChecked(false);
-					Toast.makeText(getApplicationContext(), getResources().getString(R.string.enable_toast), Toast.LENGTH_SHORT).show();
-					break;
-				}
-				callerFlashlight.setCallFlash(callFlashButton.isChecked());
-
-				break;
-			case R.id.msgFlashToggle:
-				if (!(callerFlashlight.isNormalMode() || callerFlashlight.isSilentMode() || callerFlashlight.isVibrateMode())) {
-					msgFlashButton.setChecked(false);
-					Toast.makeText(getApplicationContext(), getResources().getString(R.string.enable_toast), Toast.LENGTH_SHORT).show();
-					break;
-				}
-				callerFlashlight.setMsgFlash(msgFlashButton.isChecked());
-				break;
+			//			case R.id.callFlashToggle:
+			//				if (!(callerFlashlight.isNormalMode() || callerFlashlight.isSilentMode() || callerFlashlight.isVibrateMode())) {
+			//					callFlashButton.setChecked(false);
+			//					Toast.makeText(getApplicationContext(), getResources().getString(R.string.enable_toast), Toast.LENGTH_SHORT).show();
+			//					break;
+			//				}
+			//				callerFlashlight.setCallFlash(callFlashButton.isChecked());
+			//
+			//				break;
+			//			case R.id.msgFlashToggle:
+			//				if (!(callerFlashlight.isNormalMode() || callerFlashlight.isSilentMode() || callerFlashlight.isVibrateMode())) {
+			//					msgFlashButton.setChecked(false);
+			//					Toast.makeText(getApplicationContext(), getResources().getString(R.string.enable_toast), Toast.LENGTH_SHORT).show();
+			//					break;
+			//				}
+			//				callerFlashlight.setMsgFlash(msgFlashButton.isChecked());
+			//				break;
 			case R.id.callFlashTestToggle:
 				callerFlashlight.setCallFlashTest(callFlashTestButton.isChecked());
 				if (callFlashTestButton.isChecked()) {
@@ -330,9 +333,9 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 			case R.id.preferences:
 				startActivity(new Intent(this, PrefsActivity.class));
 				break;
-			case R.id.license:
-				startActivity(new Intent(this, License.class));
-				break;
+			//			case R.id.license:
+			//				startActivity(new Intent(this, License.class));
+			//				break;
 		}
 
 		return true;
@@ -481,6 +484,30 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 					callerFlashlight.setMsgFlashOffDuration(50);
 					break;
 				}
+		}
+	}
+
+	@Override
+	public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+		//		if (CallerFlashlight.LOG) Log.d(TAG,"onCheckedChanged of: "+ compoundButton.getId()+"to: "+b);
+		switch (compoundButton.getId()) {
+			case R.id.callFlashToggle:
+				if (!(callerFlashlight.isNormalMode() || callerFlashlight.isSilentMode() || callerFlashlight.isVibrateMode())) {
+					callFlashButton.setChecked(false);
+					Toast.makeText(getApplicationContext(), getResources().getString(R.string.enable_toast), Toast.LENGTH_SHORT).show();
+					break;
+				}
+				callerFlashlight.setCallFlash(callFlashButton.isChecked());
+
+				break;
+			case R.id.msgFlashToggle:
+				if (!(callerFlashlight.isNormalMode() || callerFlashlight.isSilentMode() || callerFlashlight.isVibrateMode())) {
+					msgFlashButton.setChecked(false);
+					Toast.makeText(getApplicationContext(), getResources().getString(R.string.enable_toast), Toast.LENGTH_SHORT).show();
+					break;
+				}
+				callerFlashlight.setMsgFlash(msgFlashButton.isChecked());
+				break;
 		}
 	}
 
