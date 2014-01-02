@@ -10,14 +10,12 @@ apply plugin: 'android'
 
 repositories {
     mavenCentral()
-    maven {
-        url "http://JRAF.org/static/maven/2"
-    }
+    maven { url 'http://JRAF.org/static/maven/2' }
 }
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19"
+    buildToolsVersion '19.0.1'
 
     defaultConfig {
         minSdkVersion 7
@@ -27,7 +25,7 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v4:18.0.+'
-    compile "org.jraf:android-switch-backport:1.2"
+    compile 'org.jraf:android-switch-backport:1.2'
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 

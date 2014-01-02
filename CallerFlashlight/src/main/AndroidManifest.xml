@@ -46,9 +46,9 @@
         android:theme="@style/AppTheme"
         android:name=".CallerFlashlight"
         android:supportsRtl="true"
-        android:debuggable="true">
+        android:debuggable="false">
 
-    <activity
+        <activity
             android:name="com.spirosbond.callerflashlight.MainPanel"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden"
