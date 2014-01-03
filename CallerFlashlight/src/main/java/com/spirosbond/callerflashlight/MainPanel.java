@@ -176,6 +176,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		msgFlashButton.setOnCheckedChangeListener(this);
 		msgFlashButton.setTextOn(getResources().getString(R.string.ON));
 		msgFlashButton.setTextOff(getResources().getString(R.string.OFF));
+		msgFlashButton.setText(getResources().getString(R.string.Msgseperator));
 
 		msgFlashTestButton = (ToggleButton) findViewById(R.id.msgFlashTestToggle);
 		msgFlashTestButton.setChecked(callerFlashlight.isMsgFlashTest());
@@ -222,6 +223,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		callFlashButton.setOnCheckedChangeListener(this);
 		callFlashButton.setTextOn(getResources().getString(R.string.ON));
 		callFlashButton.setTextOff(getResources().getString(R.string.OFF));
+		callFlashButton.setText(getResources().getString(R.string.Callseperator));
 
 
 		callFlashTestButton = (ToggleButton) findViewById(R.id.callFlashTestToggle);

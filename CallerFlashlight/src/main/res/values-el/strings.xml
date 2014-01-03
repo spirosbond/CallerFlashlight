@@ -4,13 +4,13 @@
     <string name="app_name">CallFlash</string>
     <string name="howToStr">Πώς λειτουργεί</string>
     <string name="callToggle">Ειδοποίηση κλήσεων</string>
-    <string name="callFlashON">Απενεργοποίηση</string>
-    <string name="callFlashOFF">Ενεργοποίηση</string>
+    <string name="callFlashON">Ενεργό</string>
+    <string name="callFlashOFF">Ανενεργό</string>
     <string name="flashOnDuration">Διάρκεια ON (msec):</string>
     <string name="flashOffDuration">Διάρκεια OFF (msec):</string>
     <string name="msgToggle">Ειδοποίηση μηνυμάτων</string>
-    <string name="msgFlashON">Απενεργοποίηση</string>
-    <string name="msgFlashOFF">Ενεργοποίηση</string>
+    <string name="msgFlashON">Ενεργό</string>
+    <string name="msgFlashOFF">Ανενεργό</string>
     <string name="aboutStr">Σχετικά με</string>
     <string name="donateStr">Δωρεά</string>
     <string name="titlePrefs">Ρυθμίσεις</string>
@@ -116,4 +116,7 @@
     <string name="call_pref_general_categ">Γενικές προτιμήσεις</string>
     <string name="volume_button_disable_title">Απενεργ. μέσω πλήκτρων έντασης</string>
     <string name="volume_button_disable_sum">Κάνοντας κλικ στα κουμπιά έντασης κατά τη διάρκεια μιας κλήσης απενεργ. το φλας (μπορεί να απαιτούνται πολλαπλά κλικ).</string>
+    <string name="licenseStr">Άδεια χρήσης</string>
+    <string name="ON">ON</string>
+    <string name="OFF">OFF</string>
 </resources>

@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.spirosbond.callerflashlight"
           android:versionCode="23"
-          android:versionName="3.4">
+          android:versionName="3.5-BETA">
 
-    <uses-sdk
+<uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="19"/>
 

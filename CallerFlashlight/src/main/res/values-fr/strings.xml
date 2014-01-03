@@ -4,13 +4,13 @@
     <string name="app_name">CallFlash</string>
     <string name="howToStr">Comment ça marche</string>
     <string name="callToggle">Notifications d\'appel</string>
-    <string name="callFlashON">Désactivé</string>
-    <string name="callFlashOFF">Activé</string>
+    <string name="callFlashON">Enabled</string>
+    <string name="callFlashOFF">Disabled</string>
     <string name="flashOnDuration">ON durée (ms):</string>
     <string name="flashOffDuration">OFF durée (ms):</string>
     <string name="msgToggle">Message de notificaiton</string>
-    <string name="msgFlashON">Désactivé</string>
-    <string name="msgFlashOFF">Activé</string>
+    <string name="msgFlashON">Enabled</string>
+    <string name="msgFlashOFF">Disabled</string>
     <string name="aboutStr">A propos</string>
     <string name="donateStr">Donnation</string>
     <string name="titlePrefs">Préférences</string>
@@ -78,9 +78,9 @@
     <string name="first_time_desc">Welcome to Callflash, the application which controls your flash on every call or notification.\n\n<i><b>Please select the flash driver that works with your device.</b></i>\nAfter hitting “Test Flash” you must see your flash blinking three times. If it doesn’t change the driver with the dropdown list below.\n\nYou can change it afterwards from “Preferences”.\n(Prefer “Standard” over “Alternative” and “Alternative” over “Alternative 2”)</string>
     <string name="adColony">Voir une vidéo HD!</string>
     <string name="adColonysum">Appli du jour par adColony...</string>
-    <string name="bubble1">Activer le flash sur les appels et les\nnotificaitons avec ces bouttons...\n</string>
+    <string name="bubble1">Activer le flash sur les appels et les notificaitons\navec ces bouttons...\n</string>
     <string name="bubble2">Sélectionnez la durée (en millisecondes)\nPour laquelle le flash est ON et OFF,\nEn utilisant le curseur ou le champ texte...\n</string>
-    <string name="bubble3">Tester vos paramètres en utilisant\nle bouton de test...\n</string>
+    <string name="bubble3">Tester vos paramètres en utilisant le bouton de test...\n</string>
     <string name="bubble4">Éditez les préférences pour chaque section\net vous êtes prêt!\n</string>
     <string name="adMob">Applis gratuites!</string>
     <string name="adMobsum">Appli gratuite du jour par AdMob...</string>
@@ -116,4 +116,7 @@
     <string name="call_pref_general_categ">General Preferences</string>
     <string name="volume_button_disable_title">Volume button disable</string>
     <string name="volume_button_disable_sum">Clicking the volume buttons during a call will disable the flash (may require multiple clicks).</string>
+    <string name="licenseStr">License</string>
+    <string name="ON">ON</string>
+    <string name="OFF">OFF</string>
 </resources>

@@ -4,13 +4,13 @@
     <string name="app_name">التنبيه الفلاشي</string>
     <string name="howToStr">كيف يعمل</string>
     <string name="callToggle">تنبيهات المكالمات</string>
-    <string name="callFlashON">تعطيل</string>
-    <string name="callFlashOFF">تفعيل</string>
+    <string name="callFlashON">Enabled</string>
+    <string name="callFlashOFF">Disabled</string>
     <string name="flashOnDuration">مدة تشغيل الضوء (مل ثانية):</string>
     <string name="flashOffDuration">مدة إيقاف الضوء (مل ثانية):</string>
     <string name="msgToggle">الإشعارات</string>
-    <string name="msgFlashON">تعطيل</string>
-    <string name="msgFlashOFF">تفعيل</string>
+    <string name="msgFlashON">Enabled</string>
+    <string name="msgFlashOFF">Disabled</string>
     <string name="aboutStr">حول</string>
     <string name="donateStr">تبرع</string>
     <string name="titlePrefs">التفضيلات</string>
@@ -126,4 +126,7 @@
     <string name="call_pref_general_categ">General Preferences</string>
     <string name="volume_button_disable_title">Volume button disable</string>
     <string name="volume_button_disable_sum">Clicking the volume buttons during a call will disable the flash (may require multiple clicks).</string>
+    <string name="licenseStr">License</string>
+    <string name="ON">ON</string>
+    <string name="OFF">OFF</string>
 </resources>

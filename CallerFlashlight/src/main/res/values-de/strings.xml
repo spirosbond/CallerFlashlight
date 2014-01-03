@@ -4,13 +4,13 @@
     <string name="app_name">CallFlash</string>
     <string name="howToStr">Wie es funktioniert</string>
     <string name="callToggle">Anrufbenachrichtigung</string>
-    <string name="callFlashON">Deaktivieren</string>
-    <string name="callFlashOFF">Aktivieren</string>
+    <string name="callFlashON">Aktiviert</string>
+    <string name="callFlashOFF">Deaktiviert</string>
     <string name="flashOnDuration">AN-Dauer (ms):</string>
     <string name="flashOffDuration">AUS-Dauer (ms):</string>
     <string name="msgToggle">Nachrichtenbenachrichtigung</string>
-    <string name="msgFlashON">Deaktivieren</string>
-    <string name="msgFlashOFF">Aktivieren</string>
+    <string name="msgFlashON">Aktiviert</string>
+    <string name="msgFlashOFF">Deaktiviert</string>
     <string name="aboutStr">Über</string>
     <string name="donateStr">Spenden</string>
     <string name="titlePrefs">Einstellungen</string>
@@ -116,4 +116,7 @@
     <string name="call_pref_general_categ">Allgemeine Einstellungen</string>
     <string name="volume_button_disable_title">Lautstärke-Tasten deaktivieren</string>
     <string name="volume_button_disable_sum">Blitz mittels der Lautstärke-Tasten während eines Anrufs ausschalten (mehrfaches Antippen möglicherweise erforderlich)</string>
+    <string name="licenseStr">Lizenz</string>
+    <string name="ON">EIN</string>
+    <string name="OFF">AUS</string>
 </resources>
