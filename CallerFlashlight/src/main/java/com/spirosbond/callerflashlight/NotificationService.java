@@ -40,10 +40,11 @@ public class NotificationService extends AccessibilityService {
 	/**
 	 * @param flags 99:Viber during call
 	 *              -10: Long press a button
+	 *              11: Skype actions during call
 	 * @return
 	 */
 	private boolean isValidFlag(int flags) {
-		return flags != -10 && flags != 10 && flags != 99;
+		return flags != -10 && flags != 10 && flags != 99 && flags != 11;
 	}
 
 	@Override
