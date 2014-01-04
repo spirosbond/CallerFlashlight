@@ -143,7 +143,7 @@ public class Flash {
 	}
 
 	public void enableFlash(long onMillis, long offMillis) {
-		if (CallerFlashlight.LOG) Log.d(TAG, "enableFlash. ON: " + onMillis + " OFF: " + offMillis + " gotCam= " + gotCam);
+		//		if (CallerFlashlight.LOG) Log.d(TAG, "enableFlash. ON: " + onMillis + " OFF: " + offMillis + " gotCam= " + gotCam);
 
 		if (!gotCam) {
 			try {

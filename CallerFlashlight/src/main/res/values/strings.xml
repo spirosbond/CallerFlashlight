@@ -120,7 +120,7 @@
     <string name="rate_message">Help us improve this app by rating it and leaving a comment!</string>
     <string name="rate_button">Rate</string>
     <string name="screen_locked_ticked_sum">Flash only if phone is locked.</string>
-    <string name="screen_locked_sum">Flash if phone is either locked or unlocked.</string>
+    <string name="screen_locked_sum">Flash if phone is either locked or unlocked. Won’t work if phone security is set to “None”</string>
     <string name="screen_locked">Phone lock status</string>
     <string name="low_bat_title">Off on low battery</string>
     <string name="low_bat_sum">Do not turn on flash if battery is low.</string>
