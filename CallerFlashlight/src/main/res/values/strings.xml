@@ -11,9 +11,8 @@
     <string name="msgToggle">Message Notification</string>
     <string name="msgFlashON">Enabled</string>
     <string name="msgFlashOFF">Disabled</string>
-
     <string name="aboutStr">About</string>
-    <string name="donateStr">Donate</string>
+    <string name="donateStr">Support</string>
     <string name="titlePrefs">Preferences</string>
     <string name="aboutText">\n\nCallFlash controls the flash for calls and other notifications. It is an opensource project by Spiros Bondomitsidis,
         aiming to keep things simple and functional.\n\n
@@ -68,7 +67,7 @@
     <string name="type_list_3">Alternative 2</string>
     <string name="smsModeListValue">Duration</string>
     <string name="smsModeListValueSum">In seconds or number of flashes.</string>
-    <string name="titleDonate">Donate</string>
+    <string name="titleDonate">Support dev</string>
     <string name="app_list_tittle">Application list</string>
     <string name="app_list_sum">Select which applications trigger the flash.</string>
     <string name="loadingApps">Loading applications…</string>
@@ -119,8 +118,8 @@
     <string name="please_rate">Please rate this app</string>
     <string name="rate_message">Help us improve this app by rating it and leaving a comment!</string>
     <string name="rate_button">Rate</string>
-    <string name="screen_locked_ticked_sum">Flash only if phone is locked.</string>
-    <string name="screen_locked_sum">Flash if phone is either locked or unlocked. Won’t work if phone security is set to “None”</string>
+    <string name="screen_locked_ticked_sum">Flash only if phone is locked. Won’t work if phone security is set to “None”.</string>
+    <string name="screen_locked_sum">Flash if phone is either locked or unlocked.</string>
     <string name="screen_locked">Phone lock status</string>
     <string name="low_bat_title">Off on low battery</string>
     <string name="low_bat_sum">Do not turn on flash if battery is low.</string>

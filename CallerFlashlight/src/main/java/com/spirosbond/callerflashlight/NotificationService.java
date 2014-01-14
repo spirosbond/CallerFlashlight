@@ -45,6 +45,7 @@ public class NotificationService extends AccessibilityService {
 	 *             -10: Notification without flag
 	 *             11: Skype actions during call
 	 *             *0: Click a notification's button (ex. delete on Gmail)*
+	 *             ?98: Handcent SMS sent notification?
 	 *             <p/>
 	 *             ***Known Valids***
 	 *             1: Viber incomming message
@@ -54,11 +55,11 @@ public class NotificationService extends AccessibilityService {
 	 * false: Flag is invalid
 	 */
 	private boolean isValidFlag(int flag) {
-		boolean isValid = false;
-		isValid = flag != -10 && flag != 10 && flag != 99 && flag != 11;
+		boolean isValid;
+		isValid = flag != -10 && flag != 10 && flag != 99 && flag != 0 && flag != 11;
 		if (flag == 0 && eventFrom.contains("com.whatsapp")) isValid = true;
-		if (flag == 0 && eventFrom.contains("com.google.android.gm")) isValid = false;
 		return isValid;
+
 	}
 
 	@Override
