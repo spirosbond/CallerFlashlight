@@ -95,11 +95,6 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 			startActivityForResult(intent, 1);
 			showHowTo();
 		}
-		try {
-			Class.forName(getPackageName() + ".License");
-		} catch (ClassNotFoundException e) {
-			finish();
-		}
 
 	}
 
@@ -614,11 +609,6 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		protected String doInBackground(Integer... integers) {
 			if (CallerFlashlight.LOG) Log.d(TAG, "doInBackgroung Started");
 
-
-			if (callerFlashlight.getCallFlashOnDuration() == callerFlashlight.getCallFlashOffDuration())
-				if (callerFlashlight.getMsgFlashOnDuration() == callerFlashlight.getMsgFlashOffDuration())
-					if (FLAG == callerFlashlight.getMsgFlashOnDuration())
-						flash.enableFlash(FLAG * 5, 0);
 
 			switch (button.getId()) {
 				case R.id.callFlashTestToggle:
