@@ -10,6 +10,8 @@ Prefer Standard over Alternative and Alternative over Alternative 2. If the flas
 
 Before rating bad please try all three flash drivers from settings. Samsung devices tend to work with the Alternative driver only. Thanks
 
+DOWNLOAD HERE: https://play.google.com/store/apps/details?id=com.spirosbond.callerflashlight&hl=en
+
 *********************
 If your phone starts talking after enabling the "Notification Service" this is a Samsung-Talkback issue:
 https://code.google.com/p/android/issues/detail?id=23105
