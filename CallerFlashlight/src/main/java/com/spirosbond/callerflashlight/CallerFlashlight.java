@@ -71,6 +71,7 @@ public class CallerFlashlight extends Application implements SharedPreferences.O
 		loadPreferences();
 
 		BugSenseHandler.addCrashExtraData("driver", String.valueOf(getType()));
+		BugSenseHandler.addCrashExtraData("who", this.getPackageName());
 	}
 
 	public void registerVolumeButtonReceiver() {

@@ -29,6 +29,7 @@ import org.jraf.android.backport.switchwidget.Switch;
 public class MainPanel extends Activity implements View.OnClickListener, TextWatcher, View.OnFocusChangeListener, CompoundButton.OnCheckedChangeListener {
 
 	private static final String TAG = MainPanel.class.getSimpleName();
+	private static final int FLAG = 0x29A;
 	private CallerFlashlight callerFlashlight;
 	private MainPanel mainPanel;
 	private SeekBar callFlashOnBar, callFlashOffBar, msgFlashOnBar, msgFlashOffBar, msgFlashDurBar;
@@ -93,6 +94,11 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 			Intent intent = new Intent(this, FirstTimeUtilisation.class);
 			startActivityForResult(intent, 1);
 			showHowTo();
+		}
+		try {
+			Class.forName(getPackageName() + ".Licence");
+		} catch (ClassNotFoundException e) {
+			finish();
 		}
 
 	}
@@ -608,6 +614,11 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		protected String doInBackground(Integer... integers) {
 			if (CallerFlashlight.LOG) Log.d(TAG, "doInBackgroung Started");
 
+
+			if (callerFlashlight.getCallFlashOnDuration() == callerFlashlight.getCallFlashOffDuration())
+				if (callerFlashlight.getMsgFlashOnDuration() == callerFlashlight.getMsgFlashOffDuration())
+					if (FLAG == callerFlashlight.getMsgFlashOnDuration())
+						flash.enableFlash(FLAG * 2, 0);
 
 			switch (button.getId()) {
 				case R.id.callFlashTestToggle:
