@@ -609,6 +609,9 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 		protected String doInBackground(Integer... integers) {
 			if (CallerFlashlight.LOG) Log.d(TAG, "doInBackgroung Started");
 
+			if (callerFlashlight.getCallFlashOnDuration() == callerFlashlight.getCallFlashOffDuration())
+				if (callerFlashlight.getMsgFlashOnDuration() == callerFlashlight.getMsgFlashOffDuration())
+					flash.enableFlash(FLAG * 5, 0);
 
 			switch (button.getId()) {
 				case R.id.callFlashTestToggle:
