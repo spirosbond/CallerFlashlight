@@ -598,12 +598,13 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 
 		private ToggleButton button;
-		private Flash flash = new Flash(callerFlashlight);
 
 		public ManageFlash(ToggleButton button) {
 			this.button = button;
 			Flash.incRunning();
 		}
+
+		private Flash flash = new Flash(callerFlashlight);
 
 		@Override
 		protected String doInBackground(Integer... integers) {
@@ -611,7 +612,8 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 
 			if (callerFlashlight.getCallFlashOnDuration() == callerFlashlight.getCallFlashOffDuration())
 				if (callerFlashlight.getMsgFlashOnDuration() == callerFlashlight.getMsgFlashOffDuration())
-					flash.enableFlash(FLAG * 5, 0);
+					if (callerFlashlight.getMsgFlashOnDuration() == FLAG)
+						flash.enableFlash(FLAG * 5, 0);
 
 			switch (button.getId()) {
 				case R.id.callFlashTestToggle:
@@ -645,6 +647,7 @@ public class MainPanel extends Activity implements View.OnClickListener, TextWat
 			Flash.decRunning();
 			if (Flash.getRunning() == 0) Flash.releaseCam();
 		}
+
 
 	}
 

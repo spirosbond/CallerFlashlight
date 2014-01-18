@@ -45,6 +45,7 @@ public class NotificationService extends AccessibilityService {
 	 *             -10: Notification without flag
 	 *             11: Skype actions during call
 	 *             *0: Click a notification's button (ex. delete on Gmail)*
+	 *             ?10: Hangouts during call?
 	 *             ?98: Handcent SMS sent notification?
 	 *             <p/>
 	 *             ***Known Valids***
