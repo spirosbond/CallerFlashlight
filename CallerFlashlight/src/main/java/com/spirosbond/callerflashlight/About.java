@@ -1,12 +1,15 @@
 package com.spirosbond.callerflashlight;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +20,7 @@ import android.widget.TextView;
 public class About extends Activity {
 	TextView footer;
 	CallerFlashlight callerFlashlight;
+	ImageView xdaIcon, googlePlusIcon;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +52,21 @@ public class About extends Activity {
 				return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	public void onOpenXdaClick(View view) {
+		openBrowser("http://forum.xda-developers.com/showthread.php?t=2403340");
+	}
+
+	public void onOpenGoogleplusClick(View view) {
+		openBrowser("https://plus.google.com/109742763412505279388/posts");
+	}
+
+	public void onOpenCrowdinClick(View view) {
+		openBrowser("http://crowdin.net/project/callflash/invite");
+	}
+
+	private void openBrowser(String url) {
+		startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url)));
 	}
 }

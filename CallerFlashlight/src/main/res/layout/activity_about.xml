@@ -31,6 +31,41 @@
         android:autoLink="web"
         />
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/about_xda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="onOpenXdaClick"
+            android:padding="6dip"
+            android:src="@drawable/ic_xda_icon"/>
+
+        <ImageView
+            android:id="@+id/about_googleplus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="onOpenGoogleplusClick"
+            android:padding="6dip"
+            android:src="@drawable/ic_googleplus"/>
+
+        <ImageView
+            android:id="@+id/about_crowdin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="onOpenCrowdinClick"
+            android:padding="6dip"
+            android:src="@drawable/ic_ic_crowdin"/>
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/about_footer"
