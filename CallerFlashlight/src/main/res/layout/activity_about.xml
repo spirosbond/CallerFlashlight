@@ -1,43 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:weightSum="3"
     tools:context=".About">
 
     <ImageView
         android:layout_width="100sp"
         android:layout_height="100sp"
-        android:layout_gravity="top|center"
+        android:layout_centerHorizontal="true"
         android:id="@+id/aboutImageView"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:src="@drawable/ic_launcher"
-        android:contentDescription="@string/logo"
-        />
+        android:contentDescription="@string/logo"/>
 
     <TextView
+        android:id="@+id/about_footer"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/aboutText"
-        android:layout_gravity="center"
-        android:gravity="center_vertical|center_horizontal"
-        android:layout_weight="1"
-        android:autoLink="web"
+        android:text="@string/aboutFooter"
+        android:layout_gravity="center|bottom"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
         />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/about_links"
         android:orientation="horizontal"
-        >
+        android:layout_above="@id/about_footer"
+        android:gravity="center_horizontal|center_vertical">
 
-        <ImageView
+    <ImageView
             android:id="@+id/about_xda"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,14 +67,17 @@
 
 
     <TextView
-        android:id="@+id/about_footer"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        android:layout_height="wrap_content"
+        android:id="@+id/about_text"
+        android:layout_below="@id/aboutImageView"
+        android:layout_above="@id/about_links"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/aboutFooter"
-        android:layout_gravity="center|bottom"
-        android:gravity="center"
-        android:layout_weight="2"
+        android:text="@string/aboutText"
+        android:layout_gravity="center"
+        android:gravity="center_vertical|center_horizontal"
+        android:autoLink="web"
         />
 
-</LinearLayout>
+</RelativeLayout>

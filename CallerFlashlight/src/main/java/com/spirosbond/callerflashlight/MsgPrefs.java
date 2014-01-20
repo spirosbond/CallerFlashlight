@@ -10,6 +10,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v4.app.NavUtils;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -19,11 +20,11 @@ import android.view.MenuItem;
 public class MsgPrefs extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
 	private static final String TAG = MsgPrefs.class.getSimpleName();
+	private static final String ACCESSIBILITY_SERVICE_NAME = "com.spirosbond.callerflashlight/com.spirosbond.callerflashlight.NotificationService";
 	private ListPreference lp;
 	private CallerFlashlight callerFlashlight;
 	private SeekBarPreference sbp;
 	private Preference appList;
-	private int accessibilityEnabled = 0;
 	private Preference moreFlashCheck;
 
 	@Override
@@ -41,20 +42,55 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 
 		setModeSum(callerFlashlight.getMsgFlashType());
 
+
+		if (!isAccessibilityEnabled()) {
+			if (CallerFlashlight.LOG) Log.d(TAG, "Disabling appList");
+			appList.setEnabled(false);
+			appList.setSelectable(false);
+			moreFlashCheck.setSummary(getResources().getString(R.string.more_flash_warning_sum));
+		} else {
+			if (CallerFlashlight.LOG) Log.d(TAG, "Enabling appList");
+			appList.setEnabled(true);
+			appList.setSelectable(true);
+			moreFlashCheck.setSummary(getResources().getString(R.string.app_list_check_sum));
+		}
+
+
+	}
+
+	public boolean isAccessibilityEnabled() {
+		int accessibilityEnabled = 0;
 		try {
 			accessibilityEnabled = Settings.Secure.getInt(this.getContentResolver(), android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
 			if (CallerFlashlight.LOG) Log.d(TAG, "ACCESSIBILITY: " + accessibilityEnabled);
-			if (accessibilityEnabled == 0) {
-				appList.setEnabled(false);
-				moreFlashCheck.setSummary(getResources().getString(R.string.more_flash_warning_sum));
-			} else {
-				appList.setEnabled(true);
-				moreFlashCheck.setSummary(getResources().getString(R.string.app_list_check_sum));
-			}
 		} catch (Settings.SettingNotFoundException e) {
 			if (CallerFlashlight.LOG) Log.d(TAG, "Error finding setting, default accessibility to not found: " + e.getMessage());
-			appList.setEnabled(false);
+			return false;
 
+		}
+		if (accessibilityEnabled == 1) {
+			if (CallerFlashlight.LOG) Log.d(TAG, "***ACCESSIBILIY IS ENABLED***: ");
+			TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
+
+			String settingValue = Settings.Secure.getString(getContentResolver(), Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+			if (CallerFlashlight.LOG) Log.d(TAG, "Setting: " + settingValue);
+			if (settingValue != null) {
+				TextUtils.SimpleStringSplitter splitter = mStringColonSplitter;
+				splitter.setString(settingValue);
+				while (splitter.hasNext()) {
+					String accessabilityService = splitter.next();
+					if (CallerFlashlight.LOG) Log.d(TAG, "Setting: " + accessabilityService);
+					if (accessabilityService.equalsIgnoreCase(ACCESSIBILITY_SERVICE_NAME)) {
+						if (CallerFlashlight.LOG) Log.d(TAG, "We've found the correct setting - accessibility is switched on!");
+						return true;
+					}
+				}
+			}
+			if (CallerFlashlight.LOG) Log.d(TAG, "***END***");
+			return false;
+		} else {
+			if (CallerFlashlight.LOG) Log.d(TAG, "***ACCESSIBILIY IS DISABLED***");
+			return false;
 		}
 
 	}
@@ -66,20 +102,16 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 		appList = findPreference("app_list");
 		moreFlashCheck = findPreference("app_list_check");
 
-		try {
-			accessibilityEnabled = Settings.Secure.getInt(this.getContentResolver(), android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
-			if (CallerFlashlight.LOG) Log.d(TAG, "ACCESSIBILITY: " + accessibilityEnabled);
-			if (accessibilityEnabled == 0) {
-				appList.setEnabled(false);
-				moreFlashCheck.setSummary(getResources().getString(R.string.more_flash_warning_sum));
-			} else {
-				appList.setEnabled(true);
-				moreFlashCheck.setSummary(getResources().getString(R.string.app_list_check_sum));
-			}
-		} catch (Settings.SettingNotFoundException e) {
-			if (CallerFlashlight.LOG) Log.d(TAG, "Error finding setting, default accessibility to not found: " + e.getMessage());
+		if (!isAccessibilityEnabled()) {
+			if (CallerFlashlight.LOG) Log.d(TAG, "Disabling appList");
 			appList.setEnabled(false);
-
+			appList.setSelectable(false);
+			moreFlashCheck.setSummary(getResources().getString(R.string.more_flash_warning_sum));
+		} else {
+			if (CallerFlashlight.LOG) Log.d(TAG, "Enabling appList");
+			appList.setEnabled(true);
+			appList.setSelectable(true);
+			moreFlashCheck.setSummary(getResources().getString(R.string.app_list_check_sum));
 		}
 	}
 

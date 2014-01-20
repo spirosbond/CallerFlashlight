@@ -3,35 +3,32 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/sms_mode_categ">
         <ListPreference
-                android:key="sms_mode_list"
-                android:title="@string/smsModeList"
-                android:entries="@array/sms_mode_list"
-                android:entryValues="@array/sms_mode_list_values"
-                android:defaultValue="1"
-                />
+            android:key="sms_mode_list"
+            android:title="@string/smsModeList"
+            android:entries="@array/sms_mode_list"
+            android:entryValues="@array/sms_mode_list_values"
+            android:defaultValue="1"
+            />
 
         <com.spirosbond.callerflashlight.SeekBarPreference
-                android:key="msgFlashDuration"
-                android:title="@string/smsModeListValue"
-                android:summary="@string/smsModeListValueSum"
-                android:defaultValue="3"
-                android:max="10">
+            android:key="msgFlashDuration"
+            android:title="@string/smsModeListValue"
+            android:summary="@string/smsModeListValueSum"
+            android:defaultValue="3"
+            android:max="10">
 
         </com.spirosbond.callerflashlight.SeekBarPreference>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/sms_more_categ">
         <Preference
-                android:key="app_list_check"
-                android:title="@string/app_list_check"
-                android:summary="@string/app_list_check_sum"
-
-                />
+            android:key="app_list_check"
+            android:title="@string/app_list_check"
+            android:summary="@string/app_list_check_sum"/>
         <Preference
-                android:key="app_list"
-                android:title="@string/app_list_tittle"
-                android:summary="@string/app_list_sum"
-
-                />
+            android:key="app_list"
+            android:title="@string/app_list_tittle"
+            android:summary="@string/app_list_sum"
+            android:enabled="false"/>
 
     </PreferenceCategory>
 
