@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/aboutImageView"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:src="@drawable/ic_launcher"
+        android:src="@drawable/logo"
         android:contentDescription="@string/logo"/>
 
     <TextView
