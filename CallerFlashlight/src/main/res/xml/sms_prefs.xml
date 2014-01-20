@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/sms_mode_categ">
-        <ListPreference
+    <PreferenceCategory android:title="@string/generalCateg">
+    <ListPreference
             android:key="sms_mode_list"
             android:title="@string/smsModeList"
             android:entries="@array/sms_mode_list"

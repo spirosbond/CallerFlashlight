@@ -30,11 +30,8 @@ public class License extends Activity {
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
-
 		licenseWebView.loadUrl("http://www.gnu.org/licenses/gpl-3.0.txt");
 		licenseWebView.setVisibility(View.VISIBLE);
-
-
 	}
 
 	@Override

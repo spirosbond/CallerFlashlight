@@ -43,17 +43,17 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 		setModeSum(callerFlashlight.getMsgFlashType());
 
 
-		if (!isAccessibilityEnabled()) {
-			if (CallerFlashlight.LOG) Log.d(TAG, "Disabling appList");
-			appList.setEnabled(false);
-			appList.setSelectable(false);
-			moreFlashCheck.setSummary(getResources().getString(R.string.more_flash_warning_sum));
-		} else {
-			if (CallerFlashlight.LOG) Log.d(TAG, "Enabling appList");
-			appList.setEnabled(true);
-			appList.setSelectable(true);
-			moreFlashCheck.setSummary(getResources().getString(R.string.app_list_check_sum));
-		}
+		//		if (!isAccessibilityEnabled()) {
+		//			if (CallerFlashlight.LOG) Log.d(TAG, "Disabling appList");
+		//			appList.setEnabled(false);
+		//			appList.setSelectable(false);
+		//			moreFlashCheck.setSummary(getResources().getString(R.string.more_flash_warning_sum));
+		//		} else {
+		//			if (CallerFlashlight.LOG) Log.d(TAG, "Enabling appList");
+		//			appList.setEnabled(true);
+		//			appList.setSelectable(true);
+		//			moreFlashCheck.setSummary(getResources().getString(R.string.app_list_check_sum));
+		//		}
 
 
 	}
@@ -105,12 +105,12 @@ public class MsgPrefs extends PreferenceActivity implements SharedPreferences.On
 		if (!isAccessibilityEnabled()) {
 			if (CallerFlashlight.LOG) Log.d(TAG, "Disabling appList");
 			appList.setEnabled(false);
-			appList.setSelectable(false);
+			//			appList.setSelectable(false);
 			moreFlashCheck.setSummary(getResources().getString(R.string.more_flash_warning_sum));
 		} else {
 			if (CallerFlashlight.LOG) Log.d(TAG, "Enabling appList");
 			appList.setEnabled(true);
-			appList.setSelectable(true);
+			//			appList.setSelectable(true);
 			moreFlashCheck.setSummary(getResources().getString(R.string.app_list_check_sum));
 		}
 	}
