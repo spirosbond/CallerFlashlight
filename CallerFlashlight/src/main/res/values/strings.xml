@@ -87,7 +87,7 @@
     <string name="adColonysum">App of the day by adColony…</string>
     <string name="bubble1">Enable Flash on Call and on Notification\nwith these buttons…\n</string>
     <string name="bubble2">Select the duration (in milliseconds)\nfor which the flash is ON and OFF,\nusing the sliders or the textfields…\n</string>
-    <string name="bubble3">Test your settings using the test buttons…\n</string>
+    <string name="bubble3">Test your settings using\nthe test buttons…\n</string>
     <string name="bubble4">Edit the preferences of each section\nand you are done!\n</string>
     <string name="adMob">Free Apps!</string>
     <string name="adMobsum">Free apps of the day by AdMob…</string>

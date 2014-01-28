@@ -46,7 +46,7 @@
         android:theme="@style/AppTheme"
         android:name=".CallerFlashlight"
         android:supportsRtl="true"
-        android:debuggable="true">
+        android:debuggable="false">
 
     <activity
             android:name="com.spirosbond.callerflashlight.MainPanel"
